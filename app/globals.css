@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --light: #f1f1f1;
-  --dark: #121212;
+  --light: #b9d9eb;
+  --dark: #071117;
 
   font-size: 6ch;
   scrollbar-width: thin;
@@ -12,24 +12,24 @@
 
 *::selection,
 *::-moz-selection {
-  background-color: var(--light);
-  color: var(--dark);
-}
-
-nav *::selection,
-nav *::-moz-selection {
   background-color: var(--dark);
   color: var(--light);
 }
 
+nav *::selection,
+nav *::-moz-selection {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
 *:focus-visible {
   outline: none;
-  box-shadow: 0 0 2px var(--light);
+  box-shadow: 0 0 2px var(--dark);
   border-radius: 0.15rem;
 }
 
 nav *:focus-visible {
   outline: none;
-  filter: drop-shadow(0 0 2px var(--dark));
+  filter: drop-shadow(0 0 2px var(--light));
   border-radius: 0.15rem;
 }

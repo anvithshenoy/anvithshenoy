@@ -1,24 +1,16 @@
-import DropIn from "@/components/framer/DropIn";
+import { Profile, Projects, Skills } from "@/components/profile/myself";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="flex h-full flex-col items-start justify-start px-0.5">
-      <DropIn>
-        <h2 className="font-head text-3xl">Home Page</h2>
-        <button>Bruh</button>
-      </DropIn>
-      <DropIn>
-        <h2 className="font-head text-3xl">Section 1</h2>
-      </DropIn>
-      <DropIn>
-        <h2 className="font-head text-3xl">Section 2</h2>
-      </DropIn>
-      <DropIn>
-        <h2 className="font-head text-3xl">Section 3</h2>
-      </DropIn>
-      <DropIn>
-        <h2 className="font-head text-3xl">Section 4</h2>
-      </DropIn>
+    <div className="flex flex-col place-items-start gap-3">
+      <h1 className="font-head text-5xl uppercase sm:text-6xl">
+        Anvith Shenoy B
+      </h1>
+      <Profile />
+      <Skills />
+      <Projects />
     </div>
   );
-}
+};
+
+export default Home;
