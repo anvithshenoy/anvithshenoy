@@ -1,3 +1,4 @@
+import Footer from "@/components/profile/footer";
 import localFont from "next/font/local";
 import "./globals.css";
 import LenisScroll from "./lenis";
@@ -25,6 +26,7 @@ const RootLayout = ({ children }) => {
         <LenisScroll>
           <main>{children}</main>
         </LenisScroll>
+        <Footer />
       </body>
     </html>
   );

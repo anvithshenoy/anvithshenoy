@@ -45,7 +45,7 @@ export const Projects = () => {
             className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg transition-colors duration-300 focus-within:bg-dark focus-within:text-light focus-within:shadow-none hover:bg-dark hover:text-light hover:shadow-none"
             title={project?.category ?? ""}
           >
-            <h4 className="mb-1 text-nowrap text-lg leading-none">
+            <h4 className="mb-1 text-nowrap text-lg font-bold leading-none">
               {project?.name}
             </h4>
             <p className="line-clamp-4 text-xs leading-none sm:line-clamp-3">
@@ -84,25 +84,34 @@ export const Experience = () => {
 
 export const Education = () => {
   return (
-    <div className="flex w-full flex-col flex-wrap place-content-start self-center p-3 pb-6 shadow-lg">
+    <div className="flex w-full flex-col flex-wrap place-content-start self-center p-3 pb-6">
       <h3 className="indent-1 font-head text-xl uppercase">Education</h3>
       <div className="education grid grid-cols-1 gap-1.5 sm:grid-cols-2">
         {education.map((grade) => (
           <div
             data-click="true"
             key={grade?.type}
-            className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark pb-2"
+            className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg"
             title={grade?.category ?? ""}
           >
-            <h4 className="m-1 mb-0 text-lg font-bold leading-none">
-              {`${grade?.category} (${grade?.title})`}
-            </h4>
-            <h5 className="mb-1 w-full bg-dark p-0.5 ps-1 text-sm leading-none text-light">
-              {`${grade?.college} `}
-            </h5>
+            <div className="flex w-full items-baseline justify-between border-b border-dark">
+              <div className="flex flex-col items-end justify-end border-r border-dark p-1 pb-0 text-end md:items-start">
+                <h4 className="place-content-baseline text-lg font-bold leading-none">
+                  {grade?.title}
+                </h4>
+                <span className="mb-1 items-start text-xs font-bold leading-none">
+                  {grade?.cgpa} CGPA
+                </span>
+              </div>
+              <div className="mb-1 flex flex-col items-end text-end text-xs leading-none">
+                <h5 className="">{grade?.period}</h5>
+                <h6 className="">{grade?.college}</h6>
+              </div>
+            </div>
+
             <ul
               aria-label="Grade descriptions"
-              className="m-1 list-inside list-disc space-y-1 text-xs leading-none"
+              className="mt-1 list-inside list-disc space-y-1 text-xs leading-none"
             >
               {grade?.description.map((value, index) => (
                 <li key={index} dangerouslySetInnerHTML={{ __html: value }} />
