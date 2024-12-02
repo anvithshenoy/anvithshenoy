@@ -1,0 +1,27 @@
+[
+  {
+    "title": "MCA",
+    "period": "Feb'23 - Aug'24",
+    "type": "Post Graduation",
+    "category": "Master of Computer Applications",
+    "cgpa": 8.61,
+    "university": "Autonomous",
+    "college": "St Joseph Engineering College",
+    "description": [
+      "<strong>President</strong> of the <strong>Technocrats</strong>'23-24, MCA Students Association",
+      "<strong>Student Co-ordinator</strong> for <strong>Joshiana 12.0</strong> - A National Level IT Fest"
+    ]
+  },
+  {
+    "title": "BCA",
+    "period": "Jul'19 - Oct'22",
+    "type": "Graduation",
+    "category": "Bachelor of Computer Applications",
+    "cgpa": 7.85,
+    "university": "Mangalore University",
+    "college": "Canara College, Mangaluru",
+    "description": [
+      "Student Organizer for the <strong>Coding event</strong> during <strong>Scientica'22</strong> - A National Level IT Fest"
+    ]
+  }
+]

@@ -1,4 +1,10 @@
-import { Profile, Projects, Skills } from "@/components/profile/myself";
+import {
+  Education,
+  Experience,
+  Profile,
+  Projects,
+  Skills,
+} from "@/components/profile/myself";
 
 const Home = () => {
   return (
@@ -9,6 +15,8 @@ const Home = () => {
       <Profile />
       <Skills />
       <Projects />
+      <Experience />
+      <Education />
     </div>
   );
 };

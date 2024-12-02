@@ -8,6 +8,7 @@
 
   font-size: 6ch;
   scrollbar-width: thin;
+  scrollbar-color: var(--light);
 }
 
 *::selection,
@@ -16,20 +17,54 @@
   color: var(--light);
 }
 
-nav *::selection,
-nav *::-moz-selection {
-  background-color: var(--light);
-  color: var(--dark);
+@media (pointer: none), (pointer: coarse) {
+  .cursor,
+  .ripple {
+    display: none;
+  }
 }
 
-*:focus-visible {
-  outline: none;
-  box-shadow: 0 0 2px var(--dark);
-  border-radius: 0.15rem;
-}
+@media (pointer: fine) {
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--light);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.2s,
+      height 0.2s;
+    mix-blend-mode: difference;
+  }
 
-nav *:focus-visible {
-  outline: none;
-  filter: drop-shadow(0 0 2px var(--light));
-  border-radius: 0.15rem;
+  /* Ripple effect */
+  .ripple {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 0.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    z-index: 999;
+    background-color: var(--light);
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    animation: ripple-animation 0.6s linear;
+  }
+
+  @keyframes ripple-animation {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2.5);
+      opacity: 0;
+    }
+  }
 }

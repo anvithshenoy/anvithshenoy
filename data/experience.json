@@ -1,0 +1,12 @@
+[
+  {
+    "role": "Web Developer Intern",
+    "period": "Nov'23 - Feb'24",
+    "company": "Headway",
+    "project": {
+      "title": "Headway Jobs",
+      "description": "Developed and Deployed a Full-stack online jobs portal web application using Embedded JS, MongoDB, Express, NodeJS and SCSS."
+    },
+    "location": "Bejai, Mangaluru"
+  }
+]

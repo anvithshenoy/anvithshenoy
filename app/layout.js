@@ -20,7 +20,7 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body
-        className={`${thunderBoldHC.variable} ${thunderHC.variable} relative min-h-dvh w-dvw bg-light font-body antialiased`}
+        className={`${thunderBoldHC.variable} ${thunderHC.variable} relative min-h-dvh w-dvw cursor-none overflow-x-hidden bg-light font-body antialiased`}
       >
         <LenisScroll>
           <main>{children}</main>

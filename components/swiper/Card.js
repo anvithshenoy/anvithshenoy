@@ -1,17 +1,17 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
-import Image from "next/image";
-import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const cardList = [
   {
-    caption: "Developer & Designer",
-    image: "/profile.jpg",
-    blurDataURL: "/blur/profile.jpg",
+    caption: "Web Developer & Designer",
+    image: "/myself.jpg",
+    blurDataURL: "/blur/myself.jpg",
   },
   {
     caption: "Graphic Design",
@@ -23,19 +23,23 @@ const cardList = [
 const SwiperCards = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <Swiper
       modules={[EffectCards]}
       effect="cards"
       grabCursor={true}
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-      className="w-2/3 sm:w-1/4"
-      autoplay={true}
+      className="w-2/3 md:w-1/4"
     >
       {cardList.map((card, index) => (
         <SwiperSlide key={index}>
           <div className="profile flex h-max w-full flex-col items-center justify-center border-4 border-b-8 border-dark bg-dark">
             <Image
+              onContextMenu={handleContextMenu}
               src={card.image}
               width={550}
               height={550}

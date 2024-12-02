@@ -1,0 +1,19 @@
+[
+  {
+    "category": "Languages & Technologies",
+    "items": ["HTML", "CSS", "SCSS", "JavaScript", "GitHub", "MySQL", "MongoDB"]
+  },
+  {
+    "category": "Frameworks & Libraries",
+    "items": ["ReactJS", "NextJS", "NodeJS", "Express", "Tailwind CSS"]
+  },
+  {
+    "category": "Build Tools",
+    "items": ["Vite"]
+  },
+
+  {
+    "category": "Design Software",
+    "items": ["Photoshop CS6"]
+  }
+]
