@@ -38,8 +38,8 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <div className="w-full bg-dark px-3 py-2 text-light">
-      <div className="flex flex-col items-baseline justify-between border-b border-light pb-3 md:flex-row">
+    <div className="flex w-full flex-col bg-dark p-2.5 pb-6 text-light">
+      <div className="flex w-full flex-col items-baseline justify-between border-b border-light pb-3 md:flex-row">
         <div className="flex flex-col items-baseline">
           <p className="font-bold">Anvith Shenoy B</p>
           <p className="text-xs leading-none">
@@ -56,7 +56,7 @@ const Footer = () => {
                 href={link.url}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="aspect-square h-3 cursor-none"
+                className="aspect-square h-2 cursor-none"
               >
                 <FontAwesomeIcon icon={link.icon} />
               </Link>
@@ -71,8 +71,9 @@ const Footer = () => {
           className="underline"
           data-click="true"
         >
-          Anvith Shenoy B.
+          Anvith Shenoy B
         </Link>
+        .
       </p>
     </div>
   );

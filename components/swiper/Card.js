@@ -11,12 +11,12 @@ const cardList = [
   {
     caption: "Web Developer & Designer",
     image: "/myself.jpg",
-    blurDataURL: "/blur/myself.jpg",
+    blurDataURL: "/blur/myself.webp",
   },
   {
     caption: "Graphic Design",
     image: "/design.jpg",
-    blurDataURL: "/blur/design.jpg",
+    blurDataURL: "/blur/design.webp",
   },
 ];
 
@@ -48,9 +48,10 @@ const SwiperCards = () => {
                   ? "mix-blend-normal"
                   : "mix-blend-luminosity"
               }`}
+              placeholder="blur"
               blurDataURL={card.blurDataURL}
               alt={card.caption}
-              quality={85}
+              quality={50}
             />
             <p className="min-h-10 w-full place-content-center bg-dark px-1 text-center text-base text-light">
               {card.caption}
