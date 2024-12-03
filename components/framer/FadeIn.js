@@ -1,19 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const FadeIn = ({
   children,
   className = "",
   once = true,
-  amount = window.innerWidth <= 768 ? 0.5 : 0.75,
   transition = { type: "spring", damping: 20, stiffness: 120 },
 }) => {
+  const [smallScreen, setSmallScreen] = useState(false);
+
+  useEffect(() => {
+    setSmallScreen(window.innerWidth <= 768);
+  }, []);
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: window.innerWidth <= 768 ? 10 : 20 }}
+      initial={{ opacity: 0, y: smallScreen ? 10 : 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={transition}
-      viewport={{ once, amount }}
+      viewport={{ once, amount: smallScreen ? 0.5 : 0.75 }}
       className={`h-full w-full ${className}`}
     >
       {children}
