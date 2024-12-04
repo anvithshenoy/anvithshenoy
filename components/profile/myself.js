@@ -1,6 +1,5 @@
 import education from "../../data/education.json";
 import experience from "../../data/experience.json";
-import projects from "../../data/projects.json";
 import skills from "../../data/skills.json";
 import FadeIn from "../framer/FadeIn";
 import SwiperCards from "../swiper/Card";
@@ -31,33 +30,6 @@ export const Skills = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-    </FadeIn>
-  );
-};
-
-export const Projects = () => {
-  return (
-    <FadeIn>
-      <section className="flex w-full flex-col flex-wrap place-content-start self-center p-3 pb-6">
-        <h2 className="indent-1 font-head text-xl uppercase">Projects</h2>
-        <div className="projects grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <div
-              data-click="true"
-              key={index}
-              className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg transition-colors duration-300 focus-within:bg-dark focus-within:text-light focus-within:shadow-none hover:bg-dark hover:text-light hover:shadow-none"
-              title={project?.category ?? ""}
-            >
-              <h2 className="mb-1 text-nowrap text-lg font-bold leading-none">
-                {project?.name}
-              </h2>
-              <p className="line-clamp-4 text-xs leading-none sm:line-clamp-3">
-                {project?.description}
-              </p>
             </div>
           ))}
         </div>

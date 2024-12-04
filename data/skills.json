@@ -9,7 +9,7 @@
   },
   {
     "category": "Build Tools",
-    "items": ["Vite"]
+    "items": ["Vite", "Gradle"]
   },
 
   {

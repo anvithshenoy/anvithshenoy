@@ -2,9 +2,9 @@ import {
   Education,
   Experience,
   Profile,
-  Projects,
   Skills,
 } from "@/components/profile/myself";
+import Projects from "@/components/profile/projects";
 
 const Home = () => {
   return (
