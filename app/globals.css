@@ -9,6 +9,8 @@
   font-size: 6ch;
   scrollbar-width: thin;
   scrollbar-color: var(--light);
+
+  overscroll-behavior: none;
 }
 
 *::selection,

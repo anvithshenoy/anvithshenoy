@@ -51,7 +51,7 @@
     "category": "Mobile Ordering Application",
     "description": "A simple replacement for the hotel menus that allows placing orders simply through the mobile devices. Developed and managed using Android - Java & Firebase. ",
     "technology": {
-      "languages": ["Java"],
+      "languages": ["Java", "Kotlin"],
       "build": ["Gradle"]
     },
     "image": "/projects/ordr.jpg"
