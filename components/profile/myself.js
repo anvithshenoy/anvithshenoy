@@ -1,3 +1,4 @@
+import Link from "next/link";
 import education from "../../data/education.json";
 import experience from "../../data/experience.json";
 import skills from "../../data/skills.json";
@@ -9,7 +10,7 @@ export const Skills = () => {
     <FadeIn>
       <section className="skills flex w-full flex-wrap place-content-start self-center bg-dark p-3 pb-6 text-light selection:bg-light selection:text-dark">
         <h2 className="indent-1 font-head text-xl uppercase">Skills</h2>
-        <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((skillCategory, index) => (
             <div
               key={index}
@@ -41,14 +42,14 @@ export const Skills = () => {
 export const Experience = () => {
   return (
     <FadeIn>
-      <section className="flex w-full flex-col flex-wrap place-content-start self-center bg-dark p-3 pb-6 text-light">
+      <section className="flex w-full flex-col flex-wrap place-content-start self-center bg-light px-3 pb-3 text-dark">
         <h2 className="indent-1 font-head text-xl uppercase">Experience</h2>
         <div className="experience grid auto-cols-auto gap-1.5">
           {experience.map((exp, index) => (
             <div
               data-click="true"
               key={index}
-              className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-light p-1 pb-2"
+              className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg"
               title={exp?.project?.title ?? ""}
             >
               <h3 className="text-lg font-bold leading-none">{exp?.role}</h3>
@@ -69,7 +70,7 @@ export const Experience = () => {
 export const Education = () => {
   return (
     <FadeIn>
-      <section className="flex w-full flex-col flex-wrap place-content-start self-center p-3 pb-6">
+      <section className="flex w-full flex-col flex-wrap place-content-start self-center px-3">
         <h2 className="indent-1 font-head text-xl uppercase">Education</h2>
         <div className="education grid grid-cols-1 gap-1.5 sm:grid-cols-2">
           {education.map((grade) => (
@@ -116,13 +117,24 @@ export const Profile = () => {
       <section className="flex w-full flex-col items-center gap-5 overflow-hidden md:flex-row md:ps-5">
         <SwiperCards />
 
-        <p className="px-3 text-sm leading-tight sm:py-0">
-          MCA graduate with a journey from graphic design to fullstack
-          development, blending creativity with technical expertise. Experienced
-          in crafting user-friendly, functional solutions with a focus on
-          professionalism and simplicity. Eager to create impactful, intuitive
-          user experiences.
-        </p>
+        <div className="flex flex-col place-items-start gap-2 px-3 sm:py-0">
+          <p className="text-sm leading-tight">
+            MCA graduate with a journey from graphic design to fullstack
+            development, blending creativity with technical expertise.
+            Experienced in crafting user-friendly, functional solutions with a
+            focus on professionalism and simplicity. Eager to create impactful,
+            intuitive user experiences.
+          </p>
+
+          <Link
+            href="/Resume_AnvithShenoy.pdf"
+            target="_blank"
+            data-click="true"
+            className="rounded-sm border border-light bg-dark px-2.5 py-0.5 text-xs font-bold text-light outline-none transition-colors duration-300 ease-in-out hover:bg-gray-900 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light focus:hover:ring-gray-900"
+          >
+            My Resume
+          </Link>
+        </div>
       </section>
     </FadeIn>
   );

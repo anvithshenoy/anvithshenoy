@@ -19,7 +19,7 @@ const FadeIn = ({
       initial={{ opacity: 0, y: smallScreen ? 10 : 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={transition}
-      viewport={{ once, amount: smallScreen ? 0.5 : 0.75 }}
+      viewport={{ once, amount: smallScreen ? 0.35 : 0.75 }}
       className={`h-full w-full ${className}`}
     >
       {children}

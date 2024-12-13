@@ -6,6 +6,7 @@
   --light: #b9d9eb;
   --dark: #071117;
 
+  color: #071117;
   font-size: 6ch;
   scrollbar-width: thin;
   scrollbar-color: var(--light);

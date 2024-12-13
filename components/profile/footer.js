@@ -8,7 +8,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
-const socialLinks = [
+export const socialLinks = [
   {
     media: "Mail",
     url: "mailto:hello@anvithshenoy.cloud",
@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col items-baseline">
           <p className="font-bold">Social</p>
-          <div className="flex gap-1">
+          <div className="flex place-items-center gap-1">
             {socialLinks.map((link) => (
               <Link
                 key={link.media}
@@ -56,7 +56,7 @@ const Footer = () => {
                 href={link.url}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="aspect-square h-2 cursor-none"
+                className="aspect-square h-2 cursor-none rounded-sm outline-none focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light"
               >
                 <FontAwesomeIcon icon={link.icon} />
               </Link>
@@ -68,7 +68,7 @@ const Footer = () => {
         &copy; Copyright {new Date().getFullYear()}. Made by{" "}
         <Link
           href={"https://anvithshenoy.cloud"}
-          className="underline"
+          className="py-0.5 underline outline-none focus:bg-light focus:text-dark"
           data-click="true"
         >
           Anvith Shenoy B

@@ -18,7 +18,7 @@ const Projects = () => {
 
   return (
     <FadeIn>
-      <section className="flex w-full flex-col flex-wrap place-content-start self-center p-3 pb-6">
+      <section className="flex w-full flex-col flex-wrap place-content-start self-center px-3 pb-3">
         <h2 className="indent-1 font-head text-xl uppercase">Projects</h2>
         <div className="projects grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (

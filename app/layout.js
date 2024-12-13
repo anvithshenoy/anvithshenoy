@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader/Loader";
 import Footer from "@/components/profile/footer";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -23,6 +24,7 @@ const RootLayout = ({ children }) => {
       <body
         className={`${thunderBoldHC.variable} ${thunderHC.variable} relative min-h-dvh w-dvw cursor-none overflow-x-hidden overscroll-none bg-light font-body antialiased`}
       >
+        <Loader />
         <LenisScroll>
           <main>{children}</main>
         </LenisScroll>

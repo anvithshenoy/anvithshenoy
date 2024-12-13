@@ -1,3 +1,4 @@
+import ContactForm from "@/components/form/ContactForm";
 import {
   Education,
   Experience,
@@ -17,6 +18,7 @@ const Home = () => {
       <Projects />
       <Experience />
       <Education />
+      <ContactForm />
     </div>
   );
 };
