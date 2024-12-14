@@ -1,5 +1,7 @@
 "use client";
 
+import { useDataContext } from "@/app/context/DataContext";
+import Link from "next/link";
 import { useState } from "react";
 import FadeIn from "../framer/FadeIn";
 import Toast from "../toast/Toast";
@@ -13,6 +15,8 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
+
+  const { socialLinks } = useDataContext();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,10 +55,25 @@ const ContactForm = () => {
 
   return (
     <FadeIn>
-      <aside className="flex w-full flex-col items-start justify-between p-3 md:flex-row">
-        <h4 className="text-center font-head text-4xl uppercase leading-none drop-shadow-[2px_2px_2px_#111] md:w-2/3 md:text-left md:text-6xl">
-          Let&apos;s get in touch
-        </h4>
+      <aside className="flex w-full flex-col items-center justify-center gap-2 p-3 md:flex-row lg:items-end">
+        <div className="flex w-full flex-col place-items-center gap-0.5 py-1.5">
+          <h4 className="block text-center font-head text-4xl uppercase leading-none md:text-left md:text-6xl">
+            Let&apos;s get in touch
+          </h4>
+          <div className="flex w-full flex-wrap place-content-evenly place-items-stretch gap-1 bg-dark text-light selection:bg-light selection:text-dark lg:py-1">
+            {socialLinks.map((link) => (
+              <Link
+                key={link?._id}
+                href={link?.url}
+                target="_blank"
+                data-click="true"
+                className="relative text-sm leading-none transition-all duration-500 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-500 hover:after:w-[calc(100%+0.25rem)]"
+              >
+                {link?.media}
+              </Link>
+            ))}
+          </div>
+        </div>
         <form
           onSubmit={handleSubmit}
           autoComplete="off"
@@ -105,7 +124,7 @@ const ContactForm = () => {
             disabled={isSubmitting}
             className={`w-full rounded-sm border py-0.5 text-xs font-bold transition-colors duration-300 ease-in-out ${isSubmitting ? "border-dark bg-transparent text-dark hover:bg-transparent focus:ring-0 focus:ring-transparent focus:ring-offset-0 focus:ring-offset-transparent focus:hover:ring-transparent" : "border-light bg-dark text-light hover:bg-gray-900 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light focus:hover:ring-gray-900"}`}
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
+            {isSubmitting ? "Sending..." : "Send"}
           </button>
         </form>
       </aside>

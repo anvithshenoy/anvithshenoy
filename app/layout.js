@@ -15,7 +15,8 @@ const thunderHC = localFont({
 
 export const metadata = {
   title: " Anvith Shenoy B • Portfolio",
-  description: "Designed & maintained by Anvith Shenoy B.",
+  description:
+    "Designed & maintained by Anvith Shenoy B. MCA graduate with a journey from graphic design to fullstack development, blending creativity with technical expertise. Experienced in crafting user-friendly, functional solutions with a focus on professionalism and simplicity. Eager to create impactful, intuitive user experiences.",
 };
 
 const RootLayout = ({ children }) => {
