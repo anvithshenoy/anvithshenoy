@@ -1,5 +1,6 @@
 import Loader from "@/components/Loader/Loader";
 import Footer from "@/components/profile/footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
 import "./globals.css";
 import LenisScroll from "./lenis";
@@ -30,6 +31,7 @@ const RootLayout = ({ children }) => {
           <main>{children}</main>
         </LenisScroll>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
