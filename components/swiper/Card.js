@@ -31,9 +31,9 @@ const SwiperCards = () => {
     <Swiper
       modules={[EffectCards]}
       effect="cards"
-      grabCursor={true}
+      grabCursor={false}
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-      className="w-2/3 md:w-1/4"
+      className="w-2/3 *:cursor-none md:w-1/4"
     >
       {cardList.map((card, index) => (
         <SwiperSlide key={index}>

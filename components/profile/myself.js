@@ -1,11 +1,11 @@
+"use client";
+import { useDataContext } from "@/app/context/DataContext";
 import Link from "next/link";
-import education from "../../data/education.json";
-import experience from "../../data/experience.json";
-import skills from "../../data/skills.json";
 import FadeIn from "../framer/FadeIn";
 import SwiperCards from "../swiper/Card";
 
 export const Skills = () => {
+  const { skills } = useDataContext();
   return (
     <FadeIn>
       <section className="skills flex w-full flex-wrap place-content-start self-center bg-dark p-3 pb-6 text-light selection:bg-light selection:text-dark">
@@ -40,6 +40,7 @@ export const Skills = () => {
 };
 
 export const Experience = () => {
+  const { experience } = useDataContext();
   return (
     <FadeIn>
       <section className="flex w-full flex-col flex-wrap place-content-start self-center bg-light px-3 pb-3 text-dark">
@@ -68,6 +69,7 @@ export const Experience = () => {
 };
 
 export const Education = () => {
+  const { education } = useDataContext();
   return (
     <FadeIn>
       <section className="flex w-full flex-col flex-wrap place-content-start self-center px-3">
@@ -117,7 +119,7 @@ export const Profile = () => {
       <section className="flex w-full flex-col items-center gap-5 overflow-hidden md:flex-row md:ps-5">
         <SwiperCards />
 
-        <div className="flex flex-col place-items-start gap-2 px-3 sm:py-0">
+        <div className="flex flex-col place-items-center gap-2 px-3 sm:py-0">
           <p className="text-sm leading-tight">
             MCA graduate with a journey from graphic design to fullstack
             development, blending creativity with technical expertise.
@@ -130,7 +132,7 @@ export const Profile = () => {
             href="/Resume_AnvithShenoy.pdf"
             target="_blank"
             data-click="true"
-            className="rounded-sm border border-light bg-dark px-2.5 py-0.5 text-xs font-bold text-light outline-none transition-colors duration-300 ease-in-out hover:bg-gray-900 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light focus:hover:ring-gray-900"
+            className="rounded-sm border border-light bg-dark px-2.5 py-0.5 text-xs font-bold text-light outline-none transition-colors duration-300 ease-in-out hover:bg-gray-900 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light focus:hover:ring-gray-900 lg:self-start"
           >
             My Resume
           </Link>

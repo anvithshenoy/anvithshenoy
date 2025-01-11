@@ -1,5 +1,7 @@
 import Loader from "@/components/Loader/Loader";
 import Footer from "@/components/profile/footer";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
 import "./globals.css";
 import LenisScroll from "./lenis";
@@ -15,7 +17,8 @@ const thunderHC = localFont({
 
 export const metadata = {
   title: " Anvith Shenoy B • Portfolio",
-  description: "Designed & maintained by Anvith Shenoy B.",
+  description:
+    "Designed & maintained by Anvith Shenoy B. MCA graduate with a journey from graphic design to fullstack development, blending creativity with technical expertise. Experienced in crafting user-friendly, functional solutions with a focus on professionalism and simplicity. Eager to create impactful, intuitive user experiences.",
 };
 
 const RootLayout = ({ children }) => {
@@ -29,6 +32,8 @@ const RootLayout = ({ children }) => {
           <main>{children}</main>
         </LenisScroll>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

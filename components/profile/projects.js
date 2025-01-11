@@ -1,13 +1,14 @@
 "use client";
 
+import { useDataContext } from "@/app/context/DataContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import projects from "../../data/projects.json";
 import FadeIn from "../framer/FadeIn";
 import CustomModal from "../modal.js/Modal";
 
 const Projects = () => {
+  const { projects } = useDataContext();
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -21,22 +22,23 @@ const Projects = () => {
       <section className="flex w-full flex-col flex-wrap place-content-start self-center px-3 pb-3">
         <h2 className="indent-1 font-head text-xl uppercase">Projects</h2>
         <div className="projects grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <div
-              data-click="true"
-              key={index}
-              className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg transition-colors duration-300 focus-within:bg-dark focus-within:text-light focus-within:shadow-none hover:bg-dark hover:text-light hover:shadow-none"
-              title={project?.category ?? ""}
-              onClick={() => handleProjectClick(project)}
-            >
-              <h2 className="mb-1 text-nowrap text-lg font-bold leading-none">
-                {project?.name}
-              </h2>
-              <p className="line-clamp-4 text-xs leading-none sm:line-clamp-3">
-                {project?.description}
-              </p>
-            </div>
-          ))}
+          {projects.length > 0 &&
+            projects.map((project, index) => (
+              <div
+                data-click="true"
+                key={index}
+                className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg transition-colors duration-300 focus-within:bg-dark focus-within:text-light focus-within:shadow-none hover:bg-dark hover:text-light hover:shadow-none"
+                title={project?.category ?? ""}
+                onClick={() => handleProjectClick(project)}
+              >
+                <h2 className="mb-1 text-nowrap text-lg font-bold leading-none">
+                  {project?.name}
+                </h2>
+                <p className="line-clamp-4 text-xs leading-none sm:line-clamp-3">
+                  {project?.description}
+                </p>
+              </div>
+            ))}
         </div>
       </section>
 
