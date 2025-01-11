@@ -1,8 +1,8 @@
 import Loader from "@/components/Loader/Loader";
-import Footer from "@/components/profile/footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
+import { DataProvider } from "./context/DataContext";
 import "./globals.css";
 import LenisScroll from "./lenis";
 
@@ -28,10 +28,11 @@ const RootLayout = ({ children }) => {
         className={`${thunderBoldHC.variable} ${thunderHC.variable} relative min-h-dvh w-dvw cursor-none overflow-x-hidden overscroll-none bg-light font-body antialiased`}
       >
         <Loader />
-        <LenisScroll>
-          <main>{children}</main>
-        </LenisScroll>
-        <Footer />
+        <DataProvider>
+          <main className="relative flex flex-col place-items-start gap-3">
+            <LenisScroll>{children}</LenisScroll>
+          </main>
+        </DataProvider>
         <Analytics />
         <SpeedInsights />
       </body>

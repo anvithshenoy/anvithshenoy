@@ -12,25 +12,14 @@ export const DataProvider = ({ children }) => {
 
   const fetchData = async () => {
     try {
-      const projectsRes = await fetch("/api/projects");
-      const projectsData = await projectsRes.json();
-      setProjects(projectsData.projects || []);
+      const res = await fetch("/api/data");
+      const data = await res.json();
 
-      const skillsRes = await fetch("/api/skills");
-      const skillsData = await skillsRes.json();
-      setSkills(skillsData.skills || []);
-
-      const experienceRes = await fetch("/api/experience");
-      const experienceData = await experienceRes.json();
-      setExperience(experienceData.experience || []);
-
-      const educationRes = await fetch("/api/education");
-      const educationData = await educationRes.json();
-      setEducation(educationData.education || []);
-
-      const linkRes = await fetch("/api/socialLinks");
-      const linkData = await linkRes.json();
-      setLinks(linkData.socialLinks || []);
+      setProjects(data.projects || []);
+      setSkills(data.skills || []);
+      setExperience(data.experience || []);
+      setEducation(data.education || []);
+      setLinks(data.socialLinks || []);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

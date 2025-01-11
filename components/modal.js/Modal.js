@@ -1,36 +1,12 @@
-import { useEffect } from "react";
+import { forwardRef } from "react";
 import ReactDOM from "react-dom";
 
-const CustomModal = ({ open, onClose, children }) => {
-  useEffect(() => {
-    // Disable background scrolling when modal is open
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    // Cleanup to restore overflow on unmount or when modal is closed
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [open]);
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape" && open) {
-        onClose();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [open, onClose]);
-
+const CustomModal = forwardRef(({ open, onClose, children }, ref) => {
   if (!open) return null;
 
   return ReactDOM.createPortal(
     <div
+      ref={ref}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm"
       onClick={onClose}
     >
@@ -51,6 +27,6 @@ const CustomModal = ({ open, onClose, children }) => {
     </div>,
     document.body,
   );
-};
+});
 
 export default CustomModal;

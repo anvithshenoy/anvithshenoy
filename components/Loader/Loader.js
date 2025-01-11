@@ -1,10 +1,10 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import Preloader from "./Preloader";
 
-const Loader = () => {
+const Loader = ({ isDataLoading }) => {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const loadTime = 1000;
@@ -16,7 +16,7 @@ const Loader = () => {
       const newProgress = Math.min((elapsedTime / loadTime) * 100, 99);
       setProgress(newProgress);
 
-      if (newProgress >= 99) {
+      if (newProgress >= 99 && !isDataLoading) {
         clearInterval(interval);
         setProgress(100);
         setTimeout(() => setIsVisible(false), 500);
@@ -24,7 +24,7 @@ const Loader = () => {
     }, 50);
 
     return () => clearInterval(interval);
-  }, [loadTime]);
+  }, [loadTime, isDataLoading]);
 
   useEffect(() => {
     if (document.readyState === "loading") {
@@ -38,7 +38,7 @@ const Loader = () => {
   }, [updateProgress]);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
       {isVisible && <Preloader progress={Math.round(progress)} />}
     </AnimatePresence>
   );
