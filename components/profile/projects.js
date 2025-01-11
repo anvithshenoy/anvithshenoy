@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import FadeIn from "../framer/FadeIn";
-import CustomModal from "../modal.js/Modal";
+import CustomModal from "../modal/Modal";
 
 const Projects = () => {
   const { projects } = useDataContext();

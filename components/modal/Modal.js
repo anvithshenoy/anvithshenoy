@@ -29,4 +29,6 @@ const CustomModal = forwardRef(({ open, onClose, children }, ref) => {
   );
 });
 
+CustomModal.displayName = "CustomModal";
+
 export default CustomModal;
