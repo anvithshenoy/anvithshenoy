@@ -9,24 +9,25 @@ const allowedCollections = [
   "socialLinks",
 ];
 
-export async function GET(request, { params }) {
-  const { collection } = await params;
-
-  if (!allowedCollections.includes(collection)) {
-    return NextResponse.json({ error: "Invalid collection" }, { status: 400 });
-  }
-
+export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db("portfolio");
 
-    const items = await db.collection(collection).find({}).toArray();
+    const data = await Promise.all(
+      allowedCollections.map(async (collection) => {
+        const items = await db.collection(collection).find({}).toArray();
+        return { [collection]: items };
+      }),
+    );
 
-    return NextResponse.json({ [collection]: items });
+    const responseData = data.reduce((acc, curr) => ({ ...acc, ...curr }), {});
+
+    return NextResponse.json(responseData);
   } catch (e) {
-    console.error(`GET /api/${collection} error:`, e);
+    console.error("GET /api/data error:", e);
     return NextResponse.json(
-      { error: `Failed to fetch ${collection}`, details: e.message },
+      { error: "Failed to fetch data", details: e.message },
       { status: 500 },
     );
   }

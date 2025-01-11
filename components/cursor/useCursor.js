@@ -7,7 +7,7 @@ const useCustomCursor = () => {
     // Create the cursor element dynamically
     const cursor = document.createElement("div");
     cursor.classList.add("cursor");
-    cursor.style.width = "0.5rem"; // Default size
+    cursor.style.aspectRatio = "1/1"; // Default size
     cursor.style.height = "0.5rem"; // Default size
     document.body.appendChild(cursor);
 

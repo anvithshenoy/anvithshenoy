@@ -3,7 +3,7 @@
 import { useDataContext } from "@/app/context/DataContext";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FadeIn from "../framer/FadeIn";
 import CustomModal from "../modal.js/Modal";
 
@@ -11,6 +11,35 @@ const Projects = () => {
   const { projects } = useDataContext();
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const modalRef = useRef(null);
+
+  // Prevent scrolling when the modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      // Disable scroll immediately when modal opens
+      document.body.style.overflow = "hidden";
+    } else {
+      // Enable scroll when modal closes
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup when component unmounts or modal closes
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isModalOpen]);
+
+  // Handle "Escape" key press to close modal
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape" && isModalOpen) {
+        setModalOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isModalOpen]);
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -42,7 +71,11 @@ const Projects = () => {
         </div>
       </section>
 
-      <CustomModal open={isModalOpen} onClose={() => setModalOpen(false)}>
+      <CustomModal
+        ref={modalRef}
+        open={isModalOpen}
+        onClose={() => setModalOpen(false)}
+      >
         {selectedProject && (
           <div className="flex w-full flex-col items-start justify-start overflow-y-auto md:flex-row">
             <Image

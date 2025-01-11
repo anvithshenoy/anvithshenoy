@@ -55,26 +55,26 @@ const ContactForm = () => {
 
   return (
     <FadeIn>
-      <aside className="flex w-full flex-col items-center justify-center gap-2 p-3 md:flex-row lg:items-end">
-        <div className="flex w-full flex-col place-items-center gap-0.5 py-1.5">
-          <h4 className="block text-center font-head text-4xl uppercase leading-none md:text-left md:text-6xl">
+      <aside className="flex w-full flex-col items-center justify-center gap-2 md:flex-row lg:items-end">
+        <div className="flex w-full flex-wrap justify-start gap-0.5 bg-dark py-1 text-light selection:bg-light selection:text-dark md:place-items-center">
+          <h4 className="inline-block w-full text-center indent-1.5 font-head text-2xl uppercase leading-none underline underline-offset-8 md:text-6xl md:no-underline">
             Let&apos;s get in touch
           </h4>
-          <div className="flex w-full flex-wrap place-content-evenly place-items-stretch gap-1 bg-dark text-light selection:bg-light selection:text-dark lg:py-1">
+          <div className="inline-flex w-full flex-wrap justify-center gap-x-2.5 gap-y-1.5 md:justify-between md:bg-light md:p-1.5 md:text-dark">
             {socialLinks.map((link) => (
               <Link
                 key={link?._id}
                 href={link?.url}
                 target="_blank"
                 data-click="true"
-                className="relative text-sm leading-none transition-all duration-500 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-500 hover:after:w-[calc(100%+0.25rem)]"
+                className="relative text-sm leading-none outline-none transition-all duration-500 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-500 hover:after:w-[calc(100%+0.25rem)] focus:after:w-[calc(100%+0.25rem)]"
               >
                 {link?.media}
               </Link>
             ))}
           </div>
         </div>
-        <form
+        {/* <form
           onSubmit={handleSubmit}
           autoComplete="off"
           className="flex flex-col gap-1 rounded-sm border border-dark p-1.5 shadow-lg *:cursor-none *:caret-dark *:outline-none md:w-1/3"
@@ -126,7 +126,7 @@ const ContactForm = () => {
           >
             {isSubmitting ? "Sending..." : "Send"}
           </button>
-        </form>
+        </form> */}
       </aside>
 
       {showToast && (
