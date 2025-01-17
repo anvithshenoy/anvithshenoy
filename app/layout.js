@@ -1,6 +1,4 @@
 import Loader from "@/components/Loader/Loader";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
 import { DataProvider } from "./context/DataContext";
 import "./globals.css";
@@ -16,9 +14,30 @@ const thunderHC = localFont({
 });
 
 export const metadata = {
-  title: " Anvith Shenoy B • Portfolio",
+  title: "Anvith Shenoy B • Fullstack Developer Portfolio",
   description:
-    "Designed & maintained by Anvith Shenoy B. MCA graduate with a journey from graphic design to fullstack development, blending creativity with technical expertise. Experienced in crafting user-friendly, functional solutions with a focus on professionalism and simplicity. Eager to create impactful, intuitive user experiences.",
+    "Anvith Shenoy B's portfolio showcasing expertise in graphic design, fullstack development, and user experience.",
+  openGraph: {
+    title: "Anvith Shenoy B • Portfolio",
+    description:
+      "Explore the journey of Anvith Shenoy B, blending creativity with technical expertise in fullstack development.",
+    url: "https://www.anvithshenoy.cloud/",
+    images: [
+      {
+        url: "https://www.anvithshenoy.cloud/myself.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Anvith Shenoy B Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Anvith Shenoy B • Portfolio",
+    description:
+      "Showcasing the journey from graphic design to fullstack development.",
+    image: "https://www.anvithshenoy.cloud/myself.jpg",
+  },
 };
 
 const RootLayout = ({ children }) => {
@@ -33,8 +52,6 @@ const RootLayout = ({ children }) => {
             <LenisScroll>{children}</LenisScroll>
           </main>
         </DataProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
