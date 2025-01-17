@@ -10,7 +10,7 @@ const Footer = () => {
         <br />
         &copy; Copyright {new Date().getFullYear()}. Made by{" "}
         <Link
-          href="https://anvithshenoy.cloud"
+          href="https://www.anvithshenoy.cloud/"
           data-click="true"
           className="relative w-full text-sm font-bold outline-none transition-all duration-500 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-500 hover:after:w-[calc(100%+0.25rem)] focus:after:w-[calc(100%+0.25rem)]"
         >
