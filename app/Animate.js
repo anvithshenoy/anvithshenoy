@@ -1,5 +1,6 @@
 "use client";
 
+import ThemeSwitch from "@/components/Theme/ThemeSwitch";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -32,7 +33,12 @@ const PageTransition = ({ children }) => {
         )}
       </AnimatePresence>
 
-      {showContent && <>{children}</>}
+      {showContent && (
+        <>
+          <ThemeSwitch />
+          {children}
+        </>
+      )}
     </>
   );
 };

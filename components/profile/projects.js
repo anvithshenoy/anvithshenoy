@@ -48,7 +48,7 @@ const Projects = () => {
 
   return (
     <FadeIn>
-      <section className="flex w-full flex-col flex-wrap place-content-start self-center px-3 pb-3">
+      <section className="flex w-full flex-col flex-wrap place-content-start self-center px-3 pb-3 text-dark">
         <h2 className="indent-1 font-head text-xl uppercase">Projects</h2>
         <div className="projects grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.length > 0 &&
