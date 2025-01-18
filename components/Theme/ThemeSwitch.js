@@ -1,14 +1,20 @@
 "use client";
 
-import useTheme from "@/hooks/useTheme";
+import { useTheme } from "@/app/context/ThemeContext";
+import { DarkInner } from "@theme-toggles/react";
+import "@theme-toggles/react/css/DarkInner.css";
 
 const ThemeSwitch = () => {
-  const [theme, toggleTheme] = useTheme();
+  const { toggleTheme } = useTheme();
 
   return (
-    <button className="fixed right-0 top-0 z-50" onClick={toggleTheme}>
-      Toggle Theme
-    </button>
+    <DarkInner
+      duration={750}
+      onToggle={toggleTheme}
+      data-click="true"
+      className="fixed bottom-1 right-1 z-50 text-[#4398ca] mix-blend-difference"
+      aria-label="toggle theme"
+    />
   );
 };
 

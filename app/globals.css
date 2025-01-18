@@ -23,15 +23,19 @@
 }
 
 /* Manual light mode override */
-html[data-theme="light"] :root {
+html[data-theme="light"] {
   --light: #b9d9eb;
   --dark: #071117;
+  background-color: var(--light);
+  color: var(--dark);
 }
 
 /* Manual dark mode override */
-html[data-theme="dark"] :root {
+html[data-theme="dark"] {
   --dark: #b9d9eb;
   --light: #071117;
+  background-color: var(--dark);
+  color: var(--light);
 }
 
 *::selection,

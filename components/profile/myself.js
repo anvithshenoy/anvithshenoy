@@ -45,7 +45,7 @@ export const Experience = () => {
     <FadeIn>
       <section className="flex w-full flex-col flex-wrap place-content-start self-center bg-light px-3 pb-3 text-dark">
         <h2 className="indent-1 font-head text-xl uppercase">Experience</h2>
-        <div className="experience grid auto-cols-auto gap-1.5">
+        <div className="experience grid grid-cols-1 gap-1.5 lg:grid-cols-2">
           {experience.map((exp, index) => (
             <div
               data-click="true"
@@ -72,7 +72,7 @@ export const Education = () => {
   const { education } = useDataContext();
   return (
     <FadeIn>
-      <section className="flex w-full flex-col flex-wrap place-content-start self-center px-3">
+      <section className="flex w-full flex-col flex-wrap place-content-start self-center px-3 text-dark">
         <h2 className="indent-1 font-head text-xl uppercase">Education</h2>
         <div className="education grid grid-cols-1 gap-1.5 sm:grid-cols-2">
           {education.map((grade) => (
@@ -116,7 +116,7 @@ export const Education = () => {
 export const Profile = () => {
   return (
     <FadeIn>
-      <section className="flex w-full flex-col items-center gap-5 overflow-hidden md:flex-row md:ps-5">
+      <section className="flex w-full flex-col items-center gap-5 overflow-hidden text-dark md:flex-row md:ps-5">
         <SwiperCards />
 
         <div className="flex flex-col place-items-center gap-2 px-3 sm:py-0">

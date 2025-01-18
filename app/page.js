@@ -11,7 +11,7 @@ import PageTransition from "./Animate";
 const Home = () => {
   return (
     <PageTransition>
-      <h1 className="font-head text-5xl uppercase sm:text-6xl">
+      <h1 className="font-head text-5xl uppercase text-dark sm:text-6xl">
         Anvith Shenoy B.
       </h1>
       <Profile />

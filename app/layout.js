@@ -1,6 +1,7 @@
 import Loader from "@/components/Loader/Loader";
 import localFont from "next/font/local";
 import { DataProvider } from "./context/DataContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import "./globals.css";
 import LenisScroll from "./lenis";
 
@@ -47,11 +48,13 @@ const RootLayout = ({ children }) => {
         className={`${thunderBoldHC.variable} ${thunderHC.variable} relative min-h-dvh w-dvw cursor-none overflow-x-hidden overscroll-none bg-light font-body antialiased`}
       >
         <Loader />
-        <DataProvider>
-          <main className="relative flex flex-col place-items-start gap-3">
-            <LenisScroll>{children}</LenisScroll>
-          </main>
-        </DataProvider>
+        <ThemeProvider>
+          <DataProvider>
+            <main className="relative flex flex-col place-items-start gap-3">
+              <LenisScroll>{children}</LenisScroll>
+            </main>
+          </DataProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
