@@ -13,20 +13,21 @@
     "@theme-toggles/react": "^4.1.0",
     "lenis": "^1.1.17",
     "mongoose": "^8.9.0",
-    "motion": "^11.16.4",
-    "next": "^15.1.2",
+    "motion": "^12.6.2",
+    "next": "^15.2.4",
     "next-sitemap": "^4.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "swiper": "^11.1.15"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.17",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
-    "eslint-config-next": "15.0.3",
+    "eslint-config-next": "^15.2.4",
     "postcss": "^8.4.49",
     "prettier": "^3.4.1",
-    "prettier-plugin-tailwindcss": "^0.6.9",
-    "tailwindcss": "^3.4.16"
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.0.17"
   }
 }

@@ -1,6 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@custom-variant dark (@media (prefers-color-scheme: dark));
+@theme {
+  --color-dark: var(--dark);
+  --color-light: var(--light);
+
+  --font-head: var(--font-head);
+  --font-body: var(--font-body);
+
+  --background-color-dark: var(--dark);
+  --background-color-light: var(--light);
+
+  --text-color-dark: var(--dark);
+  --text-color-light: var(--light);
+}
+@layer base {
+  *,
+  ::after,
+  ::backdrop,
+  ::before,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 :root {
   --light: #b9d9eb;
@@ -38,8 +59,8 @@ html[data-theme="dark"] {
   color: var(--light);
 }
 
-*::selection,
-*::-moz-selection {
+*::-moz-selection,
+*::selection {
   background-color: var(--dark);
   color: var(--light);
 }
@@ -59,14 +80,12 @@ html[data-theme="dark"] {
 *::-webkit-scrollbar {
   width: 3px;
 }
-
 @media (pointer: none), (pointer: coarse) {
   .cursor,
   .ripple {
     display: none;
   }
 }
-
 @media (pointer: fine) {
   .cursor {
     position: fixed;
@@ -100,14 +119,12 @@ html[data-theme="dark"] {
     pointer-events: none;
     animation: ripple-animation 0.6s linear;
   }
-
   @media (prefers-color-scheme: dark) {
     .cursor,
     .ripple {
       --light: #b9d9eb;
     }
   }
-
   @keyframes ripple-animation {
     0% {
       transform: translate(-50%, -50%) scale(0);

@@ -7,11 +7,11 @@ import LenisScroll from "./lenis";
 
 const thunderBoldHC = localFont({
   src: "./fonts/Thunder-BoldHC.woff",
-  variable: "--font-thunder-bold-hc",
+  variable: "--font-head",
 });
 const thunderHC = localFont({
   src: "./fonts/Thunder-HC.woff",
-  variable: "--font-thunder-hc",
+  variable: "--font-body",
 });
 
 export const metadata = {
@@ -45,7 +45,7 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body
-        className={`${thunderBoldHC.variable} ${thunderHC.variable} relative min-h-dvh w-dvw cursor-none overflow-x-hidden overscroll-none bg-light font-body antialiased`}
+        className={`${thunderBoldHC.variable} ${thunderHC.variable} bg-light font-body relative min-h-dvh w-dvw cursor-none overflow-x-hidden overscroll-none antialiased`}
       >
         <Loader />
         <ThemeProvider>
