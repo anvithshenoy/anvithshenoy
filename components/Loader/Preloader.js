@@ -68,7 +68,7 @@ const Preloader = ({ progress }) => {
                 cx="60"
                 cy="60"
                 r="45"
-                className="fill-none stroke-neutral-950/85 stroke-[10]"
+                className="fill-none stroke-neutral-950/85 stroke-10"
               />
 
               {/* Animated Progress Circle */}
@@ -76,7 +76,7 @@ const Preloader = ({ progress }) => {
                 cx="60"
                 cy="60"
                 r="45"
-                className="fill-none stroke-[url(#progressGradient)] stroke-[10] [stroke-linecap:round] [stroke-linejoin:round]"
+                className="fill-none stroke-[url(#progressGradient)] stroke-10 [stroke-linecap:round] [stroke-linejoin:round]"
                 initial={{
                   strokeDasharray: strokeDashArray,
                   strokeDashoffset:
@@ -102,7 +102,7 @@ const Preloader = ({ progress }) => {
             >
               <motion.path
                 d="M363 311.5V11.5M363 311.5L627.024 16.5007C628.754 14.5683 627.382 11.5 624.789 11.5H363M363 311.5H624.789C627.382 311.5 628.754 308.432 627.024 306.499L363 11.5M363 311.5L271.75 161.5M363 311.5L139.125 236.5M271.75 161.5L183.125 15.8143C181.941 13.8695 179.108 13.8992 177.966 15.8683L12.0403 301.948C10.5059 304.593 13.45 307.57 16.1121 306.064L139.125 236.5M271.75 161.5L139.125 236.5"
-                className="stroke-light stroke-[24] drop-shadow-xl [stroke-linecap:round] [stroke-linejoin:round]"
+                className="stroke-light stroke-24 drop-shadow-xl [stroke-linecap:round] [stroke-linejoin:round]"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{

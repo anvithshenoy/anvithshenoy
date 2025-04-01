@@ -15,7 +15,7 @@ export const Skills = () => {
             <div
               key={index}
               data-click="true"
-              className="skill-category h-full w-full select-none rounded-sm border border-light p-1.5 pb-2.5 transition-colors duration-300 sm:hover:bg-light sm:hover:text-dark"
+              className="skill-category h-full w-full select-none rounded-xs border border-light p-1.5 pb-2.5 transition-colors duration-300 sm:hover:bg-light sm:hover:text-dark"
             >
               <h3 className="mb-1 text-lg font-bold leading-none">
                 {skillCategory.category}
@@ -50,7 +50,7 @@ export const Experience = () => {
             <div
               data-click="true"
               key={index}
-              className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg"
+              className="project-list flex flex-col flex-wrap items-start justify-start rounded-sm border border-dark p-1 pb-2 shadow-lg"
               title={exp?.project?.title ?? ""}
             >
               <h3 className="text-lg font-bold leading-none">{exp?.role}</h3>
@@ -79,7 +79,7 @@ export const Education = () => {
             <div
               key={grade?.type}
               data-click="true"
-              className="project-list flex h-full w-full flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg"
+              className="project-list flex h-full w-full flex-col flex-wrap items-start justify-start rounded-sm border border-dark p-1 pb-2 shadow-lg"
               title={grade?.category ?? ""}
             >
               <div className="flex w-full items-baseline justify-between border-b border-dark">
@@ -132,7 +132,7 @@ export const Profile = () => {
             href="/Resume_AnvithShenoy.pdf"
             target="_blank"
             data-click="true"
-            className="rounded-sm border border-light bg-dark px-2.5 py-0.5 text-xs font-bold text-light outline-none transition-colors duration-300 ease-in-out hover:bg-gray-900 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light focus:hover:ring-gray-900 lg:self-start"
+            className="rounded-xs border border-light bg-dark px-2.5 py-0.5 text-xs font-bold text-light outline-hidden transition-colors duration-300 ease-in-out hover:bg-gray-900 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light focus:hover:ring-gray-900 lg:self-start"
           >
             My Resume
           </Link>

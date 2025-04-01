@@ -56,7 +56,7 @@ const Projects = () => {
               <div
                 data-click="true"
                 key={index}
-                className="project-list flex flex-col flex-wrap items-start justify-start rounded border border-dark p-1 pb-2 shadow-lg transition-colors duration-300 focus-within:bg-dark focus-within:text-light focus-within:shadow-none hover:bg-dark hover:text-light hover:shadow-none"
+                className="project-list flex flex-col flex-wrap items-start justify-start rounded-sm border border-dark p-1 pb-2 shadow-lg transition-colors duration-300 focus-within:bg-dark focus-within:text-light focus-within:shadow-none hover:bg-dark hover:text-light hover:shadow-none"
                 title={project?.category ?? ""}
                 onClick={() => handleProjectClick(project)}
               >
@@ -119,7 +119,7 @@ const Projects = () => {
               </div>
               <p className="mx-1 md:me-3.5">{selectedProject.description}</p>
 
-              <div className="mx-1 grid grid-cols-[auto,1fr] gap-x-1 pb-4 pt-1 md:me-3.5 md:pb-0">
+              <div className="mx-1 grid grid-cols-[auto_1fr] gap-x-1 pb-4 pt-1 md:me-3.5 md:pb-0">
                 {selectedProject.technology?.languages && (
                   <>
                     <strong>Languages:</strong>

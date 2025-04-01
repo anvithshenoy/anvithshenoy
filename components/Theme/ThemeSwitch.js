@@ -12,7 +12,7 @@ const ThemeSwitch = () => {
       duration={750}
       onToggle={toggleTheme}
       data-click="true"
-      className="fixed bottom-1 right-1 z-50 text-[#4398ca] mix-blend-difference"
+      className="fixed right-1 bottom-1 z-50 text-[#4398ca] mix-blend-difference"
       aria-label="toggle theme"
     />
   );

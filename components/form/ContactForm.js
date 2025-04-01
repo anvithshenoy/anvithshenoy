@@ -67,7 +67,7 @@ const ContactForm = () => {
                 href={link?.url}
                 target="_blank"
                 data-click="true"
-                className="relative text-sm leading-none outline-none transition-all duration-500 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-500 hover:after:w-[calc(100%+0.25rem)] focus:after:w-[calc(100%+0.25rem)]"
+                className="relative text-sm leading-none outline-hidden transition-all duration-500 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-500 hover:after:w-[calc(100%+0.25rem)] focus:after:w-[calc(100%+0.25rem)]"
               >
                 {link?.media}
               </Link>
@@ -77,7 +77,7 @@ const ContactForm = () => {
         {/* <form
           onSubmit={handleSubmit}
           autoComplete="off"
-          className="flex flex-col gap-1 rounded-sm border border-dark p-1.5 shadow-lg *:cursor-none *:caret-dark *:outline-none md:w-1/3"
+          className="flex flex-col gap-1 rounded-xs border border-dark p-1.5 shadow-lg *:cursor-none *:caret-dark *:outline-hidden md:w-1/3"
         >
           <input
             type="text"
@@ -89,7 +89,7 @@ const ContactForm = () => {
             data-click="true"
             value={formData.name}
             onChange={handleChange}
-            className="rounded-sm border border-dark bg-transparent px-1.5 py-1 text-xs leading-none placeholder:text-gray-600 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light"
+            className="rounded-xs border border-dark bg-transparent px-1.5 py-1 text-xs leading-none placeholder:text-gray-600 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light"
             required
           />
           <input
@@ -102,7 +102,7 @@ const ContactForm = () => {
             data-click="true"
             value={formData.email}
             onChange={handleChange}
-            className="rounded-sm border border-dark bg-transparent px-1.5 py-1 text-xs leading-none placeholder:text-gray-600 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light"
+            className="rounded-xs border border-dark bg-transparent px-1.5 py-1 text-xs leading-none placeholder:text-gray-600 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light"
             required
           />
           <textarea
@@ -114,7 +114,7 @@ const ContactForm = () => {
             data-click="true"
             value={formData.message}
             onChange={handleChange}
-            className="resize-none rounded-sm border border-dark bg-transparent px-1.5 py-1 text-xs leading-none placeholder:text-gray-600 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light"
+            className="resize-none rounded-xs border border-dark bg-transparent px-1.5 py-1 text-xs leading-none placeholder:text-gray-600 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light"
             rows={5}
             required
           />
@@ -122,7 +122,7 @@ const ContactForm = () => {
             type="submit"
             data-click="true"
             disabled={isSubmitting}
-            className={`w-full rounded-sm border py-0.5 text-xs font-bold transition-colors duration-300 ease-in-out ${isSubmitting ? "border-dark bg-transparent text-dark hover:bg-transparent focus:ring-0 focus:ring-transparent focus:ring-offset-0 focus:ring-offset-transparent focus:hover:ring-transparent" : "border-light bg-dark text-light hover:bg-gray-900 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light focus:hover:ring-gray-900"}`}
+            className={`w-full rounded-xs border py-0.5 text-xs font-bold transition-colors duration-300 ease-in-out ${isSubmitting ? "border-dark bg-transparent text-dark hover:bg-transparent focus:ring-0 focus:ring-transparent focus:ring-offset-0 focus:ring-offset-transparent focus:hover:ring-transparent" : "border-light bg-dark text-light hover:bg-gray-900 focus:ring-2 focus:ring-dark focus:ring-offset-2 focus:ring-offset-light focus:hover:ring-gray-900"}`}
           >
             {isSubmitting ? "Sending..." : "Send"}
           </button>
