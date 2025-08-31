@@ -1,103 +1,90 @@
+import Tabs from "@/components/Tabs";
 import Image from "next/image";
+import AboutMe from "./Tabs/About";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const sections = [
+    {
+      id: "about-me",
+      label: "About me",
+      content: <AboutMe />,
+    },
+    {
+      id: "my-resume",
+      label: "Resume",
+      content: <div>{"I'm ready, but the content isn't"}</div>,
+    },
+    {
+      id: "work-exp",
+      label: "Work",
+      content: <div>{"I'm ready, but the content isn't"}</div>,
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <>
+      <header className="inline-flex w-full items-center justify-start gap-2.5 border-b px-5 py-2.5 text-3xl">
+        <div className="bg-fg relative aspect-square max-h-12 w-full max-w-12 overflow-hidden rounded-full">
+          <Image
+            src={
+              "https://anvithshenoy.vercel.app/myself.jpg"
+              //   "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            }
+            fill
+            alt=""
+            role="presentation"
+            className="object-cover"
+          />
+        </div>
+        <strong className="hidden uppercase sm:inline">Anvith Shenoy B</strong>
+        <strong className="inline sm:hidden">Shenoy Devfolio</strong>
+
+        <div className="flex-1" />
+
+        <p className="hidden text-2xl sm:inline sm:border-l sm:px-4 sm:pe-0">
+          Front End Devfolio
+        </p>
+      </header>
+
+      <main className="mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
+        <p className="w-full max-w-prose px-1.5 text-start lowercase underline underline-offset-8 sm:text-end">
+          #Work_in_progress #Shenoy_Devfolio #WIP #anvithshenoy
+        </p>
+        <div className="font-bg relative aspect-square size-full max-h-[75vh] max-w-[75vh] content-end overflow-hidden rounded-2xl bg-blue-700 p-4 inset-shadow-sm drop-shadow-md">
+          <h1 className="text-bg z-10 text-6xl drop-shadow-md">
+            {new Date().getFullYear()}
+          </h1>
+          <Image
+            src={
+              //   "https://anvithshenoy.vercel.app/myself.jpg"
+              "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            }
+            fill
+            alt=""
+            role="presentation"
+            className="-z-10 object-cover"
+          />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+      <Tabs
+        tabs={sections}
+        className="grid grid-cols-1 divide-x divide-y px-3.5 py-2 sm:grid-cols-3 sm:gap-3.5"
+      >
+        <ul className="hidden justify-around gap-2.5 sm:inline-flex">
+          {["About me", "Resume", "Work"].map((li, ind) => (
+            <li key={li} className="icon">
+              {ind}
+            </li>
+          ))}
+        </ul>
+      </Tabs>
+
+      {/* <section className="grid grid-cols-1 divide-x divide-y *:px-3.5 *:py-2 sm:grid-cols-3">
+        <h2 className="text-4xl">Experience</h2>
+        <h2 className="text-4xl">Expertise</h2>
+        <h2 className="text-4xl">Education</h2>
+      </section> */}
+    </>
   );
 }
