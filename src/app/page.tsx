@@ -1,50 +1,57 @@
-import Tabs from "@/components/Tabs";
+import Banner from "@/components/Banner";
+import Tabs, { TabType } from "@/components/Tabs";
 import Image from "next/image";
 import AboutMe from "./Tabs/About";
 
 export default function Home() {
-  const sections = [
+  const sections: TabType[] = [
     {
       id: "about-me",
       label: "About me",
       content: <AboutMe />,
+      icon: (
+        <Image
+          src={"/cool-guy.svg"}
+          alt=""
+          role="presentation"
+          width={24}
+          height={24}
+        />
+      ),
     },
     {
       id: "my-resume",
       label: "Resume",
       content: <div>{"I'm ready, but the content isn't"}</div>,
+      icon: (
+        <Image
+          src={"/resume.svg"}
+          alt=""
+          role="presentation"
+          width={24}
+          height={24}
+        />
+      ),
     },
     {
       id: "work-exp",
       label: "Work",
       content: <div>{"I'm ready, but the content isn't"}</div>,
+      icon: (
+        <Image
+          src={"/work.svg"}
+          alt=""
+          role="presentation"
+          width={24}
+          height={24}
+        />
+      ),
     },
   ];
 
   return (
     <>
-      <header className="inline-flex w-full items-center justify-start gap-2.5 border-b px-5 py-2.5 text-3xl">
-        <div className="bg-fg relative aspect-square max-h-12 w-full max-w-12 overflow-hidden rounded-full">
-          <Image
-            src={
-              "https://anvithshenoy.vercel.app/myself.jpg"
-              //   "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            }
-            fill
-            alt=""
-            role="presentation"
-            className="object-cover object-top"
-          />
-        </div>
-        <strong className="hidden uppercase sm:inline">Anvith Shenoy B</strong>
-        <strong className="inline sm:hidden">Shenoy Devfolio</strong>
-
-        <div className="flex-1" />
-
-        <p className="hidden text-2xl sm:inline sm:border-l sm:px-4 sm:pe-0">
-          Front End Devfolio
-        </p>
-      </header>
+      <Banner />
 
       <main className="mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
         <p className="w-full max-w-prose px-1.5 text-start lowercase underline underline-offset-8 sm:text-end">
@@ -70,15 +77,7 @@ export default function Home() {
       <Tabs
         tabs={sections}
         className="grid grid-cols-1 divide-x divide-y px-3.5 py-2 sm:grid-cols-3 sm:gap-3.5"
-      >
-        <ul className="hidden justify-around gap-2.5 sm:inline-flex">
-          {["About me", "Resume", "Work"].map((li, ind) => (
-            <li key={li} className="icon">
-              {ind}
-            </li>
-          ))}
-        </ul>
-      </Tabs>
+      />
 
       {/* <section className="grid grid-cols-1 divide-x divide-y *:px-3.5 *:py-2 sm:grid-cols-3">
         <h2 className="text-4xl">Experience</h2>

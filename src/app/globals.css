@@ -17,7 +17,7 @@ body {
 }
 
 * {
-  @apply selection:bg-fg selection:text-bg box-border outline-transparent;
+  @apply selection:bg-fg selection:text-bg box-border;
 }
 
 h1,
@@ -50,10 +50,10 @@ a {
 }
 
 .tabs {
-  @apply inline-flex w-full justify-around gap-2.5 sm:w-fit;
+  @apply inline-flex w-full justify-around sm:w-fit;
 }
 .tabs li {
-  @apply relative overflow-hidden rounded-full px-3.5 py-1 capitalize;
+  @apply relative overflow-hidden rounded-full px-5 py-1;
 }
 .tabs li.active-tab button {
   @apply text-bg;
