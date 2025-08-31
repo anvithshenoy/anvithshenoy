@@ -33,7 +33,7 @@ export default function Home() {
             fill
             alt=""
             role="presentation"
-            className="object-cover"
+            className="object-cover object-top"
           />
         </div>
         <strong className="hidden uppercase sm:inline">Anvith Shenoy B</strong>

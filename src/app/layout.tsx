@@ -1,10 +1,11 @@
 import localFont from "next/font/local";
 
 import Lenis from "@/components/Lenis";
+
 import "./globals.css";
 
 const fontHead = localFont({
-  src: "../fonts/HeatherGreen.otf",
+  src: "../fonts/Heathergreen.otf",
   variable: "--font-head",
 });
 
