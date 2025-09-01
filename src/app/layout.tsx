@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 
 import Lenis from "@/components/Lenis";
 
+import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 
 const fontHead = localFont({
@@ -48,11 +49,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Lenis>
-        <body className={`${fontHead.variable} ${fontBody.variable}`}>
-          {children}
-        </body>
-      </Lenis>
+      <SessionProvider>
+        <Lenis>
+          <body className={`${fontHead.variable} ${fontBody.variable}`}>
+            {children}
+          </body>
+        </Lenis>
+      </SessionProvider>
     </html>
   );
 }
