@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner";
 import Tabs, { TabType } from "@/components/Tabs";
 import Image from "next/image";
+import { Suspense } from "react";
 import AboutMe from "./Tabs/About";
 
 export default function Home() {
@@ -51,7 +52,9 @@ export default function Home() {
 
   return (
     <>
-      <Banner />
+      <Suspense fallback={<div>Loading search params...</div>}>
+        <Banner />
+      </Suspense>
 
       <main className="mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
         <p className="w-full max-w-prose px-1.5 text-start lowercase underline underline-offset-8 sm:text-end">
