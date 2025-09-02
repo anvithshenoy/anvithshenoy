@@ -49,17 +49,18 @@ export default function Home() {
           height={24}
         />
       ),
+      condition: false,
     },
   ];
 
   return (
     <>
-      <div className="relative">
+      <main className="relative">
         <Suspense fallback={<div>Loading search params...</div>}>
           <Banner />
         </Suspense>
 
-        <main className="mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
+        <section className="mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
           <p className="w-full max-w-prose px-1.5 text-start lowercase underline underline-offset-8 sm:text-end">
             #Work_in_progress #Shenoy_Devfolio #WIP{" "}
             <Link
@@ -84,8 +85,8 @@ export default function Home() {
               className="-z-10 object-cover"
             />
           </div>
-        </main>
-      </div>
+        </section>
+      </main>
 
       <Tabs
         tabs={sections}

@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
 
 export type TabType = {
@@ -7,6 +8,7 @@ export type TabType = {
   label: string | React.ReactNode;
   content: React.ReactNode;
   icon?: React.ReactNode;
+  condition?: boolean;
 };
 
 interface TabProps {
@@ -24,11 +26,13 @@ const Tabs: React.FC<TabProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<string>(defaultTab ?? tabs[0].id);
 
+  const filteredTabs = tabs.filter((tab) => tab?.condition ?? true);
+
   return (
     <>
       <nav className="bg-bg sticky top-0 z-50 mx-auto flex w-99 items-center justify-start gap-2.5 border-y px-3 py-1 text-xl">
         <ul className="tabs">
-          {tabs.map((tab) => (
+          {filteredTabs.map((tab) => (
             <li
               key={tab.id}
               className={activeTab === tab.id ? "active-tab" : "tab"}
@@ -41,33 +45,48 @@ const Tabs: React.FC<TabProps> = ({
 
         <div className="flex-1" />
 
-        <ul className="hidden sm:inline-flex">
-          {tabs.map((tab) => {
-            if (!tab?.icon) return;
-            return (
-              <li
-                key={tab.id}
-                className={[
-                  "flex aspect-square h-full max-h-12 w-full max-w-12 items-center justify-center rounded-full p-2",
-                  activeTab === tab.id && "bg-fg",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-              >
-                <button onClick={() => setActiveTab(tab.id)}>
-                  {tab?.icon}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+        {filteredTabs.some((tab) => tab.icon) && (
+          <ul className="hidden sm:inline-flex">
+            {filteredTabs.map((tab) => {
+              if (!tab?.icon) return;
+              return (
+                <li
+                  key={tab.id}
+                  className={[
+                    "flex aspect-square h-full max-h-12 w-full max-w-12 items-center justify-center rounded-full p-2",
+                    activeTab === tab.id && "bg-fg",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
+                  <button onClick={() => setActiveTab(tab.id)}>
+                    {tab?.icon}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </nav>
 
       {children}
 
-      <section className={className}>
-        {tabs.find((tab) => tab.id === activeTab)?.content}
-      </section>
+      <AnimatePresence mode="wait">
+        {tabs
+          .filter((tab) => tab.id === activeTab)
+          .map((tab) => (
+            <motion.section
+              key={tab.id}
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              transition={{ duration: 0.25 }}
+              className={className}
+            >
+              {tab.content}
+            </motion.section>
+          ))}
+      </AnimatePresence>
     </>
   );
 };
