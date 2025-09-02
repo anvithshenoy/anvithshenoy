@@ -1,11 +1,29 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
+import { ReactLenis, useLenis } from "lenis/react";
+import { useEffect } from "react";
 
-export default function Lenis({
+export default function LenisProvider({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const lenis = useLenis();
+
+  // Recalculate when tabs change (or other DOM mutations)
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      lenis?.resize();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+
+    return () => observer.disconnect();
+  }, [lenis]);
+
   return <ReactLenis root>{children}</ReactLenis>;
 }

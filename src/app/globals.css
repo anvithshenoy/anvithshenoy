@@ -17,7 +17,17 @@ body {
 }
 
 * {
-  @apply selection:bg-fg selection:text-bg box-border;
+  @apply box-border;
+}
+
+/* Default selection */
+::selection {
+  @apply bg-fg text-bg;
+}
+
+/* Invert selection when inside .bg-fg container */
+.bg-fg ::selection {
+  @apply bg-bg text-fg;
 }
 
 h1,

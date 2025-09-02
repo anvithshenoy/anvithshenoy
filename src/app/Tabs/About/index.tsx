@@ -20,7 +20,7 @@ const AboutMe = () => {
 
       <div className="col-span-2 flex flex-col justify-start gap-5 divide-y">
         <div className="space-y-1.5 py-2.5">
-          <h2 className="indent-2.5 text-4xl">Introduction</h2>
+          <h2 className="indent-2.5 text-5xl">Introduction</h2>
           <div className="rounded-lg border p-2.5">
             <p className="max-w-prose">
               MCA graduate with a journey from graphic design to fullstack
@@ -33,7 +33,7 @@ const AboutMe = () => {
         </div>
 
         <div className="flex w-full flex-col items-start gap-2.5">
-          <h2 className="w-full indent-2.5 text-4xl">Get In Touch</h2>
+          <h2 className="w-full indent-2.5 text-5xl">Get In Touch</h2>
 
           <div className="grid w-full grid-cols-3 gap-1.5">
             <Link
