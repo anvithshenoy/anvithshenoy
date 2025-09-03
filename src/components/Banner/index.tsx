@@ -2,17 +2,20 @@
 
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
-
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
 import { AuthBtn } from "../SignInOut";
 
 const Banner = () => {
   const { data: session } = useSession();
 
-  const searchParams = useSearchParams();
-  const isDevMode = searchParams.get("mode") === process.env.NEXT_PUBLIC_MODE;
+  const [isDevMode, setIsDevMode] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setIsDevMode(params.get("mode") === process.env.NEXT_PUBLIC_MODE);
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

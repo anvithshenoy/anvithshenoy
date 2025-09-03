@@ -1,8 +1,9 @@
-import Banner from "@/components/Banner";
-import Tabs, { TabType } from "@/components/Tabs";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
+
+import Tabs, { TabType } from "@/components/Tabs";
+
+import Banner from "@/components/Banner";
 import AboutMe from "./Tabs/About";
 import Resume from "./Tabs/Resume";
 
@@ -56,9 +57,7 @@ export default function Home() {
   return (
     <>
       <main className="relative">
-        <Suspense fallback={<div>Loading search params...</div>}>
-          <Banner />
-        </Suspense>
+        <Banner />
 
         <section className="mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
           <p className="w-full max-w-prose px-1.5 text-start lowercase underline underline-offset-8 sm:text-end">
@@ -88,10 +87,7 @@ export default function Home() {
         </section>
       </main>
 
-      <Tabs
-        tabs={sections}
-        className="grid grid-cols-1 px-3.5 py-2 sm:grid-cols-3 sm:gap-3.5"
-      />
+      <Tabs tabs={sections} />
     </>
   );
 }
