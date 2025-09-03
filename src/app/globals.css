@@ -79,3 +79,8 @@ a {
 *[data-swapy-handle] {
   @apply cursor-move;
 }
+
+.drag-elements {
+  @apply touch-none;
+  -webkit-user-drag: none;
+}

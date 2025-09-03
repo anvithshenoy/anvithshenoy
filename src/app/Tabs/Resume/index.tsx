@@ -59,6 +59,23 @@ const Resume = () => {
       <div data-swapy-slot="exp">
         <div data-swapy-item="exp" className="relative py-2.5 text-xl">
           <SwapyTitle title="Experience" clx="mb-3.5" />
+
+          <div className="bg-fg text-bg grid grid-cols-2 items-center gap-1 rounded-2xl p-3.5">
+            <div className="font-head text-3xl">Apr 2025</div>
+            <div className="bg-bg text-fg ms-auto rounded-full px-3.5 py-1 font-bold uppercase">
+              Neya AI
+            </div>
+            {/* <p className="col-span-2 mt-3.5 max-w-prose text-lg"></p> */}
+            <h3 className="font-body! col-span-2 max-w-prose text-3xl">
+              Frontend Developer
+            </h3>
+            <p className="col-span-2 line-clamp-3 max-w-prose text-base">
+              Front-end developer specializing in React, responsible for
+              revamping user interfaces to create responsive, user-friendly, and
+              visually appealing web applications that enhance overall user
+              experience.
+            </p>
+          </div>
         </div>
       </div>
 
