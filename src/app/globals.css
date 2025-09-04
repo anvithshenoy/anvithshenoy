@@ -21,7 +21,8 @@ body {
 }
 
 /* Default selection */
-::selection {
+::selection,
+.bg-bg ::selection {
   @apply bg-fg text-bg;
 }
 
@@ -35,7 +36,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+strong {
   @apply font-head;
 }
 
@@ -63,7 +65,7 @@ a {
   @apply inline-flex w-full justify-around sm:w-fit;
 }
 .tabs li {
-  @apply relative overflow-hidden rounded-full px-5 py-1;
+  @apply font-head relative overflow-hidden rounded-full px-5 py-1;
 }
 .tabs li.active-tab button {
   @apply text-bg;

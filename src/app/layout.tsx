@@ -6,12 +6,12 @@ import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 
 const fontHead = localFont({
-  src: "../fonts/Heathergreen.otf",
+  src: "../fonts/integral.otf",
   variable: "--font-head",
 });
 
 const fontBody = localFont({
-  src: "../fonts/ginger.otf",
+  src: "../fonts/NeutralFace.otf",
   variable: "--font-body",
 });
 

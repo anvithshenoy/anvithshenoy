@@ -29,7 +29,6 @@ const AboutMe = () => {
         <div
           data-swapy-item="profile"
           className="text-bg bg-fg/35 relative inline-flex aspect-square size-full flex-col items-start overflow-hidden rounded-2xl p-4 text-xl drop-shadow-md"
-          data-swapy-handle
         >
           <p className="mt-auto indent-0.5">Hello, I am</p>
           <SwapyTitle title="Anvith Shenoy B" clx="indent-0! text-6xl" />
@@ -51,6 +50,9 @@ const AboutMe = () => {
           <div data-swapy-item="intro" className="space-y-1.5 py-2.5">
             <SwapyTitle title="Introduction" />
             <div className="rounded-lg border p-2.5">
+              <h3 className="mb-2.5 text-3xl">
+                Frontend Dev based in Mangaluru
+              </h3>
               <p className="max-w-prose">
                 MCA graduate with a journey from graphic design to fullstack
                 development, blending creativity with technical expertise.

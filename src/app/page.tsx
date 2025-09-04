@@ -1,8 +1,7 @@
 import Image from "next/image";
 
-import Tabs, { TabType } from "@/components/Tabs";
-
 import Banner from "@/components/Banner";
+import Tabs, { TabType } from "@/components/Tabs";
 import HeroSection from "./Hero";
 import AboutMe from "./Tabs/About";
 import Resume from "./Tabs/Resume";
