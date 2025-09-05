@@ -11,7 +11,7 @@ const fontHead = localFont({
 });
 
 const fontBody = localFont({
-  src: "../fonts/NeutralFace.otf",
+  src: "../fonts/TechniqueSans.otf",
   variable: "--font-body",
 });
 

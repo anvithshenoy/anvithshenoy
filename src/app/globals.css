@@ -62,7 +62,7 @@ a {
 }
 
 .tabs {
-  @apply inline-flex w-full justify-around sm:w-fit;
+  @apply flex flex-wrap gap-2;
 }
 .tabs li {
   @apply font-head relative overflow-hidden rounded-full px-5 py-1;
@@ -85,4 +85,31 @@ a {
 .drag-elements {
   @apply touch-none;
   -webkit-user-drag: none;
+}
+
+/* MASONRY LAYOUT */
+section.masonryLayout {
+  @apply columns-2 gap-2 overflow-auto md:columns-3 lg:columns-4;
+}
+section.masonryLayout div.masonryCard {
+  @apply mb-2 break-inside-avoid border p-4;
+}
+
+.animated-underline {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  height: 2px;
+  width: 0%;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+.animated-underline:hover::after {
+  width: 100%;
 }

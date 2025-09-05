@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 export type TabType = {
   id: string;
@@ -14,6 +15,7 @@ export type TabType = {
 interface TabProps {
   defaultTab?: string;
   tabs: TabType[];
+  tabClassName?: string;
   className?: string;
   children?: React.ReactNode;
 }
@@ -21,6 +23,7 @@ interface TabProps {
 const Tabs: React.FC<TabProps> = ({
   defaultTab,
   tabs,
+  tabClassName,
   className = "",
   children,
 }) => {
@@ -30,7 +33,12 @@ const Tabs: React.FC<TabProps> = ({
 
   return (
     <div className="relative mx-auto w-99">
-      <nav className="bg-bg sticky top-0 z-50 flex w-full items-center justify-start gap-2.5 border-y px-3 py-1 text-xl">
+      <nav
+        className={twMerge(
+          "bg-bg flex w-full items-center justify-start gap-2.5 border-y px-3 py-1 text-xl",
+          tabClassName,
+        )}
+      >
         <ul className="tabs">
           {filteredTabs.map((tab) => (
             <li

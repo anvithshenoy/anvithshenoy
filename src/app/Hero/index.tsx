@@ -11,8 +11,8 @@ const HeroSection = () => {
       alt: "Cosmos",
       angle: -25,
       location: {
-        x: "-30%",
-        y: 20,
+        x: "30%",
+        y: 50,
       },
     },
     {
@@ -31,6 +31,15 @@ const HeroSection = () => {
       location: {
         x: 45,
         y: "25%",
+      },
+    },
+    {
+      src: "/IMG_1531.png",
+      alt: "My Life",
+      angle: 0,
+      location: {
+        x: "35%",
+        y: "35%",
       },
     },
   ];

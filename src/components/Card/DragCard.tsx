@@ -61,7 +61,7 @@ const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
       dragElastic={0.125}
       data-swapy-handle
       className={twMerge(
-        "drag-elements bg-bg absolute w-48 touch-none p-1 will-change-transform select-none",
+        "drag-elements bg-bg absolute w-48 touch-none p-1 pb-7 will-change-transform select-none",
         className,
       )}
     >
@@ -71,7 +71,11 @@ const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
         className="select-none"
         draggable={false}
       />
-      <p aria-label={alt} aria-labelledby="img">
+      <p
+        className="leading-0 tracking-tighter uppercase"
+        aria-label={alt}
+        aria-labelledby="img"
+      >
         {alt}
       </p>
     </motion.div>

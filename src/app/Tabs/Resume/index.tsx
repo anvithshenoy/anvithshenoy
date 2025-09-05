@@ -100,7 +100,7 @@ const Resume = () => {
         ref={container}
         className="grid grid-cols-1 px-3.5 py-2 *:even:border-y sm:grid-cols-3 sm:gap-3.5 sm:*:even:border-x sm:*:even:border-y-0"
       >
-        <div data-swapy-slot="exp">
+        <section data-swapy-slot="exp">
           <div data-swapy-item="exp" className="relative py-2.5 text-xl">
             <SwapyTitle title="Experience" clx="mb-3.5" />
 
@@ -125,9 +125,9 @@ const Resume = () => {
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        <div data-swapy-slot="skill" className="sm:px-2.5">
+        <section data-swapy-slot="skill" className="sm:px-2.5">
           <div
             data-swapy-item="skill"
             className="flex flex-col justify-start gap-2.5 divide-y"
@@ -148,6 +148,7 @@ const Resume = () => {
                 onClick={closeModal}
               >
                 <Img
+                  layout="position"
                   layoutId="hardSkill"
                   src={
                     "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -180,9 +181,9 @@ const Resume = () => {
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div data-swapy-slot="education">
+        <section data-swapy-slot="education">
           <div
             data-swapy-item="education"
             className="flex flex-col gap-5 py-2.5"
@@ -214,7 +215,7 @@ const Resume = () => {
               </div>
             ))}
           </div>
-        </div>
+        </section>
       </div>
 
       <Modal
@@ -223,8 +224,12 @@ const Resume = () => {
         bg={{
           src: "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           alt: "Anvith Shenoy B",
+          layout: "position",
           layoutId: "hardSkill",
+          needClose: true,
         }}
+        size="max-w-xs"
+        aspectRatio="aspect-[9/16]"
       />
     </>
   );

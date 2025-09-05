@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Banner from "@/components/Banner";
+import Header from "@/components/Header";
 import Tabs, { TabType } from "@/components/Tabs";
 import HeroSection from "./Hero";
 import AboutMe from "./Tabs/About";
@@ -56,12 +56,12 @@ export default function Home() {
   return (
     <>
       <main className="relative">
-        <Banner />
+        <Header />
 
         <HeroSection />
       </main>
 
-      <Tabs tabs={sections} />
+      <Tabs tabs={sections} tabClassName="sticky top-0 z-40" />
     </>
   );
 }
