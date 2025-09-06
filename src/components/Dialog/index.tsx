@@ -78,14 +78,14 @@ const Modal = ({
               ease: "easeOut",
             }}
             className={twMerge(
-              "bg-bg mx-auto flex flex-col overflow-hidden rounded-2xl p-1.5 drop-shadow-2xl",
+              "bg-bg mx-auto flex w-full flex-col overflow-hidden rounded-2xl p-1.5 drop-shadow-2xl",
               size,
             )}
           >
             {bg && (
               <div
                 className={twMerge(
-                  "relative w-full content-end overflow-hidden rounded-2xl p-2",
+                  "relative h-full w-full content-end overflow-hidden rounded-2xl p-2",
                   aspectRatio,
                 )}
               >

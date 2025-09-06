@@ -6,7 +6,7 @@ import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 
 const fontHead = localFont({
-  src: "../fonts/integral.otf",
+  src: "../fonts/Cantry.otf",
   variable: "--font-head",
 });
 

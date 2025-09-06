@@ -31,6 +31,16 @@ const Tabs: React.FC<TabProps> = ({
 
   const filteredTabs = tabs.filter((tab) => tab?.condition ?? true);
 
+  const tabChange = (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
+    e.currentTarget.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+
+    setActiveTab(id);
+  };
+
   return (
     <div className="relative mx-auto w-99">
       <nav
@@ -45,7 +55,13 @@ const Tabs: React.FC<TabProps> = ({
               key={tab.id}
               className={activeTab === tab.id ? "active-tab" : "tab"}
             >
-              <button onClick={() => setActiveTab(tab.id)}>{tab.label}</button>
+              <button
+                onClick={(e) => {
+                  tabChange(e, tab.id);
+                }}
+              >
+                {tab.label}
+              </button>
               <span id="indicator" />
             </li>
           ))}
@@ -60,12 +76,12 @@ const Tabs: React.FC<TabProps> = ({
               return (
                 <li
                   key={tab.id}
-                  className={[
+                  className={twMerge(
                     "flex aspect-square h-full max-h-12 w-full max-w-12 items-center justify-center rounded-full p-2",
-                    activeTab === tab.id && "bg-fg",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
+                    activeTab === tab.id
+                      ? "bg-fg stroke-bg fill-bg"
+                      : "stroke-current",
+                  )}
                 >
                   <button onClick={() => setActiveTab(tab.id)}>
                     {tab?.icon}
@@ -103,7 +119,7 @@ export default Tabs;
 
 export const SwapyTitle = ({ title, clx }: { title: string; clx?: string }) => {
   return (
-    <div className={"flex w-full items-baseline text-5xl"}>
+    <div className={"flex w-full items-baseline text-4xl"}>
       <h2 className={["flex-1 indent-2.5", clx].filter(Boolean).join(" ")}>
         {title}
       </h2>

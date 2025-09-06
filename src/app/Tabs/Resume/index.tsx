@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { createSwapy, Swapy } from "swapy";
 
+import Card from "@/components/Card";
 import Modal from "@/components/Dialog";
 import { SwapyTitle } from "@/components/Tabs";
 
@@ -35,7 +36,7 @@ const edDetails: {
     },
     expertise: "Computer Applications",
     type: "Bachelor's",
-    institution: "Canara College",
+    institution: "Canara College Mangaluru",
     grade: 7.68,
   },
 ];
@@ -82,7 +83,7 @@ const Resume = () => {
 
   const Img = motion(Image);
 
-  const closeModal = () => setModal((prev) => !prev);
+  const closeModal = () => setModal(false);
 
   useEffect(() => {
     if (container.current) {
@@ -105,47 +106,53 @@ const Resume = () => {
             <SwapyTitle title="Experience" clx="mb-3.5" />
 
             {workDetails.map((work) => (
-              <div
+              <Card
                 key={work.date.start}
-                className="bg-fg text-bg mb-1.5 grid grid-cols-2 items-center gap-1 rounded-2xl p-3.5"
+                title={<>{[work.date.start].filter(Boolean).join(" - ")}</>}
+                cardClass="mb-2.5"
+                tag={work.orgName}
               >
-                <div className="font-head text-3xl">{work.date.start}</div>
-                <div className="bg-bg text-fg ms-auto rounded-full px-3.5 py-1 font-bold uppercase">
-                  {work.orgName}
-                </div>
-                {/* <p className="col-span-2 mt-3.5 max-w-prose text-lg"></p> */}
-                <h3 className="font-body! col-span-2 max-w-prose text-3xl">
-                  {work.role}
-                </h3>
+                <h3 className="col-span-2 max-w-prose text-2xl">{work.role}</h3>
                 {work.desc && (
                   <p className="col-span-2 line-clamp-3 max-w-prose text-base">
                     {work.desc}
                   </p>
                 )}
-              </div>
+              </Card>
             ))}
           </div>
         </section>
 
-        <section data-swapy-slot="skill" className="sm:px-2.5">
-          <div
-            data-swapy-item="skill"
-            className="flex flex-col justify-start gap-2.5 divide-y"
-          >
-            <div className="py-2.5">
+        <section className="flex flex-col justify-start gap-2.5 divide-y sm:px-2.5">
+          <div data-swapy-slot="expertise">
+            <div data-swapy-item="expertise" className="py-2.5">
               <SwapyTitle title="Expertise" clx="mb-3.5" />
 
-              <p className="max-w-prose">
-                CSS, ReactJS, Javascript, Adobe Photoshop, UI/UX
+              <p className="inline-flex max-w-prose break-after-avoid flex-wrap gap-1.5">
+                {"CSS, ReactJS, Javascript, Adobe Photoshop, UI/UX"
+                  .split(",")
+                  .map((el) => (
+                    <span
+                      key={el}
+                      className="rounded-full border px-3.5 py-1 capitalize"
+                    >
+                      {el}
+                    </span>
+                  ))}
               </p>
             </div>
+          </div>
 
-            <div className="flex w-full flex-col items-start gap-2.5 py-2.5 pb-5">
-              <h2 className="w-full indent-2.5 text-5xl">HardSkill</h2>
+          <div data-swapy-slot="hardskill">
+            <div
+              data-swapy-item="hardskill"
+              className="flex w-full flex-col items-start gap-2.5 py-2.5 pb-5"
+            >
+              <SwapyTitle title="HardSkill" />
 
               <div
                 className="relative aspect-video w-full cursor-zoom-in overflow-hidden rounded-2xl"
-                onClick={closeModal}
+                onClick={() => setModal(true)}
               >
                 <Img
                   layout="position"
@@ -159,25 +166,26 @@ const Resume = () => {
                 />
               </div>
             </div>
-            <div className="space-y-1.5 py-2.5">
-              <div>
-                <h2 className="mb-3.5 indent-2.5 text-5xl">SoftSkill</h2>
-                <div className="inline-flex max-w-prose flex-wrap gap-1.5">
-                  {[
-                    "Creativity",
-                    "Time_Management",
-                    "Flexibility",
-                    "Communication",
-                    "Adaptability",
-                  ].map((el) => (
-                    <span
-                      key={el}
-                      className="rounded-full border px-3.5 py-1 lowercase"
-                    >
-                      #{el}
-                    </span>
-                  ))}
-                </div>
+          </div>
+
+          <div data-swapy-slot="SoftSkill">
+            <div data-swapy-item="SoftSkill" className="space-y-1.5 py-2.5">
+              <SwapyTitle title="SoftSkill" clx="mb-2.5" />
+              <div className="inline-flex max-w-prose break-after-avoid flex-wrap gap-1.5">
+                {[
+                  "Creativity",
+                  "Time_Management",
+                  "Flexibility",
+                  "Communication",
+                  "Adaptability",
+                ].map((el) => (
+                  <span
+                    key={el}
+                    className="rounded-full border px-3.5 py-1 lowercase"
+                  >
+                    #{el}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -186,33 +194,24 @@ const Resume = () => {
         <section data-swapy-slot="education">
           <div
             data-swapy-item="education"
-            className="flex flex-col gap-5 py-2.5"
+            className="flex flex-col gap-2.5 py-2.5"
           >
             <SwapyTitle title="Education" />
 
             {edDetails.map((ed) => (
-              <div
+              <Card
                 key={ed.year.startYear}
-                className="bg-fg text-bg grid grid-cols-2 items-center gap-1 rounded-2xl p-3.5"
+                title={[ed.year.startYear, ed.year.endYear]
+                  .filter(Boolean)
+                  .join(" - ")}
+                tag={ed.type}
               >
-                <div className="font-head text-3xl">
-                  {[ed.year.startYear, ed.year.endYear]
-                    .filter(Boolean)
-                    .join(" - ")}
-                </div>
-                <div className="bg-bg text-fg ms-auto rounded-full px-3.5 py-1 font-bold">
-                  {ed?.type}
-                </div>
-                <p className="col-span-2 mt-3.5 max-w-prose text-lg">
-                  {ed.institution}
-                </p>
-                <p className="col-span-2 max-w-prose text-2xl">
+                <p className="font-head my-1.5 max-w-prose text-2xl">
                   {ed.expertise}
                 </p>
-                <p className="col-span-2 max-w-prose text-lg">
-                  CGPA: {ed.grade}/10
-                </p>
-              </div>
+                <p className="max-w-prose text-lg">{ed.institution}</p>
+                <p className="font-head max-w-prose text-lg">{ed.grade} CGPA</p>
+              </Card>
             ))}
           </div>
         </section>

@@ -17,7 +17,11 @@ body {
 }
 
 * {
-  @apply box-border;
+  @apply outline-fg box-border;
+}
+
+.bg-fg {
+  @apply outline-bg;
 }
 
 /* Default selection */
@@ -62,16 +66,16 @@ a {
 }
 
 .tabs {
-  @apply flex flex-wrap gap-2;
+  @apply flex w-full flex-nowrap items-baseline justify-center gap-2 overflow-x-auto sm:justify-start [&:has(:nth-child(3))]:justify-start;
 }
 .tabs li {
-  @apply font-head relative overflow-hidden rounded-full px-5 py-1;
+  @apply font-head relative px-5 py-1 whitespace-nowrap;
 }
 .tabs li.active-tab button {
   @apply text-bg;
 }
 .tabs li.active-tab span {
-  @apply bg-fg absolute inset-0 -z-10;
+  @apply bg-fg absolute inset-0 -z-10 rounded-full;
 }
 
 .grabAction {

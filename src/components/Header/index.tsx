@@ -94,7 +94,9 @@ const Header = () => {
           )}
         </div>
         <strong className="hidden uppercase sm:inline">Anvith Shenoy B</strong>
-        <strong className="inline sm:hidden">Shenoy Devfolio</strong>
+        <strong className="inline flex-1 text-center uppercase sm:hidden">
+          Shenoy Devfolio
+        </strong>
 
         {session?.user && (
           <svg
@@ -120,7 +122,7 @@ const Header = () => {
           </svg>
         )}
 
-        <div className="hidden sm:inline sm:flex-1" />
+        <div className="inline sm:flex-1" />
 
         <p className="hidden text-2xl sm:inline sm:border-l sm:px-4 sm:pe-0">
           Front End Devfolio
@@ -256,7 +258,7 @@ const Header = () => {
             className="bg-fg text-bg fixed right-0 z-50 h-dvh w-dvw content-center px-3.5 pt-1 pb-24"
           >
             <motion.ul
-              className="font-head mx-auto max-w-3xs space-y-3.5 text-4xl *:relative *:w-full *:underline-offset-8"
+              className="font-head mx-auto max-w-3xs space-y-3.5 text-3xl *:relative *:w-full *:underline-offset-8"
               onClick={displayMenu}
               variants={listVariant}
               initial="initial"
