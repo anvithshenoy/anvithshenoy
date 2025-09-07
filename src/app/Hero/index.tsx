@@ -47,14 +47,15 @@ const HeroSection = () => {
   return (
     <section className="relative mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
       <div className="w-full">
-        <p className="ms-auto max-w-prose px-1.5 text-start lowercase underline underline-offset-8 sm:text-end">
-          #Work_in_progress #Shenoy_Devfolio #WIP{" "}
+        <p className="ms-auto max-w-prose px-1.5 text-start break-keep lowercase underline underline-offset-8 sm:text-end">
           <Link
             href={"https://www.google.com/search?q=anvithshenoy"}
             target="_blank"
           >
             #anvithshenoy
-          </Link>
+          </Link>{" "}
+          #Work_in_progress #Shenoy_Devfolio #CSS_LIFE #THE_ORIGINAL
+          #All_new_All_different #responsive
         </p>
       </div>
       {/* <h2 className="rounded-full border text-7xl drop-shadow-md">

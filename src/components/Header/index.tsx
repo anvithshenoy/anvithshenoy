@@ -1,11 +1,12 @@
 "use client";
 
 import { AnimatePresence, motion, stagger } from "motion/react";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import useMode from "@/hooks/useMode";
 import useScroll from "@/hooks/useScroll";
 import { AuthBtn } from "../SignInOut";
 
@@ -29,31 +30,13 @@ const listItemVariants = {
 
 const Header = () => {
   const { data: session } = useSession();
+  const { dev: isDevMode } = useMode();
 
   const [menu, setMenu] = useState<boolean>(false);
-  const [isDevMode, setIsDevMode] = useState<boolean>(false);
 
   const displayMenu = () => {
     setMenu((prev) => !prev);
   };
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setIsDevMode(params.get("mode") === process.env.NEXT_PUBLIC_MODE);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const root = document.documentElement;
-
-    if (isDevMode) {
-      root.style.setProperty("--bg", "#0f172a");
-      root.style.setProperty("--fg", "#facc15");
-    } else {
-      if (session) signOut();
-    }
-  }, [isDevMode, session]);
 
   useEffect(() => {
     if (!open) {

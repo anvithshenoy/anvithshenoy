@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Lenis from "@/components/Lenis";
 
 import { SessionProvider } from "next-auth/react";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const fontHead = localFont({
@@ -53,6 +54,7 @@ export default function RootLayout({
         <Lenis>
           <body className={`${fontHead.variable} ${fontBody.variable}`}>
             {children}
+            <Toaster richColors />
           </body>
         </Lenis>
       </SessionProvider>

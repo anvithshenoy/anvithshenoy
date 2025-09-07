@@ -81,7 +81,7 @@ const Resume = () => {
 
   const [modal, setModal] = useState<boolean>(false);
 
-  const Img = motion(Image);
+  const Img = motion.create(Image);
 
   const closeModal = () => setModal(false);
 
@@ -158,7 +158,8 @@ const Resume = () => {
                   layout="position"
                   layoutId="hardSkill"
                   src={
-                    "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    "https://images.unsplash.com/photo-1538579110458-c0339544123a?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    // "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   }
                   fill
                   alt="Anvith Shenoy B"
@@ -221,14 +222,15 @@ const Resume = () => {
         open={modal}
         onClose={closeModal}
         bg={{
-          src: "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          src: "https://images.unsplash.com/photo-1538579110458-c0339544123a?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          // src: "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           alt: "Anvith Shenoy B",
           layout: "position",
           layoutId: "hardSkill",
           needClose: true,
         }}
-        size="max-w-xs"
-        aspectRatio="aspect-[9/16]"
+        size="max-w-sm sm:max-w-xl"
+        aspectRatio="aspect-[4/3]"
       />
     </>
   );

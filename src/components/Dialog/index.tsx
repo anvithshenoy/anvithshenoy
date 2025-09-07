@@ -35,7 +35,7 @@ const Modal = ({
     | "aspect-[9/16]";
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const Img = motion(Image);
+  const Img = motion.create(Image);
 
   // Close on outside click
   const handleBackdropClick = (e: React.MouseEvent) => {

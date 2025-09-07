@@ -82,7 +82,11 @@ export default function Home() {
         <HeroSection />
       </main>
 
-      <Tabs tabs={sections} tabClassName="sticky top-0 z-40" />
+      <Tabs
+        defaultTab={sections[1].id}
+        tabs={sections}
+        tabClassName="sticky top-0 z-40 bg-bg"
+      />
     </>
   );
 }

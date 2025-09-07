@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
+import "./styles.css";
+
 export type TabType = {
   id: string;
   label: string | React.ReactNode;
@@ -16,20 +18,32 @@ interface TabProps {
   defaultTab?: string;
   tabs: TabType[];
   tabClassName?: string;
+  tabIndicatorClassName?: string;
   className?: string;
   children?: React.ReactNode;
+  reduceMotion?: boolean;
 }
 
 const Tabs: React.FC<TabProps> = ({
   defaultTab,
   tabs,
   tabClassName,
+  tabIndicatorClassName,
   className = "",
   children,
+  reduceMotion,
 }) => {
   const [activeTab, setActiveTab] = useState<string>(defaultTab ?? tabs[0].id);
 
   const filteredTabs = tabs.filter((tab) => tab?.condition ?? true);
+  const motionProps = !reduceMotion
+    ? {
+        initial: { opacity: 0, x: 10 },
+        animate: { opacity: 1, x: 0 },
+        exit: { opacity: 0, x: -10 },
+        transition: { duration: 0.25 },
+      }
+    : {};
 
   const tabChange = (e: React.MouseEvent<HTMLButtonElement>, id: string) => {
     e.currentTarget.scrollIntoView({
@@ -42,10 +56,10 @@ const Tabs: React.FC<TabProps> = ({
   };
 
   return (
-    <div className="relative mx-auto w-99">
+    <div className="relative mx-auto w-full">
       <nav
         className={twMerge(
-          "bg-bg flex w-full items-center justify-start gap-2.5 border-y px-3 py-1 text-xl",
+          "flex w-full items-center justify-start gap-2.5 border-y px-3 py-1 text-xl",
           tabClassName,
         )}
       >
@@ -62,7 +76,7 @@ const Tabs: React.FC<TabProps> = ({
               >
                 {tab.label}
               </button>
-              <span id="indicator" />
+              <span id="indicator" className={tabIndicatorClassName} />
             </li>
           ))}
         </ul>
@@ -99,14 +113,7 @@ const Tabs: React.FC<TabProps> = ({
         {tabs
           .filter((tab) => tab.id === activeTab)
           .map((tab) => (
-            <motion.section
-              key={tab.id}
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
-              transition={{ duration: 0.25 }}
-              className={className}
-            >
+            <motion.section key={tab.id} {...motionProps} className={className}>
               {tab.content}
             </motion.section>
           ))}
