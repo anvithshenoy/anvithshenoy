@@ -8,9 +8,9 @@
 @theme inline {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
-  --font-head: var(--font-head);
-  --font-body: var(--font-body);
-}
+  
+  --font-head: var(--font-head), sans-serif;
+  --font-body: var(--font-body), sans-serif;}
 
 body {
   @apply bg-bg font-body text-fg relative box-border max-h-dvh w-full max-w-dvw overflow-x-hidden overscroll-x-none scroll-smooth antialiased;

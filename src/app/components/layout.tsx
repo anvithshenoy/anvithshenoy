@@ -5,10 +5,14 @@ import { menuList } from "./menuList";
 
 import Header from "@/components/Header";
 import CollapsibleList, { ListItem } from "@/components/Lists";
-import sitemap from "./sitemap";
 
 const Components = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
+
+  const sitemap: { id: string[]; route: string }[] = [
+    { id: ["intro"], route: "/" },
+    { id: ["snippet"], route: "/snippet" },
+  ];
 
   const handleSelect = (item: ListItem) => {
     const matched = sitemap.find((entry) => entry.id.includes(item.id));
