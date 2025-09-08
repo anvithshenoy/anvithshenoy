@@ -129,7 +129,7 @@ const Resume = () => {
               <SwapyTitle title="Expertise" clx="mb-3.5" />
 
               <p className="inline-flex max-w-prose break-after-avoid flex-wrap gap-1.5">
-                {"CSS, ReactJS, Javascript, Adobe Photoshop, UI/UX"
+                {"CSS, ReactJS, Javascript, Adobe Photoshop, UI/UX, Framer-motion"
                   .split(",")
                   .map((el) => (
                     <span
@@ -179,6 +179,7 @@ const Resume = () => {
                   "Flexibility",
                   "Communication",
                   "Adaptability",
+                  "Attention_to_Detail",
                 ].map((el) => (
                   <span
                     key={el}
@@ -228,6 +229,38 @@ const Resume = () => {
           layout: "position",
           layoutId: "hardSkill",
           needClose: true,
+          content: (
+            <>
+              <div className="mb-1.5 flex w-full flex-wrap">
+                <h4 className="indent-2.5">Frontend & Frameworks</h4>
+                <p className="flex w-full flex-wrap gap-0.5">
+                  {"React.js, Next.js, HTML5, CSS3, TailwindCSS, JavaScript, TypeScript, Framer-Motion"
+                    .split(",")
+                    .map((el) => (
+                      <span
+                        key={el}
+                        className="rounded-full border px-2.5 py-0.5 capitalize"
+                      >
+                        {el}
+                      </span>
+                    ))}
+                </p>
+              </div>
+              <div className="mb-1.5 flex w-full flex-wrap">
+                <h4 className="indent-2.5">Tools & Hosting</h4>
+                <p className="flex w-full flex-wrap gap-0.5">
+                  {"NPM, Git & Github, Vercel".split(",").map((el) => (
+                    <span
+                      key={el}
+                      className="rounded-full border px-2.5 py-0.5 capitalize"
+                    >
+                      {el}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </>
+          ),
         }}
         size="max-w-sm sm:max-w-xl"
         aspectRatio="aspect-[4/3]"

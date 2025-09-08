@@ -1,4 +1,7 @@
+"use client";
+
 import { AnimatePresence, motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -12,8 +15,10 @@ export type ListItem = {
     start?: React.ReactNode;
     end?: React.ReactNode;
   };
+  route?: string;
   children?: ListItem[];
   display?: boolean;
+  className?: string;
 };
 
 const CollapsibleItem = ({
@@ -28,7 +33,7 @@ const CollapsibleItem = ({
 
   const handleClick = () => {
     if (hasChildren) {
-      setIsOpen(!isOpen);
+      setIsOpen((prev) => !prev);
     } else {
       onSelect?.(item);
       item.onClick?.();
@@ -41,6 +46,7 @@ const CollapsibleItem = ({
         className={twMerge(
           "inline-flex cursor-pointer items-start gap-1.5 text-xl select-none",
           hasChildren && "font-bold",
+          item.className,
         )}
         onClick={handleClick}
       >
@@ -130,18 +136,41 @@ const CollapsibleItem = ({
 
 const CollapsibleList = ({
   items,
+  route,
   onSelect,
+  ...rest
 }: {
   items: ListItem[];
-  onSelect?: (item: ListItem) => void;
-}) => (
-  <ul className="list-none">
-    {items
-      .filter((item) => item.display !== false)
-      .map((item) => (
-        <CollapsibleItem key={item.id} item={item} onSelect={onSelect} />
-      ))}
-  </ul>
-);
+  route?: {
+    defaultRoute?: string;
+    placeholder?: string;
+  };
+  onSelect?: () => void | ((...args: unknown[]) => void);
+}) => {
+  const router = useRouter();
+
+  const handleSelect = (item: ListItem) => {
+    try {
+      if (route) {
+        return router.push(
+          route.defaultRoute + (item.route ?? route.placeholder ?? ""),
+        );
+      }
+    } catch {
+    } finally {
+      onSelect?.();
+    }
+  };
+
+  return (
+    <ul {...rest}>
+      {items
+        .filter((item) => item.display !== false)
+        .map((item) => (
+          <CollapsibleItem key={item.id} item={item} onSelect={handleSelect} />
+        ))}
+    </ul>
+  );
+};
 
 export default CollapsibleList;

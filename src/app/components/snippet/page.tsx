@@ -2,7 +2,7 @@ import Snippet from "@/components/Snippet";
 
 const SnippetDetails = () => {
   return (
-    <section className="space-y-3">
+    <>
       <h1 className="text-2xl">Snippet</h1>
       <p>
         The CodeSnippet component is a React component designed to display code
@@ -23,7 +23,7 @@ const SnippetDetails = () => {
           className="break-keep"
         />
       </div>
-    </section>
+    </>
   );
 };
 

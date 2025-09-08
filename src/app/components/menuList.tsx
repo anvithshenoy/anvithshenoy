@@ -1,5 +1,6 @@
-import { ListItem } from "@/components/Lists";
 import { motion } from "motion/react";
+
+import { ListItem } from "@/components/Lists";
 
 export const menuList: ListItem[] = [
   {
@@ -9,13 +10,14 @@ export const menuList: ListItem[] = [
       {
         id: "intro",
         label: "Introduction",
+        route: "/",
       },
     ],
   },
-  { id: "btn", label: "Button" },
-  { id: "tabs", label: "Tabs" },
-  { id: "card", label: "Card" },
-  { id: "snippet", label: "Snippet" },
+  { id: "btn", label: "Button", route: "/button" },
+  { id: "tabs", label: "Tabs", route: "/tabs" },
+  { id: "card", label: "Card", route: "/card" },
+  { id: "snippet", label: "Snippet", route: "/snippet" },
   {
     id: "data-grid",
     label: "Data Grid",
@@ -41,5 +43,6 @@ export const menuList: ListItem[] = [
         </motion.svg>
       ),
     },
+    route: "/data-grid",
   },
 ];

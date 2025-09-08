@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 
 import Lenis from "@/components/Lenis";
 
+import ContextWrapper from "@/components/ContextMenu/Wrapper";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -53,8 +54,17 @@ export default function RootLayout({
       <SessionProvider>
         <Lenis>
           <body className={`${fontHead.variable} ${fontBody.variable}`}>
-            {children}
-            <Toaster richColors />
+            <ContextWrapper>
+              {children}
+              <Toaster
+                toastOptions={{
+                  style: {
+                    background: "light-dark(var(--fg), var(--bg))",
+                    color: "light-dark(var(--bg), var(--fg))",
+                  },
+                }}
+              />
+            </ContextWrapper>
           </body>
         </Lenis>
       </SessionProvider>

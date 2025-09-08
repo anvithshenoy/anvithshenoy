@@ -78,7 +78,6 @@ export default function Home() {
     <>
       <main className="relative">
         <Header />
-
         <HeroSection />
       </main>
 

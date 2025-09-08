@@ -46,9 +46,9 @@ const Intro = () => {
         copy, paste, and customize components in their projects. It leverages a
         few essential dependencies like Tailwind CSS for styling,{" "}
         <code>tailwind-merge</code> for managing class names, and{" "}
-        <code>framer-motion</code> for smooth animations. By keeping
-        dependencies light and focused, this setup helps developers quickly
-        integrate flexible and reusable UI components without unnecessary bloat.
+        <code>motion/react</code> for smooth animations. By keeping dependencies
+        light and focused, this setup helps developers quickly integrate
+        flexible and reusable UI components without unnecessary bloat.
       </p>
 
       <div className="max-w-prose">

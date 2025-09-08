@@ -57,7 +57,11 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-bg sticky top-0 z-50 inline-flex w-full items-center justify-center gap-2.5 border-b px-5 py-2.5 text-3xl sm:justify-start">
+      <header
+        className="bg-bg sticky top-0 z-50 inline-flex w-full items-center justify-center gap-2.5 border-b px-5 py-2.5 text-3xl sm:justify-start"
+        data-disable-context
+        onContextMenu={(e) => e.preventDefault()}
+      >
         <div className="bg-fg relative aspect-square max-h-12 w-full max-w-12 overflow-hidden rounded-full">
           <Image
             src={
@@ -233,6 +237,8 @@ const Header = () => {
         {menu && (
           <motion.aside
             initial={{ opacity: 0, x: 100 }}
+            data-disable-context
+            onContextMenu={(e) => e.preventDefault()}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{

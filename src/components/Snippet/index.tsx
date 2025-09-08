@@ -9,14 +9,14 @@ const CodeSnippet = ({
   icon,
   onClick,
   unhideOnHover = false,
-  doubleClickCopy = true,
+  tripleClickCopy = true,
 }: {
   code: string;
   className?: string;
   icon?: React.ReactNode;
   onClick?: (() => void) | ((...args: unknown[]) => void);
   unhideOnHover?: boolean;
-  doubleClickCopy?: boolean;
+  tripleClickCopy?: boolean;
 }) => {
   const copyCode = async (text: string) => {
     try {
@@ -46,7 +46,7 @@ const CodeSnippet = ({
   };
 
   const handleClicks = (e: React.MouseEvent) => {
-    if (doubleClickCopy && e.detail === 3) return copyCode(code);
+    if (tripleClickCopy && e.detail === 3) return copyCode(code);
   };
 
   return (
