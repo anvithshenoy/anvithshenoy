@@ -11,6 +11,7 @@ const codeSnippets = [
         code="npm i tailwindcss tailwind-merge motion sonner"
         unhideOnHover
         className="rounded-none"
+        toastMsg="Happy coding"
       />
     ),
   },
@@ -60,9 +61,13 @@ const Intro = () => {
         />
       </div>
 
-      <div className="w-full">
-        <Button rounded="rounded-md" outlined className="bg-fg text-bg my-3.5">
-          Button
+      <div className="flex w-full items-end justify-end gap-3.5">
+        <Button
+          rounded="rounded-md"
+          outlined
+          className="bg-fg text-bg w-full max-w-prose"
+        >
+          Next
         </Button>
       </div>
     </>

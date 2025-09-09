@@ -1,7 +1,6 @@
 import { ContextList } from "@/components/ContextMenu";
 
-const THEME_STORAGE_KEY = "app-theme";
-const DIR_STORAGE_KEY = "app-dir";
+import { changeMode, toggleDir } from "@/lib/utils";
 
 const Menu: ContextList[] = [
   {
@@ -72,9 +71,7 @@ const Menu: ContextList[] = [
       </svg>
     ),
     onClick() {
-      const root = document.documentElement;
-      root.setAttribute("data-theme", "light");
-      localStorage.setItem(THEME_STORAGE_KEY, "light");
+      changeMode("light");
     },
   },
   {
@@ -92,9 +89,7 @@ const Menu: ContextList[] = [
       </svg>
     ),
     onClick() {
-      const root = document.documentElement;
-      root.setAttribute("data-theme", "dark");
-      localStorage.setItem(THEME_STORAGE_KEY, "dark");
+      changeMode("dark");
     },
   },
   {
@@ -113,15 +108,26 @@ const Menu: ContextList[] = [
         />
       </svg>
     ),
+    onClick: toggleDir,
+  },
+  {
+    id: "inspect",
+    label: "Inspect",
+    startIcon: (
+      <div className="aspect-square h-6 rounded-sm border py-1 text-center text-xs uppercase">
+        f12
+      </div>
+    ),
     onClick() {
-      const root = document.documentElement;
-      const currentDir = getComputedStyle(root).direction;
-      const newDir = currentDir === "ltr" ? "rtl" : "ltr";
-
-      root.style.direction = newDir;
-      root.setAttribute("direction", newDir);
-      localStorage.setItem(DIR_STORAGE_KEY, newDir);
+      document.dispatchEvent(
+        new KeyboardEvent("keydown", {
+          ctrlKey: true,
+          shiftKey: true,
+          key: "I",
+        }),
+      );
     },
+    disabled: true,
   },
 ];
 

@@ -1,19 +1,28 @@
 "use client";
 
-import ContextMenu from ".";
+import ContextMenu, { ContextList } from ".";
 
 import contextMenu from "@/app/context";
 
 const ContextWrapper = ({
+  customList = contextMenu,
   children,
+  drag,
   className,
   ...rest
 }: {
+  customList?: ContextList[];
   children: React.ReactNode;
   className?: string;
+  drag?: boolean;
 }) => {
   return (
-    <ContextMenu list={contextMenu} className={className} {...rest}>
+    <ContextMenu
+      enableDrag={drag}
+      list={customList}
+      className={className}
+      {...rest}
+    >
       {children}
     </ContextMenu>
   );

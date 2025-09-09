@@ -1,13 +1,12 @@
-"use client";
+import Link from "next/link";
 
 import Header from "@/components/Header";
-import Link from "next/link";
 
 const NotFound = () => {
   return (
     <>
       <Header />
-      <main className="flex h-[calc(100svh-5rem)] w-full flex-col items-center justify-center gap-3.5">
+      <main className="relative flex h-[calc(100svh-4.3rem)] max-w-screen flex-col items-center justify-center gap-3.5 overflow-x-hidden">
         <h1 className="sr-only">404 - Page not found</h1>
         <div
           aria-hidden="true"

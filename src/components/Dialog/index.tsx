@@ -65,7 +65,7 @@ const Modal = ({
     <AnimatePresence>
       {open && (
         <div
-          className="bg-fg/35 fixed top-0 right-0 z-50 h-dvh w-dvw place-items-center content-center backdrop-blur-xs"
+          className="fixed top-0 right-0 z-50 h-dvh w-dvw place-items-center content-center bg-black/25 backdrop-blur-xs"
           onClick={handleBackdropClick}
         >
           <motion.div

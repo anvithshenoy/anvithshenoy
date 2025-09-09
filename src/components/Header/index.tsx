@@ -6,8 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import useMode from "@/hooks/useMode";
 import useScroll from "@/hooks/useScroll";
+import { toggleDir } from "@/lib/utils";
+import { useTheme } from "@/providers/Theme";
 import { AuthBtn } from "../SignInOut";
 
 const listVariant = {
@@ -30,7 +31,7 @@ const listItemVariants = {
 
 const Header = () => {
   const { data: session } = useSession();
-  const { dev: isDevMode } = useMode();
+  const { dev: isDevMode, theme, changeTheme } = useTheme();
 
   const [menu, setMenu] = useState<boolean>(false);
 
@@ -235,7 +236,7 @@ const Header = () => {
 
       <AnimatePresence mode="wait">
         {menu && (
-          <motion.aside
+          <motion.menu
             initial={{ opacity: 0, x: 100 }}
             data-disable-context
             onContextMenu={(e) => e.preventDefault()}
@@ -244,10 +245,10 @@ const Header = () => {
             transition={{
               type: "keyframes",
             }}
-            className="bg-fg text-bg fixed right-0 z-50 h-dvh w-dvw content-center px-3.5 pt-1 pb-24"
+            className="bg-fg text-bg fixed right-0 z-50 flex h-dvh w-dvw flex-col items-center justify-center px-3.5 pt-1 pb-24"
           >
             <motion.ul
-              className="font-head mx-auto max-w-3xs space-y-3.5 text-3xl *:relative *:w-full *:underline-offset-8"
+              className="font-head mx-auto max-w-3xs flex-1 content-center space-y-3.5 text-3xl *:relative *:w-full *:underline-offset-8"
               onClick={displayMenu}
               variants={listVariant}
               initial="initial"
@@ -289,7 +290,25 @@ const Header = () => {
                   </motion.li>
                 ))}
             </motion.ul>
-          </motion.aside>
+
+            <motion.menu className="relative mb-3.5 flex w-full flex-row-reverse items-baseline justify-between gap-3.5 space-y-3.5 self-start text-xl capitalize sm:hidden">
+              <motion.li className="inline-flex items-baseline gap-3.5 capitalize">
+                <button onClick={() => toggleDir()} type="button">
+                  Switch Text Direction
+                </button>
+              </motion.li>
+              <motion.li className="items-baseline gap-3.5">
+                <button
+                  onClick={() =>
+                    changeTheme(theme === "light" ? "dark" : "light")
+                  }
+                  type="button"
+                >
+                  Switch {theme === "light" ? "Dark" : "Light"}
+                </button>
+              </motion.li>
+            </motion.menu>
+          </motion.menu>
         )}
       </AnimatePresence>
     </>

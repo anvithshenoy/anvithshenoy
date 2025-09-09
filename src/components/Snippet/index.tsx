@@ -10,6 +10,7 @@ const CodeSnippet = ({
   onClick,
   unhideOnHover = false,
   tripleClickCopy = true,
+  toastMsg = "Code copied to clipboard",
 }: {
   code: string;
   className?: string;
@@ -17,6 +18,7 @@ const CodeSnippet = ({
   onClick?: (() => void) | ((...args: unknown[]) => void);
   unhideOnHover?: boolean;
   tripleClickCopy?: boolean;
+  toastMsg?: string;
 }) => {
   const copyCode = async (text: string) => {
     try {
@@ -37,7 +39,7 @@ const CodeSnippet = ({
         if (!success) throw new Error("Fallback copy failed");
       }
 
-      toast.success("Code copied to clipboard!");
+      toast.success(toastMsg);
     } catch (err) {
       toast.error("Failed to copy code to clipboard.");
       console.error("Clipboard copy error:", err);
