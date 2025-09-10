@@ -20,7 +20,7 @@ const SnippetDetails = () => {
       <div className="max-w-prose">
         <Snippet
           code="npm i sonner tailwindcss tailwind-merge"
-          className="break-keep"
+          className="text-title break-keep"
         />
       </div>
     </>

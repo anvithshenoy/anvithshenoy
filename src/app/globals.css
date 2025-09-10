@@ -61,8 +61,7 @@ h2,
 h3,
 h4,
 h5,
-h6,
-strong {
+h6 {
   @apply font-head text-title;
 }
 

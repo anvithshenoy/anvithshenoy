@@ -211,9 +211,9 @@ const Resume = () => {
                   .join(" - ")}
                 tag={ed.type}
               >
-                <p className="font-head my-1.5 max-w-prose text-2xl">
+                <h3 className="font-head my-1.5 max-w-prose text-2xl">
                   {ed.expertise}
-                </p>
+                </h3>
                 <p className="max-w-prose text-lg">{ed.institution}</p>
                 <p className="font-head max-w-prose text-lg">{ed.grade} CGPA</p>
               </Card>

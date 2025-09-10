@@ -6,10 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import Button from "@/components/Button";
+import CollapsibleList from "@/components/Lists";
+import { AuthBtn } from "@/components/SignInOut";
+
 import useScroll from "@/hooks/useScroll";
-import { toggleDir } from "@/lib/utils";
 import { useTheme } from "@/providers/Theme";
-import { AuthBtn } from "../SignInOut";
+
+import { toggleDir } from "@/lib/utils";
 
 const listVariant = {
   initial: {
@@ -81,8 +85,10 @@ const Header = () => {
             <Link href={"/"} className="absolute inset-0 z-10 text-sm" />
           )}
         </div>
-        <strong className="hidden uppercase sm:inline">Anvith Shenoy B</strong>
-        <strong className="inline flex-1 text-center uppercase sm:hidden">
+        <strong className="font-head hidden uppercase sm:inline">
+          Anvith Shenoy B
+        </strong>
+        <strong className="font-head inline flex-1 text-center uppercase sm:hidden">
           Shenoy Devfolio
         </strong>
 
@@ -112,11 +118,11 @@ const Header = () => {
 
         <div className="inline sm:flex-1" />
 
-        <p className="hidden text-2xl sm:inline sm:border-l sm:px-4 sm:pe-0">
+        <p className="text-title hidden text-2xl sm:inline sm:border-l sm:px-4 sm:pe-0">
           Front End Devfolio
         </p>
 
-        <button onClick={displayMenu}>
+        <Button className="p-0" onClick={displayMenu}>
           {menu ? (
             <svg
               version="1.1"
@@ -231,14 +237,13 @@ const Header = () => {
               />
             </motion.svg>
           )}
-        </button>
+        </Button>
       </header>
 
       <AnimatePresence mode="wait">
         {menu && (
           <motion.menu
             initial={{ opacity: 0, x: 100 }}
-            onContextMenu={(e) => e.preventDefault()}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{
@@ -248,14 +253,14 @@ const Header = () => {
           >
             <motion.ul
               className="font-head mx-auto max-w-3xs flex-1 content-center space-y-3.5 text-3xl *:relative *:w-full *:underline-offset-8"
-              onClick={displayMenu}
+              // onClick={displayMenu}
               variants={listVariant}
               initial="initial"
               animate="animate"
               exit="exit"
               transition={{
                 ease: "easeOut",
-                delayChildren: stagger(0.5),
+                delayChildren: stagger(0.25),
               }}
             >
               {links
@@ -268,7 +273,8 @@ const Header = () => {
                   >
                     <Link
                       href={link.href}
-                      className="animated-underline inline-flex! items-baseline gap-3.5"
+                      onClick={displayMenu}
+                      className="animated-underline inline-flex! items-baseline justify-start gap-3.5"
                     >
                       {link.text}
                       <svg
@@ -288,6 +294,36 @@ const Header = () => {
                     </Link>
                   </motion.li>
                 ))}
+              <motion.li variants={listItemVariants}>
+                <CollapsibleList
+                  className="hidden sm:inline"
+                  items={[
+                    {
+                      id: "settings",
+                      label: "Settings",
+                      className: "p-0",
+                      expanded: true,
+                      children: [
+                        {
+                          id: "theme-switch",
+                          label: "Switch Theme",
+                          className:
+                            "animated-underline after:bottom-0! w-fit font-body text-start",
+                          onClick: () =>
+                            changeTheme(theme === "light" ? "dark" : "light"),
+                        },
+                        {
+                          id: "switch-dir",
+                          label: "Switch Direction",
+                          className:
+                            "animated-underline after:bottom-0! w-fit font-body text-start",
+                          onClick: toggleDir,
+                        },
+                      ],
+                    },
+                  ]}
+                />
+              </motion.li>
             </motion.ul>
 
             <motion.menu className="relative mb-3.5 flex w-full flex-row-reverse items-baseline justify-between gap-3.5 space-y-3.5 self-start text-xl capitalize sm:hidden">

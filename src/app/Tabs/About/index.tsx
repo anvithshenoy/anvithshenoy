@@ -1,10 +1,11 @@
 "use client";
 
-import { SwapyTitle } from "@/components/Tabs";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { createSwapy, Swapy } from "swapy";
+
+import { SwapyTitle } from "@/components/Tabs";
 
 const AboutMe = () => {
   const swapy = useRef<Swapy | null>(null);

@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import Cards, { Card } from "@/components/Card/DragCard";
 
+export const GoogleSearch = "https://www.google.com/search?q=";
+
 const HeroSection = () => {
   const cardList: Card[] = [
     {
@@ -34,7 +36,7 @@ const HeroSection = () => {
       },
     },
     {
-      src: "/IMG_1531.png",
+      src: "/IMG_1531.jpg",
       alt: "My Life",
       angle: 0,
       location: {
@@ -48,10 +50,7 @@ const HeroSection = () => {
     <section className="relative mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
       <div className="w-full">
         <p className="ms-auto max-w-prose px-1.5 text-start break-keep lowercase underline underline-offset-8 sm:text-end">
-          <Link
-            href={"https://www.google.com/search?q=anvithshenoy"}
-            target="_blank"
-          >
+          <Link href={GoogleSearch + "anvithshenoy"} target="_blank">
             #anvithshenoy
           </Link>{" "}
           #Work_in_progress #Shenoy_Devfolio #CSS_LIFE #THE_ORIGINAL

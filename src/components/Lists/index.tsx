@@ -18,6 +18,7 @@ export type ListItem = {
   route?: string;
   children?: ListItem[];
   display?: boolean;
+  expanded?: boolean;
   className?: string;
 };
 
@@ -28,7 +29,7 @@ const CollapsibleItem = ({
   item: ListItem;
   onSelect?: (item: ListItem) => void;
 }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(item.expanded ?? false);
   const hasChildren = item.children && item.children.length > 0;
 
   const handleClick = () => {
@@ -59,7 +60,7 @@ const CollapsibleItem = ({
             <motion.svg
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              className="fill-fg aspect-square h-6"
+              className="fill-title aspect-square h-6"
               initial={{
                 opacity: 0,
               }}
@@ -79,7 +80,7 @@ const CollapsibleItem = ({
                 x2="12"
                 y1="19"
                 y2="5"
-                className="stroke-fg"
+                className="stroke-current"
                 animate={{
                   rotate: isOpen ? 90 : 0,
                 }}
@@ -93,7 +94,7 @@ const CollapsibleItem = ({
                 x2="19"
                 y1="12"
                 y2="12"
-                className="stroke-fg"
+                className="stroke-current"
               />
             </motion.svg>
           )}
@@ -138,9 +139,11 @@ const CollapsibleList = ({
   items,
   route,
   onSelect,
+  className,
   ...rest
 }: {
   items: ListItem[];
+  className?: string;
   route?: {
     defaultRoute?: string;
     placeholder?: string;
@@ -163,7 +166,7 @@ const CollapsibleList = ({
   };
 
   return (
-    <ul {...rest}>
+    <ul {...rest} className={className}>
       {items
         .filter((item) => item.display !== false)
         .map((item) => (

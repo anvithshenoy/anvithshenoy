@@ -65,7 +65,7 @@ const Intro = () => {
         <Button
           rounded="rounded-md"
           outlined
-          className="bg-fg text-bg w-full max-w-prose"
+          className="bg-fg text-bg max-w-prose"
         >
           Next
         </Button>
