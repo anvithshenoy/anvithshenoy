@@ -154,7 +154,7 @@ const Resume = () => {
                 className="relative aspect-video w-full cursor-zoom-in overflow-hidden rounded-2xl"
                 onClick={() => setModal(true)}
               >
-                <div className="text-fg inset-0 z-0 h-full content-center bg-white/10 text-center transition-opacity duration-300 ease-out hover:opacity-100 sm:opacity-0">
+                <div className="text-title bg-bg/10 sm:bg-title/10 inset-0 z-0 h-full content-center text-center transition-opacity duration-300 ease-out hover:opacity-100 sm:opacity-0">
                   Tap to reveal
                 </div>
                 <Img
@@ -238,14 +238,16 @@ const Resume = () => {
       >
         <>
           <div className="my-1.5 flex w-full flex-wrap">
-            <h4 className="mb-1.5 indent-2.5">Frontend & Frameworks</h4>
+            <h4 className="text-title mb-1.5 indent-2.5">
+              Frontend & Frameworks
+            </h4>
             <p className="flex w-full flex-wrap gap-0.5">
               {"React.js, Next.js, HTML5, CSS3, TailwindCSS, JavaScript, TypeScript, Framer-Motion"
                 .split(",")
                 .map((el) => (
                   <span
                     key={el}
-                    className="rounded-full border px-2.5 py-0.5 capitalize"
+                    className="rounded-full border border-current/50 px-4 py-0.5 capitalize"
                   >
                     {el}
                   </span>
@@ -253,12 +255,12 @@ const Resume = () => {
             </p>
           </div>
           <div className="my-1.5 flex w-full flex-wrap">
-            <h4 className="mb-1.5 indent-2.5">Tools & Hosting</h4>
+            <h4 className="text-title mb-1.5 indent-2.5">Tools & Hosting</h4>
             <p className="flex w-full flex-wrap gap-0.5">
               {"NPM, Git & Github, Vercel".split(",").map((el) => (
                 <span
                   key={el}
-                  className="rounded-full border px-2.5 py-0.5 capitalize"
+                  className="rounded-full border border-current/50 px-4 py-0.5 capitalize"
                 >
                   {el}
                 </span>

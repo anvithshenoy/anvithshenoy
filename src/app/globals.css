@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #fffaf0;
-  --fg: #2b323f;
+  --bg: #fef8e8;
+  --fg: #161616;
+  --title: #f44a22;
 }
 
 [direction="rtl"] {
@@ -13,17 +14,20 @@
 }
 
 [data-theme="light"] {
-  --bg: #fffaf0;
-  --fg: #2b323f;
+  --bg: #fef8e8;
+  --fg: #161616;
+  --title: #f44a22;
 }
 [data-theme="dark"] {
-  --fg: #fffaf0;
-  --bg: #2b323f;
+  --bg: #161616;
+  --fg: #f44a22;
+  --title: #fef8e8;
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
+  --color-title: var(--title);
 
   --font-head: var(--font-head), sans-serif;
   --font-body: var(--font-body), sans-serif;
@@ -59,7 +63,7 @@ h4,
 h5,
 h6,
 strong {
-  @apply font-head;
+  @apply font-head text-title;
 }
 
 button,
@@ -116,6 +120,14 @@ section.masonryLayout div.masonryCard {
   @apply mb-2 break-inside-avoid border p-4;
 }
 
+[direction="ltr"] [role="menubar"] {
+  @apply border-e;
+}
+[direction="rtl"] [role="menubar"] {
+  @apply border-s;
+}
+
+/* ANIMATED LINK/BUTTON UNDERLINE */
 .animated-underline {
   position: relative;
   display: inline-block;

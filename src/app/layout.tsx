@@ -51,12 +51,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <SessionProvider>
-        <Lenis>
-          <ThemeProvider>
-            <body className={`${fontHead.variable} ${fontBody.variable}`}>
-              <ContextWrapper>
+    <ContextWrapper bg="var(--bg)">
+      <html lang="en">
+        <SessionProvider>
+          <Lenis>
+            <ThemeProvider>
+              <body className={`${fontHead.variable} ${fontBody.variable}`}>
                 {children}
                 <Toaster
                   toastOptions={{
@@ -66,11 +66,11 @@ export default function RootLayout({
                     },
                   }}
                 />
-              </ContextWrapper>
-            </body>
-          </ThemeProvider>
-        </Lenis>
-      </SessionProvider>
-    </html>
+              </body>
+            </ThemeProvider>
+          </Lenis>
+        </SessionProvider>
+      </html>
+    </ContextWrapper>
   );
 }

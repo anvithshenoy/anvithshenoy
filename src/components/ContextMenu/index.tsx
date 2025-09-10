@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 
 import useScroll from "@/hooks/useScroll";
 
-export type ContextList = {
+export type ContextMenuItem = {
   id: string | number;
   label: string | React.ReactNode;
   startIcon?: React.ReactNode;
@@ -17,19 +17,30 @@ export type ContextList = {
   className?: string;
 };
 
+// Represents a section/group of menu items
+export type ContextMenuSection = {
+  sectionId: string | number;
+  section: ContextMenuItem[];
+  className?: string;
+  disabled?: boolean;
+  visible?: boolean;
+};
+
 const ContextMenu = ({
   list,
   children,
   className,
   disabled = false,
   enableDrag = false,
+  background,
   ...rest
 }: {
-  list: ContextList[];
+  list: ContextMenuSection[];
   children: React.ReactNode;
   className?: string;
   enableDrag?: boolean;
   disabled?: boolean;
+  background?: string;
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -92,8 +103,8 @@ const ContextMenu = ({
     }
   };
 
-  const listItemClick = (li: ContextList) => {
-    if (!li.disabled) {
+  const listItemClick = (group: ContextMenuSection, li: ContextMenuItem) => {
+    if (!group.disabled || !li.disabled) {
       li.onClick();
       setIsVisible(false);
     }
@@ -119,39 +130,56 @@ const ContextMenu = ({
   return (
     <div onContextMenu={handleContextMenu}>
       {children}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {isVisible && (
           <motion.div
             drag={enableDrag}
             ref={menuRef}
-            style={{ top: position.y, left: position.x }}
-            className="absolute z-50 w-3xs max-w-3xs overflow-x-hidden rounded-md border border-current/75 shadow-lg"
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            style={{ top: position.y, left: position.x, background }}
+            className={twMerge(
+              "absolute z-50 w-full max-w-3xs divide-y divide-current/25 overflow-x-hidden rounded-md border border-current/75 shadow *:select-none *:*:hover:bg-current/5",
+              className,
+            )}
             {...rest}
           >
-            <ul
-              className={twMerge(
-                "bg-bg divide-y divide-current/25 *:select-none *:hover:bg-current/5",
-                className,
-              )}
-            >
-              {list
-                ?.filter((li) => li.visible !== false)
-                ?.map((li) => (
-                  <li
-                    key={li.id}
-                    className={twMerge(
-                      "flex w-full cursor-pointer items-center gap-2.5 p-2 *:max-h-6",
-                      li.disabled && "opacity-25",
-                      li.className,
-                    )}
-                    onClick={() => listItemClick(li)}
-                  >
-                    {li.startIcon}
-                    {li.label}
-                    {li.endIcon}
-                  </li>
-                ))}
-            </ul>
+            {list
+              .filter((group) => group.visible !== false)
+              .map((group) => (
+                <ul key={group.sectionId} className={group.className}>
+                  {group.section
+                    .filter((li: ContextMenuItem) => li.visible !== false)
+                    .map((li: ContextMenuItem) => (
+                      <li
+                        key={li.id}
+                        className={twMerge(
+                          "flex w-full items-center gap-2.5 p-2 select-none *:max-h-6",
+                          group.disabled || li.disabled
+                            ? "cursor-not-allowed opacity-25"
+                            : "cursor-pointer",
+                          li.className,
+                        )}
+                        onClick={() => listItemClick(group, li)}
+                      >
+                        {li.startIcon}
+                        {li.label}
+                        {li.endIcon}
+                      </li>
+                    ))}
+                </ul>
+              ))}
           </motion.div>
         )}
       </AnimatePresence>

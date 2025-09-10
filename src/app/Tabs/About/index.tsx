@@ -25,13 +25,10 @@ const AboutMe = () => {
       ref={container}
       className="grid grid-cols-1 px-3.5 py-2 sm:grid-cols-3 sm:gap-3.5"
     >
-      <div data-swapy-slot="profile">
-        <div
-          data-swapy-item="profile"
-          className="text-bg bg-fg/35 relative inline-flex aspect-square size-full flex-col items-start overflow-hidden rounded-2xl p-4 text-xl drop-shadow-md"
-        >
+      <div>
+        <div className="text-title bg-fg/35 relative inline-flex aspect-square size-full flex-col items-start overflow-hidden rounded-2xl p-4 text-xl drop-shadow-md">
           <p className="mt-auto indent-0.5">Hello, I am</p>
-          <SwapyTitle title="Anvith Shenoy B" clx="indent-0!" />
+          <h1 className="text-5xl">Anvith Shenoy B</h1>
           <Image
             src={
               "https://anvithshenoy.vercel.app/myself.jpg"

@@ -60,6 +60,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     if (isDevMode) {
       root.style.setProperty("--bg", "#0f172a");
       root.style.setProperty("--fg", "#facc15");
+      root.style.setProperty("--title", "#fff");
       return;
     }
 

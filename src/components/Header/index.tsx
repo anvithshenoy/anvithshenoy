@@ -238,7 +238,6 @@ const Header = () => {
         {menu && (
           <motion.menu
             initial={{ opacity: 0, x: 100 }}
-            data-disable-context
             onContextMenu={(e) => e.preventDefault()}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}

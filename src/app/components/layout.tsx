@@ -10,10 +10,10 @@ const Components = ({ children }: { children: React.ReactNode }) => {
     <>
       <Header />
 
-      <main className="relative flex w-full items-start gap-3.5">
+      <main className="5 relative flex w-full items-start">
         <aside
           role="menubar"
-          className="bg-bg sticky top-0 right-0 hidden h-full w-full flex-col gap-1.5 overflow-auto border-x p-2.5 sm:top-18 sm:inline-flex sm:h-[calc(100dvh-4.375rem)] sm:max-w-3xs"
+          className="bg-bg sticky top-0 right-0 hidden h-full w-full flex-col gap-1.5 overflow-auto p-2.5 sm:top-18 sm:inline-flex sm:h-[calc(100dvh-4.375rem)] sm:max-w-3xs"
         >
           <CollapsibleList
             items={menuList}
@@ -27,7 +27,7 @@ const Components = ({ children }: { children: React.ReactNode }) => {
           </Link>
         </aside>
 
-        <section className="h-full w-full flex-1 space-y-3.5 p-4 *:leading-relaxed">
+        <section className="relative h-full w-full flex-1 space-y-3.5 p-4 *:leading-relaxed">
           {children}
         </section>
       </main>

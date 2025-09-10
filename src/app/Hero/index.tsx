@@ -64,9 +64,9 @@ const HeroSection = () => {
       <div
         data-disable-context
         onContextMenu={(e) => e.preventDefault()}
-        className="font-bg bg-fg/75 relative flex aspect-square h-full max-h-[75vh] w-full max-w-[75vh] items-center justify-center overflow-hidden rounded-2xl bg-[url(/backdrop.jpg)] bg-cover p-4 bg-blend-darken inset-shadow-sm drop-shadow-md"
+        className="text-fg bg-fg/75 relative flex aspect-square h-full max-h-[75vh] w-full max-w-[75vh] items-center justify-center overflow-hidden rounded-2xl bg-[url(/backdrop.jpg)] bg-cover p-4 bg-blend-darken inset-shadow-sm drop-shadow-md"
       >
-        <h1 className="text-center text-5xl uppercase text-shadow-md">
+        <h1 className="text-title text-center text-5xl uppercase">
           Devfolio {new Date().getFullYear()}
         </h1>
         <Cards srcList={cardList} />

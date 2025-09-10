@@ -127,7 +127,12 @@ export default Tabs;
 export const SwapyTitle = ({ title, clx }: { title: string; clx?: string }) => {
   return (
     <div className={"flex w-full items-baseline text-4xl"}>
-      <h2 className={["flex-1 indent-2.5", clx].filter(Boolean).join(" ")}>
+      <h2
+        className={twMerge(
+          "text-title flex-1 indent-2.5 text-shadow-sm dark:text-shadow-none",
+          clx,
+        )}
+      >
         {title}
       </h2>
       <svg
