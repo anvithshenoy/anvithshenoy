@@ -26,24 +26,22 @@ const AboutMe = () => {
       ref={container}
       className="grid grid-cols-1 px-3.5 py-2 sm:grid-cols-3 sm:gap-3.5"
     >
-      <div>
-        <div className="text-title bg-fg/35 relative inline-flex aspect-square size-full flex-col items-start overflow-hidden rounded-2xl p-4 text-xl drop-shadow-md">
-          <p className="mt-auto indent-0.5">Hello, I am</p>
-          <h1 className="text-5xl">Anvith Shenoy B</h1>
-          <Image
-            src={
-              "https://anvithshenoy.vercel.app/myself.jpg"
-              //   "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            }
-            fill
-            alt="Anvith Shenoy B"
-            className="-z-10 object-cover mix-blend-darken"
-            draggable={false}
-          />
-        </div>
-      </div>
+      <section className="bg-fg/35 relative inline-flex aspect-square size-full flex-col items-start overflow-hidden rounded-2xl p-4 text-xl drop-shadow-md">
+        <p className="mt-auto indent-0.5 text-gray-100">Hello, I am</p>
+        <h1 className="text-5xl">Anvith Shenoy B</h1>
+        <Image
+          src={
+            "https://anvithshenoy.vercel.app/myself.jpg"
+            //   "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
+          fill
+          alt="Anvith Shenoy B"
+          className="-z-10 object-cover mix-blend-darken"
+          draggable={false}
+        />
+      </section>
 
-      <div className="col-span-2 flex flex-col justify-start gap-5 divide-y">
+      <section className="col-span-2 flex flex-col justify-start gap-5 divide-y">
         <div data-swapy-slot="intro">
           <div data-swapy-item="intro" className="space-y-1.5 py-2.5">
             <SwapyTitle title="Introduction" />
@@ -69,12 +67,12 @@ const AboutMe = () => {
           >
             <SwapyTitle title="Get In Touch" />
 
-            <div className="grid w-full grid-cols-3 gap-1.5">
+            <div className="inline-flex w-full flex-wrap gap-1.5">
               <Link
                 href={"mailto:anvithshenoyb@gmail.com"}
                 className="card bg-fg"
               >
-                <span id="mailIcon" className="text-3xl">
+                <span id="mailIcon" className="">
                   @
                 </span>
               </Link>
@@ -83,22 +81,41 @@ const AboutMe = () => {
                 href={"https://linkedin.com/in/anvithshenoy/"}
                 className="card bg-[#0a66c2] font-serif"
               >
-                <span id="linkedinIcon" className="text-3xl">
+                <span id="linkedinIcon" className="">
                   in
                 </span>
               </Link>
+
               <Link
                 href={"https://github.com/anvithshenoy/"}
                 className="card bg-[#0d1117]"
               >
-                <span id="GithubIcon" className="text-3xl">
+                <span id="GithubIcon" className="">
                   Github
+                </span>
+              </Link>
+
+              <Link
+                href={"https://dribbble.com/anvithshenoy/"}
+                className="card bg-[#ea4c89] font-sans"
+              >
+                <span id="dribbleIcon" className="">
+                  Dribbble
+                </span>
+              </Link>
+
+              <Link
+                href={"https://wa.me/+918310583927/?text=hi"}
+                className="card bg-[#128c7e] font-sans"
+              >
+                <span id="whatsappIcon" className="">
+                  WhatsApp
                 </span>
               </Link>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

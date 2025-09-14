@@ -108,7 +108,7 @@ const Resume = () => {
             {workDetails.map((work) => (
               <Card
                 key={work.date.start}
-                title={<>{[work.date.start].filter(Boolean).join(" - ")}</>}
+                cardTitle={<>{[work.date.start].filter(Boolean).join(" - ")}</>}
                 cardClass="mb-2.5"
                 tag={work.orgName}
               >
@@ -206,7 +206,7 @@ const Resume = () => {
             {edDetails.map((ed) => (
               <Card
                 key={ed.year.startYear}
-                title={[ed.year.startYear, ed.year.endYear]
+                cardTitle={[ed.year.startYear, ed.year.endYear]
                   .filter(Boolean)
                   .join(" - ")}
                 tag={ed.type}

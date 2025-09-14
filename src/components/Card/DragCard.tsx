@@ -52,8 +52,6 @@ const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
       initial={{
         top: y,
         left: x,
-      }}
-      style={{
         rotate: `${rotate}deg`,
       }}
       drag
@@ -65,18 +63,13 @@ const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
         className,
       )}
     >
-      <motion.img
-        src={src}
-        alt={alt}
-        className="select-none"
-        draggable={false}
-      />
+      <motion.img src={src} alt={alt} className="select-none" />
       <p
-        className="leading-0 tracking-tighter uppercase"
+        className="text-title leading-0 tracking-tighter uppercase"
         aria-label={alt}
         aria-labelledby="img"
       >
-        {alt}
+        #{alt.split(" ").join("_")}
       </p>
     </motion.div>
   );

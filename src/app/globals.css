@@ -19,9 +19,9 @@
   --title: #f44a22;
 }
 [data-theme="dark"] {
-  --bg: #161616;
-  --fg: #f44a22;
-  --title: #fef8e8;
+  --bg: #030f0f;
+  --title: #00df82;
+  --fg: #03624c;
 }
 
 @theme inline {
@@ -79,10 +79,10 @@ a {
 }
 
 .card {
-  @apply text-bg aspect-square w-full rounded-lg p-4 sm:aspect-auto;
+  @apply text-bg min-w-16 rounded-lg p-4 text-center;
 }
 .card span {
-  @apply font-sans font-bold tracking-tighter;
+  @apply font-sans text-2xl font-bold tracking-tighter text-gray-100 sm:text-3xl;
 }
 
 .tabs {
