@@ -16,7 +16,7 @@ const NotFound = () => {
         </div>
         <p>Looks like you found something that shouldn&apos;t exist yet.</p>
 
-        <Link href={"/"} className="">
+        <Link href={"/"} className="text-title">
           Take me Home
         </Link>
       </main>

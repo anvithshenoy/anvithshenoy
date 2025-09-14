@@ -50,7 +50,11 @@ const HeroSection = () => {
     <section className="relative mx-auto flex w-99 flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
       <div className="w-full">
         <p className="ms-auto max-w-prose px-1.5 text-start break-keep lowercase underline underline-offset-8 sm:text-end">
-          <Link href={GoogleSearch + "anvithshenoy"} target="_blank">
+          <Link
+            href={GoogleSearch + "anvithshenoy"}
+            target="_blank"
+            className="text-title"
+          >
             #anvithshenoy
           </Link>{" "}
           #Work_in_progress #Shenoy_Devfolio #CSS_LIFE #THE_ORIGINAL

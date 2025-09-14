@@ -121,7 +121,7 @@ const Header = () => {
           Front End Devfolio
         </p>
 
-        <Button className="p-0" onClick={displayMenu}>
+        <Button className="bg-transparent p-0" onClick={displayMenu}>
           {menu ? (
             <svg
               version="1.1"
@@ -197,7 +197,7 @@ const Header = () => {
               className="aspect-square h-8"
             >
               <motion.path
-                className="stroke-fg fill-none stroke-1"
+                className="stroke-title fill-none stroke-1"
                 d="M4 6H20"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
@@ -209,7 +209,7 @@ const Header = () => {
                 }}
               />
               <motion.path
-                className="stroke-fg fill-none stroke-1"
+                className="stroke-title fill-none stroke-1"
                 d="M4 12H20"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
@@ -222,7 +222,7 @@ const Header = () => {
                 }}
               />
               <motion.path
-                className="stroke-fg fill-none stroke-1"
+                className="stroke-title fill-none stroke-1"
                 d="M4 18H20"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
