@@ -63,7 +63,12 @@ const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
         className,
       )}
     >
-      <motion.img src={src} alt={alt} className="select-none" />
+      <motion.img
+        draggable={false}
+        src={src}
+        alt={alt}
+        className="select-none"
+      />
       <p
         className="text-title leading-0 tracking-tighter uppercase"
         aria-label={alt}

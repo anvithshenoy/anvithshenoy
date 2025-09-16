@@ -56,10 +56,10 @@ export function ScrollTopButton({
     <AnimatePresence>
       {visible && (
         <Button
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ type: "spring", duration: 0.3, ease: "easeOut" }}
           onClick={onClick}
           className={twMerge(
             "fixed right-3.5 bottom-3.5 z-50 aspect-square h-12 max-h-12 w-12 max-w-12 sm:right-10 sm:bottom-10",

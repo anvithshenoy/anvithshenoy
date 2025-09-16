@@ -231,7 +231,6 @@ const Resume = () => {
           alt: "Anvith Shenoy B",
           layout: "position",
           layoutId: "hardSkill",
-          needClose: true,
         }}
         size="max-w-sm sm:max-w-xl"
         aspectRatio="aspect-[4/3]"

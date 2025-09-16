@@ -7,13 +7,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import Button from "@/components/Button";
-import CollapsibleList from "@/components/Lists";
 import { AuthBtn } from "@/components/SignInOut";
 
 import useScroll from "@/hooks/useScroll";
-import { useTheme } from "@/providers/Theme";
-
 import { toggleDir } from "@/lib/utils";
+import { useTheme } from "@/providers/Theme";
 
 const listVariant = {
   initial: {
@@ -28,12 +26,15 @@ const listVariant = {
 };
 
 const listItemVariants = {
-  initial: { opacity: 0, x: -20 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -20 },
+  initial: { scale: 0 },
+  animate: { scale: 1 },
+  exit: { scale: 0.95 },
+  whileHover: {
+    scale: 1.125,
+  },
 };
 
-const Header = () => {
+export default function Header() {
   const { data: session } = useSession();
   const { dev: isDevMode, theme, changeTheme } = useTheme();
 
@@ -41,6 +42,10 @@ const Header = () => {
 
   const displayMenu = () => {
     setMenu((prev) => !prev);
+  };
+
+  const switchTheme = () => {
+    changeTheme(theme === "dark" ? "light" : "dark");
   };
 
   useEffect(() => {
@@ -248,18 +253,17 @@ const Header = () => {
             transition={{
               type: "keyframes",
             }}
-            className="bg-fg text-bg fixed right-0 z-50 flex h-dvh w-dvw flex-col items-center justify-center px-3.5 pt-1 pb-24"
+            className="bg-fg text-bg fixed right-0 z-50 flex h-dvh w-dvw flex-col items-center justify-center px-3.5 pt-1 pb-24 text-2xl"
           >
             <motion.ul
-              className="font-head mx-auto max-w-3xs flex-1 content-center space-y-3.5 text-3xl *:relative *:w-full *:underline-offset-8"
-              // onClick={displayMenu}
+              className="font-head grid grid-cols-1 gap-2 sm:grid-cols-[auto_auto_auto] sm:gap-y-8"
               variants={listVariant}
               initial="initial"
               animate="animate"
               exit="exit"
               transition={{
-                ease: "easeOut",
                 delayChildren: stagger(0.25),
+                type: "spring",
               }}
             >
               {links
@@ -268,88 +272,35 @@ const Header = () => {
                   <motion.li
                     key={link.href}
                     variants={listItemVariants}
-                    className="group"
+                    className="bg-title hover:bg-title/85 text-bg rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={displayMenu}
-                      className="animated-underline inline-flex! items-baseline justify-start gap-3.5"
-                    >
+                    <Link href={link.href} onClick={displayMenu}>
                       {link.text}
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="hidden aspect-square h-8 scale-0 transition-all duration-300 ease-out group-hover:inline group-hover:scale-100 hover:animate-pulse"
-                      >
-                        <path
-                          d="M14 15.6569V10M14 10H8.34315M14 10L5.63604 18.364M10.2432 20.8278C13.0904 21.3917 16.1575 20.5704 18.364 18.364C21.8787 14.8492 21.8787 9.15076 18.364 5.63604C14.8492 2.12132 9.15076 2.12132 5.63604 5.63604C3.42957 7.84251 2.60828 10.9096 3.17216 13.7568"
-                          className="stroke-current"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
                     </Link>
                   </motion.li>
                 ))}
-              <motion.li variants={listItemVariants}>
-                <CollapsibleList
-                  className="hidden sm:inline"
-                  items={[
-                    {
-                      id: "settings",
-                      label: "Settings",
-                      className: "p-0",
-                      expanded: true,
-                      children: [
-                        {
-                          id: "theme-switch",
-                          label: "Switch Theme",
-                          className:
-                            "animated-underline after:bottom-0! w-fit font-body text-start",
-                          onClick: () =>
-                            changeTheme(theme === "light" ? "dark" : "light"),
-                        },
-                        {
-                          id: "switch-dir",
-                          label: "Switch Direction",
-                          className:
-                            "animated-underline after:bottom-0! w-fit font-body text-start",
-                          onClick: toggleDir,
-                        },
-                      ],
-                    },
-                  ]}
-                />
+
+              <motion.li
+                variants={listItemVariants}
+                className="bg-title hover:bg-title/85 text-bg rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
+                onClick={switchTheme}
+              >
+                Switch Theme
+              </motion.li>
+              <motion.li
+                variants={listItemVariants}
+                className="bg-title hover:bg-title/85 text-bg rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:col-span-2 sm:-rotate-6 sm:even:rotate-6"
+                onClick={() => toggleDir()}
+              >
+                Switch Direction
               </motion.li>
             </motion.ul>
-
-            <motion.menu className="relative mb-3.5 flex w-full flex-row-reverse items-baseline justify-between gap-3.5 space-y-3.5 self-start text-xl capitalize sm:hidden">
-              <motion.li className="inline-flex items-baseline gap-3.5 capitalize">
-                <button onClick={() => toggleDir()} type="button">
-                  Switch Text Direction
-                </button>
-              </motion.li>
-              <motion.li className="items-baseline gap-3.5">
-                <button
-                  onClick={() =>
-                    changeTheme(theme === "light" ? "dark" : "light")
-                  }
-                  type="button"
-                >
-                  Switch {theme === "light" ? "Dark" : "Light"}
-                </button>
-              </motion.li>
-            </motion.menu>
           </motion.menu>
         )}
       </AnimatePresence>
     </>
   );
-};
-
-export default Header;
+}
 
 const links: {
   href: string;

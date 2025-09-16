@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import ContextWrapper from "@/components/ContextMenu/Wrapper";
 import Lenis from "@/components/Lenis";
 
+import { ScrollTopButton } from "@/components/ScrollTop";
 import { ThemeProvider } from "@/providers/Theme";
 import "./globals.css";
 
@@ -58,6 +59,7 @@ export default function RootLayout({
             <body className={`${fontHead.variable} ${fontBody.variable}`}>
               <ContextWrapper bg="var(--bg)">
                 {children}
+                <ScrollTopButton className="fill-title" />
                 <Toaster
                   toastOptions={{
                     style: {

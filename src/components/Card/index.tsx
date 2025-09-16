@@ -1,7 +1,7 @@
-import { HTMLAttributes } from "react";
+import { HTMLMotionProps, motion } from "motion/react";
 import { twMerge } from "tailwind-merge";
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLMotionProps<"div"> {
   cardTitle: string | React.ReactNode;
   tag?: string;
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export default function Card(props: CardProps) {
   const { cardTitle, tag, children, cardClass, className, ...rest } = props;
 
   return (
-    <div
+    <motion.div
       className={twMerge(
         "bg-fg text-bg grid grid-cols-2 items-center gap-1 rounded-2xl p-3.5",
         cardClass,
@@ -29,6 +29,6 @@ export default function Card(props: CardProps) {
         </div>
       )}
       <div className={twMerge("col-span-2 w-full", className)}>{children}</div>
-    </div>
+    </motion.div>
   );
 }

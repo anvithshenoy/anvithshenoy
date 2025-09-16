@@ -1,10 +1,10 @@
 import Header from "@/components/Header";
-import { ScrollTopButton } from "@/components/ScrollTop";
 import Tabs, { TabType } from "@/components/Tabs";
+
 import HeroSection from "./Hero";
 import AboutMe from "./Tabs/About";
+import Projects from "./Tabs/Projects";
 import Resume from "./Tabs/Resume";
-import Work from "./Tabs/Work";
 
 export default function Home() {
   const sections: TabType[] = [
@@ -49,9 +49,9 @@ export default function Home() {
       ),
     },
     {
-      id: "work-exp",
-      label: "Work",
-      content: <Work />,
+      id: "projects",
+      label: "Projects",
+      content: <Projects />,
       icon: (
         <svg
           height={24}
@@ -85,8 +85,6 @@ export default function Home() {
         tabClassName="sticky top-0 z-40 bg-bg"
         tabIndicatorClassName="bg-title!"
       />
-
-      <ScrollTopButton className="fill-title!" />
     </>
   );
 }
