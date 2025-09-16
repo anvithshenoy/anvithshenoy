@@ -4,6 +4,9 @@
   --bg: #fef8e8;
   --fg: #161616;
   --title: #f44a22;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--title) var(--bg);
 }
 
 [direction="rtl"] {
