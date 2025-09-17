@@ -256,7 +256,7 @@ export default function Header() {
             className="bg-fg text-bg fixed right-0 z-50 flex h-dvh w-dvw flex-col items-center justify-center px-3.5 pt-1 pb-24 text-2xl"
           >
             <motion.ul
-              className="font-head grid grid-cols-1 gap-2 sm:grid-cols-[auto_auto_auto] sm:gap-y-8"
+              className="font-head grid grid-cols-1 gap-2 *:drop-shadow-md sm:grid-cols-[auto_auto_auto] sm:gap-y-8"
               variants={listVariant}
               initial="initial"
               animate="animate"
@@ -282,14 +282,14 @@ export default function Header() {
 
               <motion.li
                 variants={listItemVariants}
-                className="bg-title hover:bg-title/85 text-bg rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
+                className="bg-title hover:bg-title/85 text-bg cursor-pointer rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
                 onClick={switchTheme}
               >
                 Switch Theme
               </motion.li>
               <motion.li
                 variants={listItemVariants}
-                className="bg-title hover:bg-title/85 text-bg rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:col-span-2 sm:-rotate-6 sm:even:rotate-6"
+                className="bg-title hover:bg-title/85 text-bg cursor-pointer rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:col-span-2 sm:-rotate-6 sm:even:rotate-6"
                 onClick={() => toggleDir()}
               >
                 Switch Direction

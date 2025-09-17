@@ -36,25 +36,22 @@
   --font-body: var(--font-body), sans-serif;
 }
 
+* {
+  @apply box-border;
+}
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-inherit;
+}
+
 body {
   @apply bg-bg font-body text-fg relative box-border max-h-dvh w-full max-w-dvw overflow-x-hidden overscroll-x-none scroll-smooth antialiased;
 }
 
-* {
-  @apply outline-fg box-border;
-}
-
-.bg-fg {
-  @apply outline-bg;
-}
-
-/* Default selection */
 ::selection,
 .bg-bg ::selection {
   @apply bg-fg text-bg;
 }
 
-/* Invert selection when inside .bg-fg container */
 .bg-fg ::selection {
   @apply bg-bg text-fg;
 }

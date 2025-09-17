@@ -13,11 +13,13 @@ export const menuList: ListItem[] = [
         route: "/",
       },
     ],
+    expanded: true,
   },
   { id: "btn", label: "Button", route: "/button" },
   { id: "tabs", label: "Tabs", route: "/tabs" },
   { id: "card", label: "Card", route: "/card" },
   { id: "snippet", label: "Snippet", route: "/snippet" },
+  { id: "calendar", label: "Calendar", route: "/calendar" },
   {
     id: "data-grid",
     label: "Data Grid",

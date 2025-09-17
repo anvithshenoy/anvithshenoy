@@ -63,8 +63,10 @@ export default function RootLayout({
                 <Toaster
                   toastOptions={{
                     style: {
-                      background: "light-dark(var(--fg), var(--bg))",
-                      color: "light-dark(var(--bg), var(--fg))",
+                      background: "var(--title)",
+                      color: "var(--bg)",
+                      borderColor: "transparent",
+                      userSelect: "none",
                     },
                   }}
                 />

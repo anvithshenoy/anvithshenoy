@@ -6,7 +6,7 @@ import Cards, { Card } from "@/components/Card/DragCard";
 
 export const GoogleSearch = "https://www.google.com/search?q=";
 
-const HeroSection = () => {
+export default function HeroSection() {
   const cardList: Card[] = [
     {
       src: "https://images.unsplash.com/photo-1756747646179-d5652667914e?q=80&w=1499&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -76,6 +76,4 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}
