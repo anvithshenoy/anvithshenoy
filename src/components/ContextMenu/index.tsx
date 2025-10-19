@@ -4,8 +4,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-import useScroll from "@/hooks/useScroll";
-
 export type ContextMenuItem = {
   id: string | number;
   label: string | React.ReactNode;
@@ -113,13 +111,13 @@ const ContextMenu = ({
   useEffect(() => {
     document.addEventListener("click", handleClick);
     document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("scroll", () => setIsVisible(false));
     return () => {
       document.removeEventListener("click", handleClick);
       document.removeEventListener("keydown", handleKeyDown);
+      document.addEventListener("scroll", () => setIsVisible(false));
     };
   }, []);
-
-  useScroll({ open: isVisible });
 
   if (!list) {
     throw new Error("Menu List is not provided!");

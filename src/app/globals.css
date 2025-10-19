@@ -16,15 +16,25 @@
   direction: ltr;
 }
 
-[data-theme="light"] {
+[data-mode="mono"][data-theme="light"] {
+  --bg: #fef8e8;
+  --fg: #161616;
+  --title: color-mix(in srgb, var(--fg) 45%, var(--bg));
+}
+[data-mode="mono"][data-theme="dark"] {
+  --bg: #101015;
+  --fg: #f1f0e1;
+  --title: color-mix(in srgb, var(--fg) 45%, var(--bg));
+}
+[data-mode="duo"][data-theme="light"] {
   --bg: #fef8e8;
   --fg: #161616;
   --title: #f44a22;
 }
-[data-theme="dark"] {
-  --bg: #030f0f;
-  --title: #00df82;
-  --fg: #03624c;
+[data-mode="duo"][data-theme="dark"] {
+  --bg: #101015;
+  --fg: #f1f0e1;
+  --title: #506385;
 }
 
 @theme inline {

@@ -1,6 +1,10 @@
 "use client";
 
-import { DIR_STORAGE_KEY } from "@/lib/utils";
+import {
+  DIR_STORAGE_KEY,
+  MODE_STORAGE_KEY,
+  THEME_STORAGE_KEY,
+} from "@/lib/utils";
 import { signOut, useSession } from "next-auth/react";
 import React, {
   createContext,
@@ -11,13 +15,14 @@ import React, {
 } from "react";
 
 type Theme = "light" | "dark";
+type Mode = "mono" | "duo";
 type Direction = "ltr" | "rtl";
-
-const THEME_STORAGE_KEY = "app-theme";
 
 type ThemeContextType = {
   theme: Theme;
   changeTheme: (theme: Theme) => void;
+  mode: Mode;
+  changeMode: (mode: Mode) => void;
   dev: boolean;
 };
 
@@ -27,12 +32,16 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const { data: session } = useSession();
   const hasSignedOut = useRef<boolean>(false);
 
-  const [isDevMode, setIsDevMode] = useState(false);
-  const [mode, setMode] = useState<Theme>("light");
+  const [isDevMode, setIsDevMode] = useState<boolean>(false);
+  const [theme, setTheme] = useState<Theme>("light");
+  const [mode, setMode] = useState<Mode>("mono");
   const [dir, setDir] = useState<Direction>("ltr");
 
   const changeTheme = (theme: Theme) => {
-    setMode(theme);
+    setTheme(theme);
+  };
+  const changeMode = (mode: Mode) => {
+    setMode(mode);
   };
 
   useEffect(() => {
@@ -43,7 +52,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
     const storedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
     if (storedTheme === "light" || storedTheme === "dark") {
-      setMode(storedTheme);
+      setTheme(storedTheme);
     }
 
     const storedDir = localStorage.getItem(DIR_STORAGE_KEY) as Direction | null;
@@ -64,22 +73,27 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
 
-    root.setAttribute("data-theme", mode);
+    root.setAttribute("data-theme", theme);
+    root.setAttribute("data-mode", mode);
     root.setAttribute("direction", dir);
-    localStorage.setItem(THEME_STORAGE_KEY, mode);
+
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+    localStorage.setItem(MODE_STORAGE_KEY, mode);
     localStorage.setItem(DIR_STORAGE_KEY, dir);
 
     if (session && !hasSignedOut.current) {
       hasSignedOut.current = true;
       signOut();
     }
-  }, [isDevMode, session, mode, dir]);
+  }, [isDevMode, session, theme, mode, dir]);
 
   return (
     <ThemeContext.Provider
       value={{
-        theme: mode,
+        theme,
         changeTheme,
+        mode,
+        changeMode,
         dev: isDevMode,
       }}
     >

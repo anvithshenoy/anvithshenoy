@@ -36,7 +36,7 @@ const listItemVariants = {
 
 export default function Header() {
   const { data: session } = useSession();
-  const { dev: isDevMode, theme, changeTheme } = useTheme();
+  const { dev: isDevMode, theme, changeTheme, mode, changeMode } = useTheme();
 
   const [menu, setMenu] = useState<boolean>(false);
 
@@ -46,6 +46,9 @@ export default function Header() {
 
   const switchTheme = () => {
     changeTheme(theme === "dark" ? "light" : "dark");
+  };
+  const switchMode = () => {
+    changeMode(mode === "duo" ? "mono" : "duo");
   };
 
   useEffect(() => {
@@ -272,7 +275,7 @@ export default function Header() {
                   <motion.li
                     key={link.href}
                     variants={listItemVariants}
-                    className="bg-title hover:bg-title/85 text-bg rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
+                    className="bg-title hover:bg-title/85 text-bg cursor-pointer rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
                   >
                     <Link href={link.href} onClick={displayMenu}>
                       {link.text}
@@ -286,6 +289,13 @@ export default function Header() {
                 onClick={switchTheme}
               >
                 Switch Theme
+              </motion.li>
+              <motion.li
+                variants={listItemVariants}
+                className="bg-title hover:bg-title/85 text-bg cursor-pointer rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
+                onClick={switchMode}
+              >
+                Switch Mode
               </motion.li>
               <motion.li
                 variants={listItemVariants}

@@ -196,7 +196,10 @@ const CollapsibleList = (props: Props) => {
     }
   };
 
-  const filtered = filterTree(items, searchTerm ?? "");
+  const filtered = filterTree(
+    items.filter((item) => item.display !== false),
+    searchTerm ?? "",
+  );
 
   return (
     <>
@@ -216,15 +219,9 @@ const CollapsibleList = (props: Props) => {
       )}
 
       <ul {...rest} className={className}>
-        {filtered
-          .filter((item) => item.display !== false)
-          .map((item) => (
-            <CollapsibleItem
-              key={item.id}
-              item={item}
-              onSelect={handleSelect}
-            />
-          ))}
+        {filtered.map((item) => (
+          <CollapsibleItem key={item.id} item={item} onSelect={handleSelect} />
+        ))}
       </ul>
     </>
   );

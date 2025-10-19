@@ -69,7 +69,7 @@ export default function HeroSection() {
         onContextMenu={(e) => e.preventDefault()}
         className="text-fg bg-fg/75 relative flex aspect-square h-full max-h-[75vh] w-full max-w-[75vh] items-center justify-center overflow-hidden rounded-2xl bg-[url(/backdrop.jpg)] bg-cover p-4 bg-blend-darken inset-shadow-sm drop-shadow-md"
       >
-        <h1 className="text-title text-center text-5xl uppercase">
+        <h1 className="text-title text-center text-5xl uppercase text-shadow-md">
           Devfolio {new Date().getFullYear()}
         </h1>
         <Cards srcList={cardList} />
