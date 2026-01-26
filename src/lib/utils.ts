@@ -26,7 +26,7 @@ export function changeMode(mode?: "mono" | "duo") {
   } else if (currentMode === "duo") {
     newMode = "mono";
   } else {
-    newMode = "duo";
+    throw new Error("Invalid currentMode");
   }
 
   root.setAttribute("data-mode", newMode);
@@ -43,4 +43,8 @@ export function toggleDir(dir?: "ltr" | "rtl") {
   root.style.direction = newDir;
   root.setAttribute("direction", newDir);
   localStorage.setItem(DIR_STORAGE_KEY, newDir);
+}
+
+export function preventDefault(e: React.MouseEvent) {
+  e.preventDefault();
 }

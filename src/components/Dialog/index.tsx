@@ -30,9 +30,10 @@ interface ModalProps {
     | "aspect-[9/16]";
   layoutId?: string;
   needClose?: boolean;
+  backdrop?: boolean;
 }
 
-const Modal = (props: ModalProps) => {
+const Modal: React.FC<ModalProps> = (props) => {
   const {
     open = false,
     onClose,
@@ -43,6 +44,7 @@ const Modal = (props: ModalProps) => {
     bg,
     layoutId,
     needClose = true,
+    backdrop = true,
   } = props;
 
   const modalRef = useRef<HTMLDivElement>(null);
@@ -54,6 +56,7 @@ const Modal = (props: ModalProps) => {
       onClose();
     }
   };
+
   // Close on Escape
   useEffect(() => {
     if (!open) {
@@ -61,9 +64,9 @@ const Modal = (props: ModalProps) => {
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
+      if (e.key !== "Escape") return;
+
+      onClose();
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -75,21 +78,32 @@ const Modal = (props: ModalProps) => {
   return (
     <AnimatePresence>
       {open && (
-        <div
-          className="text-fg fixed top-0 right-0 z-50 h-dvh w-dvw place-items-center content-center bg-black/25 backdrop-blur-xs"
-          onClick={handleBackdropClick}
-        >
+        <>
+          {backdrop && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: {
+                  duration: 0.25,
+                  ease: "easeOut",
+                },
+              }}
+              exit={{ opacity: 0 }}
+              className="fixed top-0 right-0 z-40 size-full bg-black/25 backdrop-blur-xs"
+              onClick={handleBackdropClick}
+            />
+          )}
           <motion.section
             ref={modalRef}
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
-            transition={{
-              duration: 0.25,
-              ease: "easeOut",
+            animate={{
+              opacity: 1,
+              scale: 1,
             }}
+            exit={{ opacity: 0, scale: 0 }}
             className={twMerge(
-              "bg-bg mx-auto flex w-full flex-col overflow-hidden rounded-2xl p-1.5 drop-shadow-2xl",
+              "bg-bg fixed top-1/2 right-1/2 z-50 mx-auto flex w-full translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-2xl p-1.5 drop-shadow-2xl",
               className,
               size,
             )}
@@ -196,7 +210,7 @@ const Modal = (props: ModalProps) => {
             )}
             {children}
           </motion.section>
-        </div>
+        </>
       )}
     </AnimatePresence>
   );

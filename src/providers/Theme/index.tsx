@@ -1,11 +1,5 @@
 "use client";
 
-import {
-  DIR_STORAGE_KEY,
-  MODE_STORAGE_KEY,
-  THEME_STORAGE_KEY,
-} from "@/lib/utils";
-import { signOut, useSession } from "next-auth/react";
 import React, {
   createContext,
   useContext,
@@ -14,9 +8,17 @@ import React, {
   useState,
 } from "react";
 
-type Theme = "light" | "dark";
-type Mode = "mono" | "duo";
-type Direction = "ltr" | "rtl";
+import { signOut, useSession } from "next-auth/react";
+
+import {
+  DIR_STORAGE_KEY,
+  MODE_STORAGE_KEY,
+  THEME_STORAGE_KEY,
+} from "@/lib/utils";
+
+export type Theme = "light" | "dark";
+export type Mode = "mono" | "duo";
+export type Direction = "ltr" | "rtl";
 
 type ThemeContextType = {
   theme: Theme;
@@ -28,7 +30,9 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const { data: session } = useSession();
   const hasSignedOut = useRef<boolean>(false);
 
@@ -55,6 +59,11 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       setTheme(storedTheme);
     }
 
+    const storedMode = localStorage.getItem(MODE_STORAGE_KEY) as Mode | null;
+    if (storedMode === "mono" || storedMode === "duo") {
+      setMode(storedMode);
+    }
+
     const storedDir = localStorage.getItem(DIR_STORAGE_KEY) as Direction | null;
     if (storedDir === "ltr" || storedDir === "rtl") {
       setDir(storedDir);
@@ -69,7 +78,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     if (isDevMode) {
       root.style.setProperty("--bg", "#0f172a");
       root.style.setProperty("--fg", "#facc15");
-      root.style.setProperty("--title", "#fff");
+      root.style.setProperty("--title", "#f1f1f1");
       return;
     }
 

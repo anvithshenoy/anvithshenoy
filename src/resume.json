@@ -1,0 +1,96 @@
+{
+  "profile": {
+    "name": "Anvith Shenoy B",
+    "picture": "https://anvithshenoy.vercel.app/myself.jpg",
+    "role": "Frontend Dev",
+    "location": "Mangaluru",
+    "title": "Frontend Dev based in Mangaluru",
+    "desc": "MCA graduate with a journey from graphic design to fullstack development, blending creativity with technical expertise. Experienced in crafting user-friendly, functional solutions with a focus on professionalism and simplicity. Eager to create impactful, intuitive user experiences."
+  },
+  "education": [
+    {
+      "year": {
+        "startYear": 2022,
+        "endYear": 2024
+      },
+      "expertise": "Computer Applications",
+      "type": "Master's",
+      "institution": "St Joseph Engineering College, Vamanjoor",
+      "grade": 8.62
+    },
+    {
+      "year": {
+        "startYear": 2019,
+        "endYear": 2022
+      },
+      "expertise": "Computer Applications",
+      "type": "Bachelor's",
+      "institution": "Canara College Mangaluru",
+      "grade": 7.68
+    }
+  ],
+  "work": [
+    {
+      "date": {
+        "start": "Apr 2025"
+      },
+      "orgName": "Neya AI",
+      "role": "Frontend Dev",
+      "desc": "Front-end developer specializing in React, responsible for revamping user interfaces to create responsive, user-friendly, and visually appealing web applications that enhance overall user experience."
+    },
+    {
+      "date": {
+        "start": "Jan 2025",
+        "end": "Apr 2025"
+      },
+      "orgName": "UnifyCX",
+      "role": "Website Troubleshooting Engineer",
+      "desc": "As a Website Troubleshooting Engineer at UnifyCX, I assisted customers by promptly diagnosing and resolving website issues to ensure seamless online operations and high customer satisfaction."
+    },
+    {
+      "date": {
+        "start": "Nov 2023",
+        "end": "Feb 2024"
+      },
+      "orgName": "Headway",
+      "role": "Web Dev Intern",
+      "desc": "Developed and Deployed a Full-stack online jobs portal web application using Embedded JS, MongoDB, Express, NodeJS and SCSS."
+    }
+  ],
+  "expertise": "CSS, React.js, Javascript, Adobe Photoshop, UI/UX, Framer-motion",
+  "softskill": "Creativity, Time_Management, Flexibility, Communication, Adaptability, Attention_to_Detail",
+  "hardskill": {
+    "src": "https://images.unsplash.com/photo-1538579110458-c0339544123a?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "alt": "Hard skill",
+    "frameworks": {
+      "Frontend & frameworks": "React.js, Next.js, HTML5, CSS3, TailwindCSS, JavaScript, TypeScript, Framer-Motion",
+      "Tools & Hosting": "NPM, Git & Github, Vercel"
+    }
+  },
+  "projects": [
+    {
+      "id": "portfolio",
+      "title": "Portfolio",
+      "content": "A responsive single-page portfolio built with Next.js 15, styled using Tailwind CSS, and enhanced with Framer Motion animations and Swiper.js carousels. Deployed seamlessly on Vercel, it highlights projects, skills, and experience in a clean, interactive layout optimized for performance and accessibility.",
+      "url": "https://anvithshenoy.vercel.app"
+    },
+    {
+      "id": "newssnap",
+      "title": "News Snap",
+      "content": "A lightweight, user-friendly news application designed for quick and easy article consumption. Unlike typical news apps, News Snap focuses on delivering concise summaries, allowing users to 'snap' through articles swiftly. With a clean and intuitive layout, it enables users to view brief content and dive into full articles at their convenience. Optimized for mobile, it supports swipe gestures for seamless navigation, ensuring an engaging and responsive experience on the go."
+    }
+  ],
+  "socials": {
+    "email": "anvithshenoyb@gmail.com",
+    "linkedin": "https://linkedin.com/in/anvithshenoy/",
+    "github": "https://github.com/anvithshenoy/",
+    "whatsapp": "+918310583927",
+    "dribbble": "https://dribbble.com/anvithshenoy/",
+    "others": [
+      {
+        "label": "Insta",
+        "link": "https://instagram.com/anvithshenoy"
+      }
+    ]
+  }
+}

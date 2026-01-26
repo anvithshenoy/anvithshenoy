@@ -1,14 +1,11 @@
 @import "tailwindcss";
 
 .tabs {
-  @apply flex w-full flex-nowrap items-baseline justify-center gap-2 overflow-x-auto sm:justify-start [&:has(:nth-child(3))]:justify-start;
+  @apply flex w-full flex-nowrap items-baseline justify-center gap-2 overflow-x-auto md:justify-start [&:has(:nth-child(3))]:justify-start;
 }
 .tabs li {
-  @apply font-head relative px-5 py-1 whitespace-nowrap;
-}
-.tabs li.active-tab button {
-  @apply text-bg;
+  @apply relative px-5 py-1 whitespace-nowrap;
 }
 .tabs li.active-tab span {
-  @apply bg-fg absolute inset-0 -z-10 rounded-full;
+  @apply absolute inset-0 -z-10 rounded-full;
 }

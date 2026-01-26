@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, Variants } from "motion/react";
 import React, { useEffect, useMemo, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -24,7 +24,7 @@ interface TabProps {
   reduceMotion?: boolean;
 }
 
-const Tabs = (props: TabProps) => {
+const Tabs: React.FC<TabProps> = (props) => {
   const {
     defaultTab,
     tabs,
@@ -38,16 +38,15 @@ const Tabs = (props: TabProps) => {
   const [activeTab, setActiveTab] = useState<string>(defaultTab ?? tabs[0].id);
 
   const filteredTabs = useMemo(
-    () => tabs.filter((tab) => tab?.condition ?? true),
+    () => tabs.filter(({ condition }) => condition ?? true),
     [tabs],
   );
 
-  const motionProps = !reduceMotion
+  const motionProps: Variants = !reduceMotion
     ? {
         initial: { opacity: 0, x: 10 },
-        animate: { opacity: 1, x: 0 },
+        animate: { opacity: 1, x: 0, transition: { duration: 0.25 } },
         exit: { opacity: 0, x: -10 },
-        transition: { duration: 0.25 },
       }
     : {};
 
@@ -71,6 +70,9 @@ const Tabs = (props: TabProps) => {
       });
     }
   }, [defaultTab, filteredTabs]);
+
+  const displayContent: TabType =
+    tabs.find(({ id }) => id === activeTab) ?? filteredTabs[0];
 
   return (
     <div className="relative mx-auto w-full">
@@ -131,13 +133,13 @@ const Tabs = (props: TabProps) => {
       {children}
 
       <AnimatePresence mode="wait">
-        {tabs
-          .filter((tab) => tab.id === activeTab)
-          .map((tab) => (
-            <motion.section key={tab.id} {...motionProps} className={className}>
-              {tab.content}
-            </motion.section>
-          ))}
+        <motion.section
+          {...motionProps}
+          key={displayContent.id}
+          className={className}
+        >
+          {displayContent.content}
+        </motion.section>
       </AnimatePresence>
     </div>
   );
@@ -153,7 +155,7 @@ export const SwapyTitle = ({
   clx?: string;
 }) => {
   return (
-    <div className={"flex w-full items-baseline text-4xl"}>
+    <div className="flex w-full items-baseline text-4xl">
       <h2
         className={twMerge("text-title flex-1 indent-2.5 text-shadow-sm", clx)}
       >

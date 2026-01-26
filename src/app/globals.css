@@ -47,7 +47,7 @@
 }
 
 * {
-  @apply box-border;
+  @apply box-border leading-relaxed;
 }
 *:focus-visible {
   @apply outline-2 outline-offset-2 outline-inherit;
@@ -72,7 +72,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-head text-title;
+  @apply font-head text-title leading-tight!;
 }
 
 button,
@@ -89,7 +89,7 @@ a {
 }
 
 .card {
-  @apply text-bg min-w-16 rounded-lg p-4 text-center;
+  @apply text-bg flex aspect-square min-w-16 items-center justify-center rounded-lg text-center;
 }
 .card span {
   @apply font-sans font-bold tracking-tighter text-gray-100 sm:text-3xl;
