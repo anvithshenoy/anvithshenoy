@@ -69,6 +69,7 @@ export default function RootLayout({
                       userSelect: "none",
                     },
                   }}
+                  closeButton
                 />
               </ContextWrapper>
             </body>

@@ -78,6 +78,12 @@
       "id": "newssnap",
       "title": "News Snap",
       "content": "A lightweight, user-friendly news application designed for quick and easy article consumption. Unlike typical news apps, News Snap focuses on delivering concise summaries, allowing users to 'snap' through articles swiftly. With a clean and intuitive layout, it enables users to view brief content and dive into full articles at their convenience. Optimized for mobile, it supports swipe gestures for seamless navigation, ensuring an engaging and responsive experience on the go."
+    },
+    {
+      "id": "reactify-maps-beta",
+      "title": "Reactify Maps Beta",
+      "content": "Responsive maps project using MAPCN & Vite-React.js. Currently, a work-in-progress project. ",
+      "url": "https://reactify-maps.vercel.app/"
     }
   ],
   "socials": {
@@ -86,11 +92,6 @@
     "github": "https://github.com/anvithshenoy/",
     "whatsapp": "+918310583927",
     "dribbble": "https://dribbble.com/anvithshenoy/",
-    "others": [
-      {
-        "label": "Insta",
-        "link": "https://instagram.com/anvithshenoy"
-      }
-    ]
+    "others": []
   }
 }
