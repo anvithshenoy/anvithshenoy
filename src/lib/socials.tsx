@@ -9,7 +9,7 @@ type Link = {
 };
 
 const socialLinks =
-  SOCIALS?.map(({ label, link }) => ({
+  SOCIALS?.map(({ label, link }: { label: string; link: string }) => ({
     href: link,
     display: label.charAt(0),
   })) ?? [];
