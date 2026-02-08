@@ -9,16 +9,15 @@ import Card from "@/components/Card";
 import Modal from "@/components/Dialog";
 import { SwapyTitle } from "@/components/Tabs";
 
-import { CONFIG } from "@/lib/config";
-
-const {
-  WORK,
-  EDUCATION,
-  EXP,
-  SKILLS: { HARD, SOFT },
-} = CONFIG;
+import { useConfig } from "@/lib/config";
 
 const Resume = () => {
+  const {
+    WORK,
+    EDUCATION,
+    EXP,
+    SKILLS: { HARD, SOFT },
+  } = useConfig();
   const swapy = useRef<Swapy | null>(null);
   const container = useRef<HTMLDivElement>(null);
 

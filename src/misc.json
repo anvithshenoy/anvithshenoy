@@ -1,0 +1,76 @@
+{
+  "cards": [
+    {
+      "src": "https://images.unsplash.com/photo-1756747646179-d5652667914e?q=80&w=1499&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "alt": "Cosmos",
+      "angle": -25,
+      "location": {
+        "x": "30%",
+        "y": 50
+      }
+    },
+    {
+      "src": "https://anvithshenoy.vercel.app/myself.jpg",
+      "alt": "Anvith Shenoy",
+      "angle": 15,
+      "location": {
+        "x": "10%",
+        "y": -40
+      }
+    },
+    {
+      "src": "/33.jpg",
+      "alt": "Digital Collage",
+      "angle": 8,
+      "location": {
+        "x": 45,
+        "y": "25%"
+      }
+    },
+    {
+      "src": "/IMG_1531.jpg",
+      "alt": "Old Life",
+      "angle": 0,
+      "location": {
+        "x": "35%",
+        "y": "35%"
+      }
+    },
+    {
+      "src": "/ronin.png",
+      "alt": "RONIN",
+      "angle": 5,
+      "location": {
+        "x": "65%",
+        "y": "15%"
+      }
+    }
+  ],
+  "hashmap": [
+    {
+      "displayLabel": "anvithshenoy",
+      "link": "https://www.google.com/search?q=anvithshenoy"
+    },
+    {
+      "displayLabel": "work_in_progress"
+    },
+    {
+      "displayLabel": "shenoy_devfolio"
+    },
+    {
+      "displayLabel": "CSS_LIFE",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+    },
+    {
+      "displayLabel": "ALL_NEW_ALL_DIFFERENT"
+    }
+  ],
+  "socials": {
+    "email": "anvithshenoyb@gmail.com",
+    "linkedin": "https://linkedin.com/in/anvithshenoy/",
+    "github": "https://github.com/anvithshenoy/",
+    "whatsapp": "+918310583927",
+    "dribbble": "https://dribbble.com/anvithshenoy/",
+    "others": []
+  }
+}

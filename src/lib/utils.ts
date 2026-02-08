@@ -1,10 +1,10 @@
-const THEME_STORAGE_KEY = "app-theme";
-const MODE_STORAGE_KEY = "app-mod";
-const DIR_STORAGE_KEY = "app-dir";
+import { Direction, Mode, Theme } from "@/providers/Theme";
+import { toast } from "sonner";
+import { LOCAL_STORAGE } from "./common";
 
-export { DIR_STORAGE_KEY, MODE_STORAGE_KEY, THEME_STORAGE_KEY };
+const { DIR_STORAGE_KEY, MODE_STORAGE_KEY, THEME_STORAGE_KEY } = LOCAL_STORAGE;
 
-export function changeTheme(theme: "light" | "dark") {
+export function changeTheme(theme: Theme) {
   const root = document.documentElement;
 
   root.setAttribute("data-theme", theme);
@@ -13,11 +13,11 @@ export function changeTheme(theme: "light" | "dark") {
   window.dispatchEvent(new CustomEvent("theme-change", { detail: theme }));
 }
 
-export function changeMode(mode?: "mono" | "duo") {
+export function changeMode(mode?: Mode) {
   const root = document.documentElement;
-  const currentMode = root.getAttribute("data-mode") as "mono" | "duo" | null;
+  const currentMode = root.getAttribute("data-mode") as Mode | null;
 
-  let newMode: "mono" | "duo";
+  let newMode: Mode;
 
   if (mode) {
     newMode = mode;
@@ -35,7 +35,7 @@ export function changeMode(mode?: "mono" | "duo") {
   window.dispatchEvent(new CustomEvent("mode-change", { detail: newMode }));
 }
 
-export function toggleDir(dir?: "ltr" | "rtl") {
+export function toggleDir(dir?: Direction) {
   const root = document.documentElement;
   const currentDir = getComputedStyle(root).direction;
   const newDir = dir ?? (currentDir === "ltr" ? "rtl" : "ltr");
@@ -47,4 +47,13 @@ export function toggleDir(dir?: "ltr" | "rtl") {
 
 export function preventDefault(e: React.MouseEvent) {
   e.preventDefault();
+}
+
+export async function getRandomFact() {
+  return await fetch("https://uselessfacts.jsph.pl/random.json?language=en")
+    .then((res) => res.json())
+    .then((data) => {
+      return data.text;
+    })
+    .catch(() => toast.error("Some error popped up in the way..."));
 }

@@ -8,13 +8,10 @@ import React, {
   useState,
 } from "react";
 
+import { LOCAL_STORAGE } from "@/lib/common";
 import { signOut, useSession } from "next-auth/react";
 
-import {
-  DIR_STORAGE_KEY,
-  MODE_STORAGE_KEY,
-  THEME_STORAGE_KEY,
-} from "@/lib/utils";
+const { DIR_STORAGE_KEY, MODE_STORAGE_KEY, THEME_STORAGE_KEY } = LOCAL_STORAGE;
 
 export type Theme = "light" | "dark";
 export type Mode = "mono" | "duo";

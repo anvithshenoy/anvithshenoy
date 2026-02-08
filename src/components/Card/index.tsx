@@ -15,7 +15,7 @@ export default function Card(props: CardProps) {
   return (
     <motion.div
       className={twMerge(
-        "bg-fg text-bg grid grid-cols-2 items-center gap-1 rounded-2xl p-3.5",
+        "bg-fg text-bg grid h-full grid-cols-2 gap-1 rounded-2xl p-3.5",
         cardClass,
       )}
       {...rest}

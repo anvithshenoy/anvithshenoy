@@ -10,7 +10,9 @@ import Button from "@/components/Button";
 import { AuthBtn } from "@/components/SignInOut";
 
 import useScroll from "@/hooks/useScroll";
+import { useConfig } from "@/lib/config";
 import { toggleDir } from "@/lib/utils";
+import { langSet, Languages, useLang } from "@/providers/Language";
 import { useTheme } from "@/providers/Theme";
 
 const listVariant = {
@@ -34,9 +36,12 @@ const listItemVariants = {
   },
 };
 
-export default function Header() {
+export default function Header({ onGrid }: { onGrid?: () => void }) {
+  const { NAME, SURNAME, PROFILE_PIC } = useConfig();
+
   const { data: session } = useSession();
   const { dev: isDevMode, theme, changeTheme, mode, changeMode } = useTheme();
+  const { lang, changeLang } = useLang();
 
   const [menu, setMenu] = useState<boolean>(false);
 
@@ -49,6 +54,9 @@ export default function Header() {
   };
   const switchMode = () => {
     changeMode(mode === "duo" ? "mono" : "duo");
+  };
+  const onLangSelect = (choice: React.ChangeEvent<HTMLSelectElement>) => {
+    changeLang(choice.target.value as Languages);
   };
 
   useEffect(() => {
@@ -70,17 +78,12 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className="bg-bg sticky top-0 z-50 inline-flex w-full items-center justify-center gap-2.5 border-b px-5 py-2.5 text-3xl sm:justify-start"
-        data-disable-context
-        onContextMenu={(e) => e.preventDefault()}
-      >
+      <header className="bg-bg sticky top-0 z-50 inline-flex w-full items-center justify-center gap-2.5 border-b px-2 py-2.5 text-3xl sm:justify-start">
         <div className="bg-fg relative aspect-square max-h-12 w-full max-w-12 overflow-hidden rounded-full">
           <Image
             src={
-              session?.user?.image ??
-              "https://anvithshenoy.vercel.app/myself.jpg"
-              //   "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              PROFILE_PIC
+              // "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             }
             fill
             alt=""
@@ -94,10 +97,15 @@ export default function Header() {
           )}
         </div>
         <strong className="font-head hidden uppercase sm:inline">
-          Anvith Shenoy B
+          {NAME}
+          <button
+            className="bg-title ms-2 aspect-square w-2.5 animate-pulse"
+            onClick={onGrid}
+            title="Alignment Guide"
+          />
         </strong>
         <strong className="font-head inline flex-1 text-center uppercase sm:hidden">
-          Shenoy <span className="text-title">Devfolio</span>
+          {SURNAME} <span className="text-title">Devfolio</span>
         </strong>
 
         {session?.user && (
@@ -257,6 +265,7 @@ export default function Header() {
               type: "keyframes",
             }}
             className="bg-fg text-bg fixed right-0 z-50 flex h-dvh w-dvw flex-col items-center justify-center px-3.5 pt-1 pb-24 text-2xl"
+            data-disable-context
           >
             <motion.ul
               className="font-head grid grid-cols-1 gap-2 *:drop-shadow-md sm:grid-cols-[auto_auto_auto] sm:gap-y-8"
@@ -269,19 +278,17 @@ export default function Header() {
                 type: "spring",
               }}
             >
-              {links
-                .filter((link) => !link.disabled)
-                .map((link) => (
-                  <motion.li
-                    key={link.href}
-                    variants={listItemVariants}
-                    className="bg-title hover:bg-title/85 text-bg cursor-pointer rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
-                  >
-                    <Link href={link.href} onClick={displayMenu}>
-                      {link.text}
-                    </Link>
-                  </motion.li>
-                ))}
+              {links.map((link) => (
+                <motion.li
+                  key={link.href}
+                  variants={listItemVariants}
+                  className="bg-title hover:bg-title/85 text-bg cursor-pointer rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
+                >
+                  <Link href={link.href} onClick={displayMenu}>
+                    {link.text}
+                  </Link>
+                </motion.li>
+              ))}
 
               <motion.li
                 variants={listItemVariants}
@@ -305,6 +312,21 @@ export default function Header() {
                 Switch Direction
               </motion.li>
             </motion.ul>
+
+            <div className="bg-title hover:bg-title/85 text-bg absolute right-3.5 bottom-1/8 cursor-pointer rounded-full px-5 py-3.5 text-center uppercase transition-colors duration-300 ease-out">
+              Language:{" "}
+              <select
+                defaultValue={lang}
+                className="bg-title"
+                onChange={onLangSelect}
+              >
+                {langSet.map(({ id, label }) => (
+                  <option key={id} value={id}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </div>
           </motion.menu>
         )}
       </AnimatePresence>

@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+
+import AlignGrid from "@/components/AlignmentGrid";
 import Header from "@/components/Header";
 import Tabs, { TabType } from "@/components/Tabs";
 
@@ -7,6 +12,8 @@ import Projects from "./Tabs/Projects";
 import Resume from "./Tabs/Resume";
 
 export default function Home() {
+  const [align, setAlign] = useState(false);
+
   const sections: TabType[] = [
     {
       id: "about-me",
@@ -71,17 +78,20 @@ export default function Home() {
     },
   ];
 
+  const toggleAlignGrid = () => setAlign(!align);
+
   return (
     <>
-      <main className="relative">
-        <Header />
+      <AlignGrid align={align} />
+      <main className="relative px-2">
+        <Header onGrid={toggleAlignGrid} />
         <HeroSection />
       </main>
 
       <Tabs
         defaultTab={sections[1].id}
         tabs={sections}
-        className="min-h-[50vh] overflow-hidden"
+        className="min-h-[50vh] overflow-hidden px-0.5"
         tabClassName="sticky top-0 z-40 bg-bg"
         tabIndicatorClassName="bg-title!"
       />

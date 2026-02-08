@@ -18,7 +18,7 @@ export default function HeroSection() {
   const currentYear = YEAR;
 
   return (
-    <section className="relative mx-auto flex w-full flex-col-reverse items-end justify-start gap-6 p-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
+    <section className="relative mx-auto flex w-full flex-col-reverse items-end justify-start gap-6 px-2 py-4 text-xl leading-relaxed sm:grid-cols-2 sm:flex-row">
       <HashList />
 
       <div

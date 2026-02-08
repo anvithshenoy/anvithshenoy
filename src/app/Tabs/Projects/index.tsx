@@ -8,12 +8,12 @@ import Card from "@/components/Card";
 import Modal from "@/components/Dialog";
 import { SwapyTitle } from "@/components/Tabs";
 
-import { CONFIG, Project } from "@/lib/config";
+import { Project, useConfig } from "@/lib/config";
 import { toast } from "sonner";
 
-const projects: Project[] = CONFIG.PROJECTS;
-
 export default function Projects() {
+  const { PROJECTS: projects } = useConfig();
+
   const [modal, setModal] = useState<Project | null>(null);
 
   const swapy = useRef<Swapy | null>(null);
@@ -80,8 +80,10 @@ export default function Projects() {
               <SwapyTitle title={project.title ?? "Title"} clx="indent-0" />
             }
             onClick={() => selectModal(project)}
-            cardClass={twMerge(Boolean(project?.url) && "cursor-pointer")}
-            className="line-clamp-6"
+            cardClass={twMerge(
+              Boolean(project?.url) && "cursor-pointer place-content-start",
+            )}
+            className="lg:line-clamp-6"
             layoutId={project.id}
           >
             {project.content}

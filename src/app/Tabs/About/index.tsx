@@ -8,12 +8,12 @@ import { createSwapy, Swapy } from "swapy";
 import Card from "@/components/Card";
 import { SwapyTitle } from "@/components/Tabs";
 
-import { CONFIG } from "@/lib/config";
+import { useConfig } from "@/lib/config";
 import { links } from "@/lib/socials";
 
-const { NAME, PROFILE_PIC, PROFILE_DESC, PROFILE_TITLE } = CONFIG;
-
 const AboutMe = () => {
+  const { NAME, PROFILE_PIC, PROFILE_DESC, PROFILE_TITLE } = useConfig();
+
   const swapy = useRef<Swapy | null>(null);
   const container = useRef<HTMLDivElement>(null);
 

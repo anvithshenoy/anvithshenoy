@@ -1,6 +1,7 @@
 {
   "profile": {
     "name": "Anvith Shenoy B",
+    "surname": "Shenoy",
     "picture": "https://anvithshenoy.vercel.app/myself.jpg",
     "role": "Frontend Dev",
     "location": "Mangaluru",
@@ -10,23 +11,23 @@
   "education": [
     {
       "year": {
-        "startYear": 2022,
-        "endYear": 2024
+        "startYear": "2022",
+        "endYear": "2024"
       },
       "expertise": "Computer Applications",
       "type": "Master's",
       "institution": "St Joseph Engineering College, Vamanjoor",
-      "grade": 8.62
+      "grade": "8.62"
     },
     {
       "year": {
-        "startYear": 2019,
-        "endYear": 2022
+        "startYear": "2019",
+        "endYear": "2022"
       },
       "expertise": "Computer Applications",
       "type": "Bachelor's",
       "institution": "Canara College Mangaluru",
-      "grade": 7.68
+      "grade": "7.68"
     }
   ],
   "work": [
@@ -85,13 +86,5 @@
       "content": "Responsive maps project using MAPCN & Vite-React.js. Currently, a work-in-progress project. ",
       "url": "https://reactify-maps.vercel.app/"
     }
-  ],
-  "socials": {
-    "email": "anvithshenoyb@gmail.com",
-    "linkedin": "https://linkedin.com/in/anvithshenoy/",
-    "github": "https://github.com/anvithshenoy/",
-    "whatsapp": "+918310583927",
-    "dribbble": "https://dribbble.com/anvithshenoy/",
-    "others": []
-  }
+  ]
 }

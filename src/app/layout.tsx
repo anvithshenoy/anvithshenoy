@@ -6,6 +6,7 @@ import ContextWrapper from "@/components/ContextMenu/Wrapper";
 import Lenis from "@/components/Lenis";
 
 import { ScrollTopButton } from "@/components/ScrollTop";
+import { LanguageProvider } from "@/providers/Language";
 import { ThemeProvider } from "@/providers/Theme";
 import "./globals.css";
 
@@ -57,9 +58,11 @@ export default function RootLayout({
         <Lenis>
           <ThemeProvider>
             <body className={`${fontHead.variable} ${fontBody.variable}`}>
-              <ContextWrapper bg="var(--bg)">
-                {children}
-                <ScrollTopButton className="fill-title" />
+              <LanguageProvider>
+                <ContextWrapper bg="var(--bg)">
+                  {children}
+                  <ScrollTopButton className="fill-title" />
+                </ContextWrapper>
                 <Toaster
                   toastOptions={{
                     style: {
@@ -71,7 +74,7 @@ export default function RootLayout({
                   }}
                   closeButton
                 />
-              </ContextWrapper>
+              </LanguageProvider>
             </body>
           </ThemeProvider>
         </Lenis>
