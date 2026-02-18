@@ -11,14 +11,14 @@ export default function AlignGrid({ align = true }: { align?: boolean }) {
     animate: {
       transition: {
         delayChildren: stagger(1 / length, {
-          from: "first",
+          from: "center",
         }),
       },
     },
     exit: {
       transition: {
         delayChildren: stagger(1 / length, {
-          from: "last",
+          from: "center",
         }),
       },
     },
@@ -27,15 +27,15 @@ export default function AlignGrid({ align = true }: { align?: boolean }) {
   const childVariant: Variants = {
     initial: {
       opacity: 0,
-      scale: 0.9,
+      height: 0,
     },
     animate: {
       opacity: 1,
-      scale: 1,
+      height: "100%",
     },
     exit: {
       opacity: 0,
-      scale: 0.9,
+      height: 0,
     },
   };
 
@@ -63,7 +63,7 @@ export default function AlignGrid({ align = true }: { align?: boolean }) {
             <motion.div
               key={i}
               variants={childVariant}
-              className="h-full w-full origin-left bg-red-600/50"
+              className="data-[theme=dark]: h-full w-full origin-left bg-red-600/35 data-[theme=dark]:bg-blue-600/35"
             />
           ))}
         </motion.div>

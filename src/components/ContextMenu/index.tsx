@@ -148,7 +148,7 @@ const ContextMenu = ({
             }}
             style={{ top: position.y, left: position.x, background }}
             className={twMerge(
-              "absolute z-50 w-full max-w-3xs divide-y divide-current/25 overflow-x-hidden rounded-md border border-current/75 shadow *:select-none *:*:hover:bg-current/5",
+              "absolute z-100 w-full max-w-3xs divide-y divide-current/25 overflow-x-hidden rounded-md border border-current/75 shadow *:select-none *:*:hover:bg-current/5",
               className,
             )}
             {...rest}
