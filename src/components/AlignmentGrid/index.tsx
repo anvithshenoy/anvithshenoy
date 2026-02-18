@@ -1,37 +1,43 @@
 "use client";
 
-import { AnimatePresence, motion, Variants } from "motion/react";
+import { AnimatePresence, motion, stagger, Variants } from "motion/react";
 import { useEffect, useState } from "react";
-
-const parentVariant: Variants = {
-  initial: {},
-  animate: {
-    transition: { staggerChildren: 0.05 }, // reveal columns left → right
-  },
-  exit: {
-    transition: {
-      staggerChildren: 0.05,
-      staggerDirection: 1, // hide columns left → right
-    },
-  },
-};
-
-const childVariant: Variants = {
-  initial: {
-    clipPath: "inset(0 100% 0 0)", // fully hidden
-  },
-  animate: {
-    clipPath: "inset(0 0% 0 0)", // fully visible
-    transition: { duration: 0.3, ease: "linear" },
-  },
-  exit: {
-    clipPath: "inset(0 100% 0 0)", // hide left → right
-    transition: { duration: 0.3, ease: "linear" },
-  },
-};
 
 export default function AlignGrid({ align = true }: { align?: boolean }) {
   const [length, setLength] = useState(12);
+
+  const parentVariant: Variants = {
+    initial: {},
+    animate: {
+      transition: {
+        delayChildren: stagger(1 / length, {
+          from: "first",
+        }),
+      },
+    },
+    exit: {
+      transition: {
+        delayChildren: stagger(1 / length, {
+          from: "last",
+        }),
+      },
+    },
+  };
+
+  const childVariant: Variants = {
+    initial: {
+      opacity: 0,
+      scale: 0.9,
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+    },
+  };
 
   useEffect(() => {
     const windowSizing = () => {
