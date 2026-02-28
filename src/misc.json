@@ -10,7 +10,7 @@
       }
     },
     {
-      "src": "https://anvithshenoy.vercel.app/myself.jpg",
+      "src": "/myself.jpg",
       "alt": "Anvith Shenoy",
       "angle": 15,
       "location": {

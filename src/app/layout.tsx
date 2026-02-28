@@ -59,10 +59,9 @@ export default function RootLayout({
           <ThemeProvider>
             <body className={`${fontHead.variable} ${fontBody.variable}`}>
               <LanguageProvider>
-                <ContextWrapper bg="var(--bg)">
-                  {children}
-                  <ScrollTopButton className="fill-title" />
-                </ContextWrapper>
+                {children}
+                <ContextWrapper bg="var(--bg)" />
+                <ScrollTopButton className="fill-title" />
                 <Toaster
                   toastOptions={{
                     style: {

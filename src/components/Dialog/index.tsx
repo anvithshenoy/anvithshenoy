@@ -90,7 +90,7 @@ const Modal: React.FC<ModalProps> = (props) => {
                 },
               }}
               exit={{ opacity: 0 }}
-              className="fixed top-0 right-0 z-40 size-full bg-black/25 backdrop-blur-xs"
+              className="fixed top-0 right-0 z-50 size-full bg-black/50 backdrop-blur-[1px]"
               onClick={handleBackdropClick}
             />
           )}

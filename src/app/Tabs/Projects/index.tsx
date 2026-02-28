@@ -94,7 +94,7 @@ export default function Projects() {
       <Modal
         open={modal !== null && Boolean(modal?.url)}
         onClose={closeModal}
-        className="aspect-9/16 max-w-11/12 overflow-hidden rounded-2xl sm:aspect-video"
+        className="aspect-9/16 max-h-11/12 max-w-11/12 overflow-hidden rounded-2xl sm:aspect-video"
         layoutId={modal?.id}
       >
         <iframe

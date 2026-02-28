@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { img } from "motion/react-client";
 import { RefObject, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -47,6 +48,8 @@ interface Props {
 }
 
 const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
+  const MotionImage = motion(img);
+
   return (
     <motion.div
       initial={{
@@ -63,7 +66,7 @@ const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
         className,
       )}
     >
-      <motion.img
+      <MotionImage
         draggable={false}
         src={src}
         alt={alt}
