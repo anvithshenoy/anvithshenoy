@@ -9,6 +9,7 @@ import { ScrollTopButton } from "@/components/ScrollTop";
 import { LanguageProvider } from "@/providers/Language";
 import { ThemeProvider } from "@/providers/Theme";
 import "./globals.css";
+import Navigator from "./Navigator";
 
 const fontHead = localFont({
   src: "../fonts/Cantry.otf",
@@ -60,6 +61,7 @@ export default function RootLayout({
             <body className={`${fontHead.variable} ${fontBody.variable}`}>
               <LanguageProvider>
                 {children}
+                <Navigator />
                 <ContextWrapper bg="var(--bg)" />
                 <ScrollTopButton className="fill-title" />
                 <Toaster
