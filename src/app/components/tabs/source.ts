@@ -1,3 +1,4 @@
+export const TabsCode = `
 "use client";
 
 import { AnimatePresence, motion, Transition, Variants } from "motion/react";
@@ -205,3 +206,4 @@ export const SwapyTitle = ({
     </div>
   );
 };
+`;

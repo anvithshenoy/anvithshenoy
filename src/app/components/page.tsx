@@ -52,14 +52,14 @@ const Intro = () => {
         flexible and reusable UI components without unnecessary bloat.
       </p>
 
-      <div className="max-w-prose">
-        <Tabs
-          tabs={codeSnippets}
-          tabClassName="p-0 gap-0 border border-b-0 text-base"
-          tabIndicatorClassName="rounded-none!"
-          reduceMotion
-        />
-      </div>
+      <Tabs
+        tabs={codeSnippets}
+        tabClassName="p-0 gap-0 m-0 max-w-prose border border-b-0 text-base"
+        tabIndicatorClassName="rounded-none!"
+        className="max-w-prose"
+        reduceMotion
+      />
+      <div className="max-w-prose"></div>
 
       <div className="flex w-full items-end justify-end gap-3.5">
         <Button

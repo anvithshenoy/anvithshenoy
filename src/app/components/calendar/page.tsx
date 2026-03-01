@@ -9,9 +9,9 @@ export default function CalendarExample() {
   ];
 
   return (
-    <div className="max-w-sm space-y-6">
+    <div className="grid grid-cols-3 gap-4 space-y-6">
       {/* Basic usage */}
-      <Calendar />
+      <Calendar startOfWeek="Mon" />
 
       {/* With minDate / maxDate */}
       <Calendar

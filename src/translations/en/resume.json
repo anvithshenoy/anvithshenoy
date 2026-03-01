@@ -2,7 +2,7 @@
   "profile": {
     "name": "Anvith Shenoy B",
     "surname": "Shenoy",
-    "picture": "https://anvithshenoy.vercel.app/myself.jpg",
+    "picture": "/myself.jpg",
     "role": "Frontend Dev",
     "location": "Mangaluru",
     "title": "Frontend Dev based in Mangaluru",

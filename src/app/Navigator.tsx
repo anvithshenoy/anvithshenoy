@@ -1,8 +1,11 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 import { AnimatePresence, motion, Variants } from "motion/react";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+
+import { ROUTES } from "@/lib/common";
 
 export default function Navigator() {
   const [open, setOpen] = useState(false);
@@ -11,7 +14,6 @@ export default function Navigator() {
   const toggle = () => setOpen((prev) => !prev);
   const close = () => setOpen(false);
 
-  // Close on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -26,7 +28,6 @@ export default function Navigator() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
 
-  // Close on ESC
   useEffect(() => {
     const onEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
@@ -75,25 +76,17 @@ export default function Navigator() {
             exit="exit"
             role="menu"
             aria-label="Navigation menu"
-            className="font-head bg-title fixed bottom-8 left-4 z-50 flex flex-col items-start gap-2 rounded-md p-4 text-base leading-tight -tracking-widest shadow-2xl"
+            className="font-head bg-title fixed right-4 bottom-8 z-50 flex flex-col items-end gap-2 rounded-md p-4 text-base leading-tight -tracking-widest"
           >
-            <motion.div variants={itemVariants}>
-              <Link href="/error" role="menuitem" onClick={close}>
-                Error
-              </Link>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <Link href="/loading" role="menuitem" onClick={close}>
-                Loading
-              </Link>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <Link href="/" role="menuitem" onClick={close}>
-                Clear Segments
-              </Link>
-            </motion.div>
+            {Object.entries(ROUTES)
+              .sort(([a], [b]) => a.localeCompare(b))
+              .map(([key, value]) => (
+                <motion.div key={key} variants={itemVariants}>
+                  <Link href={value} role="menuitem" onClick={close}>
+                    {key}
+                  </Link>
+                </motion.div>
+              ))}
           </motion.section>
         ) : (
           <motion.button
@@ -106,7 +99,7 @@ export default function Navigator() {
             aria-label="Open navigation menu"
             whileTap={{ scale: 0.92 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="font-head bg-title fixed bottom-8 left-4 flex h-16 w-16 items-center justify-center rounded-full p-4 text-base leading-tight -tracking-widest shadow-2xl"
+            className="font-head bg-title fixed right-4 bottom-8 flex h-16 w-16 items-center justify-center rounded-full p-4 text-base leading-tight -tracking-widest"
           >
             ASB
           </motion.button>

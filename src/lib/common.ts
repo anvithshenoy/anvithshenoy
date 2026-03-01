@@ -4,3 +4,10 @@ export const LOCAL_STORAGE = {
   MODE_STORAGE_KEY: "app-mod",
   DIR_STORAGE_KEY: "app-dir",
 };
+
+export const ROUTES = {
+  HOME: "/",
+  ERROR: "/error",
+  LOADING: "/loading",
+  COMPONENTS: "/components",
+};

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface CalendarProps {
@@ -57,6 +57,13 @@ export default function Calendar({
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+
+  const dateInputRef = useRef<HTMLInputElement>(null);
+
+  const handleDateChange = (value: string) => {
+    const selected = new Date(value);
+    setCurrentMonth(new Date(selected.getFullYear(), selected.getMonth(), 1));
+  };
 
   const generateGrid = () => {
     const cells: (Date | null)[] = [];
@@ -119,7 +126,7 @@ export default function Calendar({
   const grid = generateGrid();
 
   return (
-    <div className="space-y-2">
+    <section className="space-y-2">
       <div className="flex items-center justify-between">
         <button
           onClick={() =>
@@ -134,10 +141,22 @@ export default function Calendar({
         >
           ◀
         </button>
-        <h2 className="font-bold">
-          {currentMonth.toLocaleString("default", { month: "long" })}{" "}
-          {currentMonth.getFullYear()}
-        </h2>
+        <div className="flex items-center gap-2">
+          <input
+            ref={dateInputRef}
+            type="date"
+            className="collapse w-0"
+            onChange={(e) => handleDateChange(e.target.value)}
+          />
+
+          <h2
+            className="font-bold"
+            onClick={() => dateInputRef.current?.showPicker()}
+          >
+            {currentMonth.toLocaleString("default", { month: "long" })}{" "}
+            {currentMonth.getFullYear()}
+          </h2>
+        </div>
         <button
           onClick={() =>
             setCurrentMonth(
@@ -191,8 +210,8 @@ export default function Calendar({
                 isToday && "bg-title text-bg font-bold",
                 selected && "bg-green-500 font-bold text-white",
                 inRange && "bg-title/35",
-                start && "outline-title/75 rounded-l-full outline outline-1",
-                end && "outline-title/75 rounded-r-full outline outline-1",
+                start && "outline-title/75 rounded-l-full outline-1",
+                end && "outline-title/75 rounded-r-full outline-1",
                 eventClass,
               )}
             >
@@ -201,6 +220,6 @@ export default function Calendar({
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
