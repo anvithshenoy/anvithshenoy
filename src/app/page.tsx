@@ -84,7 +84,7 @@ export default function Home() {
     <>
       <AlignGrid align={align} />
       <main className="relative px-2">
-        <Header onGrid={toggleAlignGrid} />
+        <Header onGridAction={toggleAlignGrid} />
         <HeroSection />
       </main>
 
