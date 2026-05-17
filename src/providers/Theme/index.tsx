@@ -35,7 +35,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const [isDevMode, setIsDevMode] = useState<boolean>(false);
   const [theme, setTheme] = useState<Theme>("light");
-  const [mode, setMode] = useState<Mode>("mono");
+  const [mode, setMode] = useState<Mode>("duo");
   const [dir, setDir] = useState<Direction>("ltr");
 
   const changeTheme = (theme: Theme) => {

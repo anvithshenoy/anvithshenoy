@@ -74,7 +74,7 @@ const Resume = () => {
                 {EXP.split(",").map((el) => (
                   <span
                     key={el}
-                    className="rounded-full border px-3.5 py-1 capitalize"
+                    className="bg-bg rounded-full border px-3.5 py-1 capitalize"
                   >
                     {el}
                   </span>
@@ -104,6 +104,7 @@ const Resume = () => {
                   alt={HARD.alt}
                   className="-z-10 object-cover"
                   fill
+                  sizes="100%"
                 />
               </div>
             </div>
@@ -116,7 +117,7 @@ const Resume = () => {
                 {SOFT.split(",").map((el) => (
                   <span
                     key={el}
-                    className="rounded-full border px-3.5 py-1 lowercase"
+                    className="bg-bg rounded-full border px-3.5 py-1 lowercase"
                   >
                     #{el}
                   </span>

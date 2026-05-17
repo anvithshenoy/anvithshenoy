@@ -89,6 +89,7 @@ export default function Header({ onGrid }: { onGrid?: () => void }) {
             alt=""
             role="presentation"
             className="z-0 object-cover object-top"
+            sizes="100%"
           />
           {isDevMode ? (
             <AuthBtn className="absolute inset-0 z-10 text-sm" text="" />
