@@ -48,7 +48,7 @@ interface Props {
 }
 
 const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
-  const MotionImage = motion(img);
+  const MotionImage = motion.create(img);
 
   return (
     <motion.div
