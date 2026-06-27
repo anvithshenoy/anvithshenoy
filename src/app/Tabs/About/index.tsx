@@ -41,6 +41,7 @@ const AboutMe = () => {
           className="-z-10 object-cover mix-blend-darken"
           draggable={false}
           fill
+          sizes="100%"
         />
       </section>
 

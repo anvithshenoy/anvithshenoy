@@ -36,7 +36,11 @@ const listItemVariants = {
   },
 };
 
-export default function Header({ onGrid }: { onGrid?: () => void }) {
+export default function Header({
+  onGridAction,
+}: {
+  onGridAction?: () => void;
+}) {
   const { NAME, SURNAME, PROFILE_PIC } = useConfig();
 
   const { data: session } = useSession();
@@ -76,6 +80,8 @@ export default function Header({ onGrid }: { onGrid?: () => void }) {
 
   useScroll({ open: menu });
 
+  console.log("mode: ", process.env.NODE_ENV);
+
   return (
     <>
       <header className="bg-bg sticky top-0 z-50 inline-flex w-full items-center justify-center gap-2.5 border-b px-2 py-2.5 text-3xl sm:justify-start">
@@ -89,6 +95,7 @@ export default function Header({ onGrid }: { onGrid?: () => void }) {
             alt=""
             role="presentation"
             className="z-0 object-cover object-top"
+            sizes="100%"
           />
           {isDevMode ? (
             <AuthBtn className="absolute inset-0 z-10 text-sm" text="" />
@@ -100,7 +107,7 @@ export default function Header({ onGrid }: { onGrid?: () => void }) {
           {NAME}
           <button
             className="bg-title ms-2 aspect-square w-2.5 animate-pulse"
-            onClick={onGrid}
+            onClick={onGridAction}
             title="Alignment Guide"
           />
         </strong>
@@ -278,14 +285,14 @@ export default function Header({ onGrid }: { onGrid?: () => void }) {
                 type: "spring",
               }}
             >
-              {links.map((link) => (
+              {links.map(({ href, text }) => (
                 <motion.li
-                  key={link.href}
+                  key={href}
                   variants={listItemVariants}
                   className="bg-title hover:bg-title/85 text-bg cursor-pointer rounded-full px-5 py-3.5 text-center transition-colors duration-300 ease-out sm:-rotate-6 sm:even:rotate-6"
                 >
-                  <Link href={link.href} onClick={displayMenu}>
-                    {link.text}
+                  <Link href={href} onClick={displayMenu}>
+                    {text}
                   </Link>
                 </motion.li>
               ))}
@@ -346,6 +353,6 @@ const links: {
   {
     href: "/components",
     text: "Components",
-    // disabled: true,
+    disabled: process.env.NODE_ENV === "production",
   },
-];
+].filter(({ disabled = false }) => !disabled);

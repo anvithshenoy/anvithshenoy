@@ -6,8 +6,11 @@ import { AnimatePresence, motion, Variants } from "motion/react";
 import Link from "next/link";
 
 import { ROUTES } from "@/lib/common";
+import { useConfig } from "@/lib/config";
 
 export default function Navigator() {
+  const { NAME } = useConfig();
+
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -99,9 +102,12 @@ export default function Navigator() {
             aria-label="Open navigation menu"
             whileTap={{ scale: 0.92 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="font-head bg-title fixed right-4 bottom-8 flex h-16 w-16 items-center justify-center rounded-full p-4 text-base leading-tight -tracking-widest"
+            className="font-head bg-title fixed right-4 bottom-8 z-50 flex h-16 w-16 items-center justify-center rounded-full p-4 text-base leading-tight -tracking-widest"
           >
-            ASB
+            {NAME.toUpperCase()
+              .split(" ")
+              .map((n) => n[0])
+              .join("")}
           </motion.button>
         )}
       </AnimatePresence>

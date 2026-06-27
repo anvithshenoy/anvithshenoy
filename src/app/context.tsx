@@ -112,9 +112,7 @@ const Mode: ContextMenuItem[] = [
       </svg>
     ),
     label: "Change Mode",
-    onClick() {
-      changeMode();
-    },
+    onClick: changeMode,
   },
 ];
 

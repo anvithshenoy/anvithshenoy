@@ -43,6 +43,7 @@ export default function AlignGrid({ align = true }: { align?: boolean }) {
     const windowSizing = () => {
       setLength(window.innerWidth > 768 ? 12 : 4);
     };
+
     window.addEventListener("resize", windowSizing);
     windowSizing();
     return () => window.removeEventListener("resize", windowSizing);

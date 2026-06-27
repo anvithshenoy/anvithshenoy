@@ -15,22 +15,29 @@ export type Card = {
   };
 };
 
-const Cards = ({ srcList }: { srcList: Card[] }) => {
+const Cards = ({ srcList = [] }: { srcList: Card[] }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const cardList =
+    process.env.NODE_ENV === "development" ? [srcList[0]] : srcList;
+
+  console.log("cardList: ", cardList);
 
   return (
     <div className="absolute inset-0 -z-10 h-full w-full" ref={containerRef}>
-      {srcList.map((img, idx) => (
-        <Card
-          key={img.alt ?? idx}
-          containerRef={containerRef}
-          src={img.src ?? ""}
-          alt={img.alt ?? "Image_" + idx}
-          rotate={img.angle}
-          x={img.location.x}
-          y={img.location.y}
-        />
-      ))}
+      {cardList.map(
+        ({ src = "", alt = "Image_", angle, location: { x, y } }) => (
+          <Card
+            key={alt}
+            containerRef={containerRef}
+            src={src}
+            alt={alt}
+            rotate={angle}
+            x={x}
+            y={y}
+          />
+        ),
+      )}
     </div>
   );
 };
