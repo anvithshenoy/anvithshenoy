@@ -162,9 +162,9 @@ const Resume = () => {
           layout: "position",
           layoutId: "hardSkill",
         }}
-        size="max-w-sm sm:max-w-xl"
+        size="max-w-md sm:max-w-xl"
         className="border border-gray-500"
-        aspectRatio="aspect-[4/3]"
+        aspectRatio="aspect-video"
       >
         <div className="my-2.5 flex w-full flex-wrap gap-1">
           {Object.entries(HARD.frameworks).map(([key, value]) => (

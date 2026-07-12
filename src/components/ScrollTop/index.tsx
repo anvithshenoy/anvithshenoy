@@ -62,7 +62,7 @@ export function ScrollTopButton({
           transition={{ type: "spring", duration: 0.3, ease: "easeOut" }}
           onClick={onClick}
           className={twMerge(
-            "fixed right-3.5 bottom-3.5 z-50 aspect-square h-12 max-h-12 w-12 max-w-12 sm:right-10 sm:bottom-10",
+            "stroke-fg fixed right-3.5 bottom-1/3 z-50 aspect-square h-12 max-h-12 w-12 max-w-12 bg-transparent sm:right-10 sm:bottom-1/3",
             className,
           )}
         >

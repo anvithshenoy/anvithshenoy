@@ -7,6 +7,7 @@ import { twMerge } from "tailwind-merge";
 
 export type Card = {
   src: string;
+  hoverSrc?: string;
   alt: string;
   angle: number;
   location: {
@@ -18,19 +19,26 @@ export type Card = {
 const Cards = ({ srcList = [] }: { srcList: Card[] }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const cardList =
-    process.env.NODE_ENV === "development" ? [srcList[0]] : srcList;
-
-  console.log("cardList: ", cardList);
+  const cardList = srcList;
 
   return (
-    <div className="absolute inset-0 -z-10 h-full w-full" ref={containerRef}>
+    <div
+      className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
+      ref={containerRef}
+    >
       {cardList.map(
-        ({ src = "", alt = "Image_", angle, location: { x, y } }) => (
+        ({
+          src = "",
+          hoverSrc = "",
+          alt = "Image_",
+          angle,
+          location: { x, y },
+        }) => (
           <Card
             key={alt}
             containerRef={containerRef}
             src={src}
+            hoverSrc={hoverSrc}
             alt={alt}
             rotate={angle}
             x={x}
@@ -47,6 +55,7 @@ export default Cards;
 interface Props {
   containerRef: RefObject<HTMLDivElement | null>;
   src: string;
+  hoverSrc?: string;
   alt: string;
   x: number | string;
   y: number | string;
@@ -54,9 +63,18 @@ interface Props {
   className?: string;
 }
 
-const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
-  const MotionImage = motion.create(img);
+const MotionImage = motion.create(img);
 
+const Card = ({
+  containerRef,
+  src,
+  hoverSrc,
+  alt,
+  x,
+  y,
+  rotate,
+  className,
+}: Props) => {
   return (
     <motion.div
       initial={{
@@ -69,16 +87,32 @@ const Card = ({ containerRef, src, alt, x, y, rotate, className }: Props) => {
       dragElastic={0.125}
       data-swapy-handle
       className={twMerge(
-        "drag-elements bg-bg absolute w-48 touch-none p-1 pb-7 will-change-transform select-none",
+        "drag-elements bg-bg pointer-events-auto absolute w-48 p-1 pb-7 will-change-transform select-none",
         className,
       )}
     >
-      <MotionImage
-        draggable={false}
-        src={src}
-        alt={alt}
-        className="select-none"
-      />
+      <div className="group relative">
+        <MotionImage
+          draggable={false}
+          src={src}
+          alt={alt}
+          className={[
+            "z-01 transition-all duration-300 select-none group-hover:opacity-100",
+            hoverSrc ? "opacity-0 hover:opacity-100" : "opacity-100",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        />
+
+        {hoverSrc && (
+          <MotionImage
+            draggable={false}
+            src={hoverSrc}
+            alt={alt}
+            className="absolute inset-0 z-0 opacity-100 transition-all duration-300 select-none group-hover:opacity-0"
+          />
+        )}
+      </div>
       <p
         className="text-title leading-0 tracking-tighter uppercase"
         aria-label={alt}

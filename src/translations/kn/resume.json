@@ -2,7 +2,8 @@
   "profile": {
     "name": "ಅನ್ವಿತ್ ಶೆಣೈ ಬಿ",
     "surname": "ಶೆಣೈ",
-    "picture": "https://anvithshenoy.vercel.app/myself.jpg",
+    "picture": "/myself.jpg",
+    "hoverPicture": "/myself2.jpg",
     "role": "Frontend Designer",
     "location": "ಮಂಗಳೂರು",
     "title": "ಮಂಗಳೂರಿನಲ್ಲಿ Frontend Designer",
@@ -73,7 +74,7 @@
       "id": "portfolio",
       "title": "ಪೋರ್ಟ್‌ಫೋಲಿಯೊ",
       "content": "Next.js 15 ರೊಂದಿಗೆ ನಿರ್ಮಿತ ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಏಕ ಪುಟ ಪೋರ್ಟ್‌ಫೋಲಿಯೊ, Tailwind CSS ಬಳಸಿ ಶೈಲೀಕರಣ ಮಾಡಲಾಗಿದೆ, Framer Motion ಅನಿಮೇಶನ್‌ಗಳು ಮತ್ತು Swiper.js ಕ್ಯಾರಸೆಲ್‌ಗಳೊಂದಿಗೆ ಸುಧಾರಿಸಲಾಗಿದೆ. Vercel ನಲ್ಲಿ ಸುಗಮವಾಗಿ ನಿಯೋಜಿಸಲಾಗಿದ್ದು, ತಂತ್ರಗಳು, ಕೌಶಲ್ಯಗಳು ಮತ್ತು ಅನುಭವವನ್ನು ಸ್ವಚ್ಛ, ಸಂನಾದಕೀಯ ಬಂಧನದಲ್ಲಿ ತೋರಿಸುತ್ತದೆ. ಕಾರ್ಯಕ್ಷಮತೆ ಮತ್ತು ಸುಲಭ ಪ್ರವೇಶಕ್ಕೆ ಆಪ್ಟಿಮೈಸ್ ಮಾಡಲಾಗಿದೆ.",
-      "url": "https://anvithshenoy.vercel.app"
+      "url": "https://old-portfolio-rust.vercel.app/"
     },
     {
       "id": "newssnap",

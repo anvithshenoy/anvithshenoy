@@ -37,6 +37,7 @@ export type Profile = {
   name: string;
   surname: string;
   picture: string;
+  hoverPicture?: string;
   role?: string;
   location?: string;
   title?: string;
@@ -108,7 +109,16 @@ export const useConfig = () => {
     projects,
   }: Resume = RESUME;
 
-  const { name, surname, picture: DP, desc, title, role, location } = profile;
+  const {
+    name,
+    surname,
+    picture: DP,
+    hoverPicture: HoverDP,
+    desc,
+    title,
+    role,
+    location,
+  } = profile;
 
   const date = new Date();
 
@@ -127,6 +137,7 @@ export const useConfig = () => {
     NAME: name,
     SURNAME: surname,
     PROFILE_PIC: DP,
+    PROFILE_HOVER: HoverDP,
     PROFILE_TITLE: title ?? `${role} based in ${location}`,
     PROFILE_DESC: desc,
     ROLE: role,

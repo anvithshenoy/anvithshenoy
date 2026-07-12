@@ -41,7 +41,7 @@ export default function Header({
 }: {
   onGridAction?: () => void;
 }) {
-  const { NAME, SURNAME, PROFILE_PIC } = useConfig();
+  const { NAME, SURNAME, PROFILE_PIC, PROFILE_HOVER } = useConfig();
 
   const { data: session } = useSession();
   const { dev: isDevMode, theme, changeTheme, mode, changeMode } = useTheme();
@@ -80,27 +80,45 @@ export default function Header({
 
   useScroll({ open: menu });
 
-  console.log("mode: ", process.env.NODE_ENV);
-
   return (
     <>
       <header className="bg-bg sticky top-0 z-50 inline-flex w-full items-center justify-center gap-2.5 border-b px-2 py-2.5 text-3xl sm:justify-start">
         <div className="bg-fg relative aspect-square max-h-12 w-full max-w-12 overflow-hidden rounded-full">
-          <Image
-            src={
-              PROFILE_PIC
-              // "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            }
-            fill
-            alt=""
-            role="presentation"
-            className="z-0 object-cover object-top"
-            sizes="100%"
-          />
           {isDevMode ? (
             <AuthBtn className="absolute inset-0 z-10 text-sm" text="" />
           ) : (
-            <Link href={"/"} className="absolute inset-0 z-10 text-sm" />
+            <Link href={"/"} className="absolute inset-0 z-10 text-sm">
+              {PROFILE_HOVER && (
+                <Image
+                  src={
+                    PROFILE_HOVER
+                    // "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  }
+                  fill
+                  alt=""
+                  role="presentation"
+                  className="z-10 object-cover object-top opacity-100 hover:opacity-0"
+                  sizes="100%"
+                />
+              )}
+
+              <Image
+                src={
+                  PROFILE_PIC
+                  // "https://images.unsplash.com/photo-1605092676920-8ac5ae40c7c8?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                }
+                fill
+                alt=""
+                role="presentation"
+                className={[
+                  "z-10 object-cover object-top transition-all duration-300",
+                  PROFILE_HOVER ? "opacity-0 hover:opacity-100" : "opacity-100",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                sizes="100%"
+              />
+            </Link>
           )}
         </div>
         <strong className="font-head hidden uppercase sm:inline">

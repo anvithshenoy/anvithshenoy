@@ -33,7 +33,7 @@ interface ModalProps {
   backdrop?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = (props) => {
+const Modal = (props: ModalProps) => {
   const {
     open = false,
     onClose,
@@ -103,7 +103,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             }}
             exit={{ opacity: 0, scale: 0 }}
             className={twMerge(
-              "bg-bg fixed top-1/2 right-1/2 z-50 mx-auto flex w-full translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-2xl p-1.5 drop-shadow-2xl",
+              "bg-bg fixed top-1/2 right-1/2 z-50 flex w-full translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-2xl p-1.5 drop-shadow-2xl",
               className,
               size,
             )}

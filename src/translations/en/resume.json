@@ -3,6 +3,7 @@
     "name": "Anvith Shenoy B",
     "surname": "Shenoy",
     "picture": "/myself.jpg",
+    "hoverPicture": "/myself2.jpg",
     "role": "Frontend Dev",
     "location": "Mangaluru",
     "title": "Frontend Dev based in Mangaluru",
@@ -73,7 +74,7 @@
       "id": "portfolio",
       "title": "Portfolio",
       "content": "A responsive single-page portfolio built with Next.js 15, styled using Tailwind CSS, and enhanced with Framer Motion animations and Swiper.js carousels. Deployed seamlessly on Vercel, it highlights projects, skills, and experience in a clean, interactive layout optimized for performance and accessibility.",
-      "url": "https://anvithshenoy.vercel.app"
+      "url": "https://old-portfolio-rust.vercel.app/"
     },
     {
       "id": "newssnap",

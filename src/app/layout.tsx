@@ -32,7 +32,7 @@ export const metadata = {
     url: "https://www.anvithshenoy.vercel.app/",
     images: [
       {
-        url: "https://www.anvithshenoy.vercel.app/myself.jpg",
+        url: "/myself.jpg",
         width: 1200,
         height: 630,
         alt: "Anvith Shenoy B Portfolio",
@@ -44,7 +44,7 @@ export const metadata = {
     title: "Anvith Shenoy B • Portfolio",
     description:
       "Showcasing the journey from graphic design to fullstack development.",
-    image: "https://www.anvithshenoy.vercel.app/myself.jpg",
+    image: "/myself.jpg",
   },
 };
 
@@ -61,9 +61,13 @@ export default function RootLayout({
             <body className={`${fontHead.variable} ${fontBody.variable}`}>
               <LanguageProvider>
                 {children}
+
                 <Navigator />
+
                 <ContextWrapper bg="var(--bg)" />
+
                 <ScrollTopButton className="fill-title" />
+
                 <Toaster
                   toastOptions={{
                     style: {

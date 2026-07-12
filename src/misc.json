@@ -11,6 +11,7 @@
     },
     {
       "src": "/myself.jpg",
+      "hoverSrc": "/myself2.jpg",
       "alt": "Anvith Shenoy",
       "angle": 15,
       "location": {
