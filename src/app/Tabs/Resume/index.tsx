@@ -104,7 +104,7 @@ const Resume = () => {
                   alt={HARD.alt}
                   className="-z-10 object-cover"
                   fill
-                  sizes="100%"
+                  sizes="(max-width: 768px) 100%, 100%"
                 />
               </div>
             </div>

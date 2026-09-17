@@ -29,8 +29,8 @@
       }
     },
     {
-      "src": "/IMG_1531.jpg",
-      "alt": "BFF",
+      "src": "/fam.jpg",
+      "alt": "Fam",
       "angle": 0,
       "location": {
         "x": "35%",
@@ -44,6 +44,22 @@
       "location": {
         "x": "65%",
         "y": "15%"
+      }
+    }, {
+      "src": "/ronin2.jpeg",
+      "alt": "TVS RONIN",
+      "angle": -23,
+      "location": {
+        "x": "35%",
+        "y": "15%"
+      }
+    }, {
+      "src": "/the_hand.gif",
+      "alt": "AWESOMENESS",
+      "angle": -1,
+      "location": {
+        "x": "35%",
+        "y": "35%"
       }
     }
   ],

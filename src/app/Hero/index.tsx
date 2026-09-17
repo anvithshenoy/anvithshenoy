@@ -26,7 +26,7 @@ export default function HeroSection() {
         onContextMenu={preventDefault}
         className="text-fg bg-fg/75 relative flex aspect-square h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-[url(/backdrop.jpg)] bg-cover p-4 bg-blend-darken inset-shadow-sm drop-shadow-md lg:max-w-1/3"
       >
-        <h1 className="text-title text-center text-5xl uppercase select-none text-shadow-md">
+        <h1 className="text-title text-center text-5xl uppercase select-none text-shadow-md pointer-events-none">
           Devfolio {currentYear}
         </h1>
         <Cards srcList={cardList} />
